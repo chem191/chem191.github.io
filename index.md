@@ -1,7 +1,7 @@
 --- 
 title: 'CHEM 191: A Teensy Introduction to Atmospheric Chemistry'
 author: "Dr. Al Fischer"
-date: "`r Sys.Date()`"
+date: '2019-05-16'
 bibliography: book.bib
 description: 'Course Materials for CHEM 191: Issues in Environmental Chemistry'
 documentclass: book
@@ -11,7 +11,7 @@ site: bookdown::bookdown_site
 biblio-style: apalike
 ---
 
-# Preface
+# Preface {-}
 
 # (PART) Theory {-}
 
