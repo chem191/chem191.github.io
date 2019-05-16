@@ -1,0 +1,5 @@
+book_filename: "chem191.github.io"
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: "Chapter "

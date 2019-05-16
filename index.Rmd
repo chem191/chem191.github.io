@@ -1,0 +1,22 @@
+--- 
+title: 'CHEM 191: A Teensy Introduction to Atmospheric Chemistry'
+author: "Dr. Al Fischer"
+date: "`r Sys.Date()`"
+output:
+  bookdown::tufte_html_book: 
+    highlight: tango
+description: 'Course Materials for CHEM 191: Issues in Environmental Chemistry'
+documentclass: book
+link-citations: yes
+bibliography: book.bib
+site: bookdown::bookdown_site
+biblio-style: apalike
+---
+
+# Preface {-}
+
+# (PART) Theory {-}
+
+# Getting Started
+
+# (PART) Measuring {-}
