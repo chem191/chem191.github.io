@@ -22,10 +22,13 @@
 
 <title>2.2 Lighting an LED with Arduino | CHEM 191: A Teensy Introduction to Atmospheric Chemistry</title>
 
-<link href="libs/tufte-css-2015.12.29/tufte-fonts.css" rel="stylesheet" />
-<link href="libs/tufte-css-2015.12.29/tufte-background.css" rel="stylesheet" />
-<link href="libs/tufte-css-2015.12.29/tufte-italics.css" rel="stylesheet" />
-<link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
+<script src="libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="libs/navigation-1.1/tabsets.js"></script>
 
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -58,46 +61,68 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  { background-color: #f8f8f8; }
+  {  }
 @media screen {
 a.sourceLine::before { text-decoration: underline; }
 }
-code span.al { color: #ef2929; } /* Alert */
-code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #c4a000; } /* Attribute */
-code span.bn { color: #0000cf; } /* BaseN */
-code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4e9a06; } /* Char */
-code span.cn { color: #000000; } /* Constant */
-code span.co { color: #8f5902; font-style: italic; } /* Comment */
-code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-code span.dt { color: #204a87; } /* DataType */
-code span.dv { color: #0000cf; } /* DecVal */
-code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
-code span.fl { color: #0000cf; } /* Float */
-code span.fu { color: #000000; } /* Function */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
 code span.im { } /* Import */
-code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-code span.ot { color: #8f5902; } /* Other */
-code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code span.sc { color: #000000; } /* SpecialChar */
-code span.ss { color: #4e9a06; } /* SpecialString */
-code span.st { color: #4e9a06; } /* String */
-code span.va { color: #000000; } /* Variable */
-code span.vs { color: #4e9a06; } /* VerbatimString */
-code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
 </style>
 
 
 
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+</style>
 </head>
 
 <body>
 
+<div class="container-fluid main-container">
 
 
 <div class="row">
@@ -108,12 +133,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="part"><span><b>I Theory</b></span></li>
 <li><a href="1-getting-started.html#getting-started"><span class="toc-section-number">1</span> Getting Started</a></li>
 <li class="part"><span><b>II Measuring</b></span></li>
-<li class="has-sub"><a href="2-gettingstarted.html#gettingstarted"><span class="toc-section-number">2</span> Exercise 1: Getting Started with Teensy &amp; Arduino</a><ul>
+<li class="has-sub"><a href="2-gettingstarted.html#gettingstarted"><span class="toc-section-number">2</span> Getting Started with Teensy &amp; Arduino</a><ul>
 <li><a href="2-1-introduction-what-is-arduino.html#introduction-what-is-arduino"><span class="toc-section-number">2.1</span> Introduction: What is Arduino?</a></li>
 <li class="has-sub"><a href="2-2-lighting-an-led-with-arduino.html#lighting-an-led-with-arduino"><span class="toc-section-number">2.2</span> Lighting an LED with Arduino</a><ul>
 <li><a href="2-2-lighting-an-led-with-arduino.html#connecting-the-leds"><span class="toc-section-number">2.2.1</span> Connecting the LEDs</a></li>
 <li><a href="2-2-lighting-an-led-with-arduino.html#programming-the-arduino"><span class="toc-section-number">2.2.2</span> Programming the Arduino</a></li>
 </ul></li>
+<li><a href="2-3-additional-resources.html#additional-resources"><span class="toc-section-number">2.3</span> Additional Resources</a></li>
 </ul></li>
 <li><a href="3-literature.html#literature"><span class="toc-section-number">3</span> Literature</a></li>
 <li><a href="4-methods.html#methods"><span class="toc-section-number">4</span> Methods</a></li>
@@ -149,9 +175,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="programming-the-arduino" class="section level3">
 <h3><span class="header-section-number">2.2.2</span> Programming the Arduino</h3>
 <ol style="list-style-type: decimal">
-<li><p>Open the Arduino IDE and find the “Blink” example:</p>
-<pre><code>File &gt; Examples &gt; Basics &gt; Blink</code></pre></li>
+<li>Open the Arduino IDE and find the “Blink” example:</li>
 </ol>
+<pre><code>File &gt; Examples &gt; Basics &gt; Blink</code></pre>
 <p>The example code has all the features necessary for an Arduino program, and we’ll go through it step-by-step. The grey text at the top surrounded by <code>/*</code> or <code>//</code> dileneates informative comments about the code. Just below that, the variables and constants (things to assign values to) are defined. Here, the constant <code>led</code> has been assigned an integer (<code>int</code>) value of 13 to represent the LED attached to pin 13.</p>
 <ol style="list-style-type: decimal">
 <li>At this point, assign variables for each color of the LED:</li>
@@ -168,7 +194,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
     pinMode(blue, OUTPUT);  <span class="co">// comments aren&#39;t read by Arduino</span>
     pinMode(green, OUTPUT); <span class="co">// so type whatever you want</span>
 }</code></pre>
-<pre><code>&gt; *Note that spaces and characters preceded by `//` aren&#39;t important for running the program, just for making it more legible to humans.  Use these comments to explain what your code is doing.  However, be sure to include all capital letters, brackets and semi-colons because they __are__ important.*</code></pre>
+<blockquote>
+<p><em>Note that spaces and characters preceded by <code>//</code> aren’t important for running the program, just for making it more legible to humans. Use these comments to explain what your code is doing. However, be sure to include all capital letters, brackets and semi-colons because they <strong>are</strong> important.</em></p>
+</blockquote>
 <p>Next is the <code>loop()</code> command, which is also required by every Arduino program. Anything in the in the <code>loop()</code> command is repeated as long as the program runs (i.e. anytime the Arduino is plugged in). Any repetitive task, like turing the LED on and off, should go here.</p>
 <ol style="list-style-type: decimal">
 <li>Modify the existing code to turn on and off your favorite color:</li>
@@ -179,7 +207,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
     digitalWrite(blue, LOW);  <span class="co">// turn color off (set to 0V)</span>
     delay(<span class="dv">1000</span>);              <span class="co">// wait again before repeating</span>
 }</code></pre>
-<pre><code>&gt; *Every Arduino program must have `setup()` and `loop()` commands (even if they are empty).  `setup()` tells the microcontroller what to do once when it starts; `loop()` tells it what repetitive task to do.*</code></pre>
+<blockquote>
+<p><em>Every Arduino program must have <code>setup()</code> and <code>loop()</code> commands (even if they are empty). <code>setup()</code> tells the microcontroller what to do once when it starts; <code>loop()</code> tells it what repetitive task to do.</em></p>
+</blockquote>
 <ol style="list-style-type: decimal">
 <li>That’s it! Check your code by pressing the round “verify” check mark in the upper left corner of the IDE.</li>
 <li>If you don’t get any errors, you’re ready to upload your code:
@@ -193,25 +223,29 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" style="list-style-type: decimal">
 <li>Press the round “upload” arrow next to the verify button.
 Once your code is uploaded, you should see the color you chose flashing on the Arduino. If it’s not, go back a few steps and try and figure out why.</li>
-<li>If your code works, try changing it around to do new things. You can change the amount of time the LED stays on (the duty cycle) or change which colors are turned on.
-## Additional Resources</li>
+<li>If your code works, try changing it around to do new things. You can change the amount of time the LED stays on (the duty cycle) or change which colors are turned on.</li>
 </ol></li>
-<li>Blum, Jeremy. <em>Exploring Arduino: Tools and techniques for electronics wizardy</em> “Chapter 1: Getting up and Blinking with an LED.” Wiley, 2013.</li>
-<li><a href="http://arduino.cc/en/Tutorial/Blink">Online documentation for blink example</a></li>
-<li><p><a href="http://arduino.cc/en/Reference/HomePage">Online command dictionary</a></p></li>
 </ol>
-
 </div>
 </div>
-<!-- </div> -->
 <p style="text-align: center;">
 <a href="2-1-introduction-what-is-arduino.html"><button class="btn btn-default">Previous</button></a>
-<a href="3-literature.html"><button class="btn btn-default">Next</button></a>
+<a href="2-3-additional-resources.html"><button class="btn btn-default">Next</button></a>
 </p>
 </div>
 </div>
 
 
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
 
 </body>
 </html>
