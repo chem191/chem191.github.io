@@ -3,7 +3,7 @@ bookdown::gitbook:
   config:
     toc:
       before: |
-        <li><a href="./">CHEM 191 Workbook</a></li>
+        <li><a href="http://alphonse.github.io/chem191">CHEM 191 Main Page</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
     download: ["pdf", "epub"]
