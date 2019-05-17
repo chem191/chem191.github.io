@@ -2,10 +2,13 @@
 title: 'CHEM 191: A Teensy Introduction to Atmospheric Chemistry'
 author: "Dr. Al Fischer"
 date: "`r Sys.Date()`"
-bibliography: book.bib
+output:
+  html_document:
+    df_print: paged
 description: 'Course Materials for CHEM 191: Issues in Environmental Chemistry'
 documentclass: book
 link-citations: yes
+bibliography: book.bib
 output_dir: docs
 site: bookdown::bookdown_site
 biblio-style: apalike
