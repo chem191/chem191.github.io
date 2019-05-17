@@ -1,0 +1,5 @@
+(PART) General Course Information {-}
+
+# Syllabus
+
+test syllabus
