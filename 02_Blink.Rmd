@@ -1,0 +1,6 @@
+# Blink an LED
+
+**Objective:** Use Arduino to turn an LED on and off.
+
+## Introduction
+

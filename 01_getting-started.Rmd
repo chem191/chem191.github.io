@@ -1,107 +1,59 @@
-# Getting Started with Teensy & Arduino
+# Getting Started with Arduino
 
 **Objective:** Use Arduino to turn an LED on and off.
 
-## Introduction: What is Arduino?
+## Introduction: What is Arduino? {-}
 
-Arduino is an open-source platform for developing interactive electronic devices.  It provides a standard interface to Atmel *microcontrollers*, which in turn can be programmed by the user to perform specific tasks.  Arduino began in 2005 as a student project at the Interaction Design Institute Ivrea in Ivrea, Italy as a way to replace the more expensive microcontrollers the students were using at the time, and has since become very popular for hobby projects, citizen science tools, and even art installations.
+Arduino is an [open-source](http://www.wikipedia.com/wiki/Open-source) platform for developing interactive electronic devices that began in 2005 as a student project at the Interaction Design Institute Ivrea in Ivrea, Italy.  More specifically, Arduinos are *microcontrollers*, which are essentially small computers turn can be programmed to perform a specific task over and over again.  Microcontrollers are ubiquitous in the modern world and are embedded in scientific equipment, cars, cell phones, and nearly every other electronic device.  Arduino provides a simplified interface for microcontrollers and has become a very popular tool for hobby projects, citizen science tools, and even art installations.
 
-Using an Arduino requires a *program*, or a set of commands that are uploaded to the Arduino to have it perform specific tasks. In the Arduino community, the term *sketch* is used synonymously with program.  Examples of possible programs include having the Arduino measure things like temperature, light, or humidity, or control things like lights or motors.  Although the Arduino can run as a stand-alone device once programmed, it must be initially setup by a computer.  It is also possible to create a *graphic user interface* (GUI) to control things attached to the Arduino using a computer.  
 
-To program the Arduino, we'll use the *integrated devlopment environment* (IDE) available on the [Arduino website](http://www.arduino.cc).  The IDE is shown in Figure 1 below.  Arduino uses the computer language *C*--probably the most commonly used language in the world--but the IDE handles some of the programming behind the scenes to make it easier for the user.  In this exercise, we'll use an Arduino to turn a light-emitting diode (LED) on and off, and you'll experience Arduino and the IDE firsthand.  
+![<small>*An Arduino Uno. This class will use a variant of the Arduino, called the Teensy, as described below. (image credit: [Spark Fun, CC BY 2.0](https://commons.wikimedia.org/wiki/File:Arduino_Uno_-_R3.jpg))*</small>](https://upload.wikimedia.org/wikipedia/commons/3/38/Arduino_Uno_-_R3.jpg)
 
-<!-- !["IDE"](./images/ArduinoIDE.jpg) -->
 
-## Lighting an LED with Arduino
+Using an Arduino requires a *program*, or a set of commands that are uploaded to the Arduino to have it perform the desired task. In the Arduino community, the term *sketch* is used synonymously with program.  Examples of possible programs include having the Arduino **measure** things like temperature, light, or humidity, or **control** things like lights or motors.  Although the Arduino can run as a stand-alone device once setup, it must first be programmed by a computer. 
 
-Our goal is to turn an LED on and off using an Arduino microcontroller.  You'll have to connect the LED to the microcontroller and write appropriate code to control it.  The blink example in the Arduino IDE under `File > Examples > Basics > Blink` may be helpful in getting started, but will need some editing to work properly with our LEDs. 
+To program the Arduino, we'll use the *integrated development environment* (IDE) available on the [Arduino website](http://www.arduino.cc).  The IDE is shown in Figure 1 below.  Arduino uses the computer language *C*--probably the most commonly used language in the world--but the IDE handles some of the programming behind the scenes to make it easier for the user.  In this exercise, we'll use an Arduino to turn a light-emitting diode (LED) on and off, and you'll experience Arduino and the IDE firsthand.  
 
-### Connecting the LEDs
+![<small>*Arduino IDE showing an example program (image credit: [Cedar101 [CC0], wikimedia.org](https://commons.wikimedia.org/wiki/File:Arduino_IDE_-_Blink.png))*</small>](https://upload.wikimedia.org/wikipedia/commons/a/a1/Arduino_IDE_-_Blink.png)
 
-The LEDs we have are RGB (red, green, blue) LEDs, and each color has a different terminal that's used to turn it on and off independently.  The LEDs are *common cathode*, meaning all the colors share a negative terminal and have their own positive terminals.  To turn the individual colors on and off, simply turn on the corresponding positive terminal (i.e. set it *high*).  The manufacturere provides a *pinout* of the LED that shows which pin turns on each color, is reprinted below in Figure 2.
+Part of the beauty of Arduino is its open-source nature.  Many spin-offs and flavors of Arduino exist due to it's open-source nature, each with its own unique benefits.  In this class, we'll use a variant of Arduino called the ***Teensy*** (specifically Teensy 3.5).  The Teensy is programmed in the same way as an Arduino, but has a smaller form-factor and more capabilities than a standard Arduino.
 
-<!-- ![pinout](images/pinout.jpg) -->
-<!-- <small> **Figure 2:** Dimensional drawing of the LED showing numbered pins (left) and schematic representation of the same LED (right). Reprinted from [the vendor's website](www.taydaelectronics.com/datasheets/A-1094.pdf).</small> -->
+![<small>*A Teensy Board, with the pin (connection) numbers and functionalities shown (reprinted from [PJRC.com](https://www.pjrc.com/teensy/pinout.html)).*</small>](https://www.pjrc.com/teensy/card8a_rev2.png)
 
-To connect the LED:
+This exercise will walk you through installation of the Arduino IDE, the software for the Teensy (Teensyduino), and an initial check of the board.
 
-1. Connect the *cathode* (long terminal) to ground on the Arduino.
-1. Connect the other legs to digital pins on the Arduino, for example pins 11, 12, and 13.
+## Install the Arduino IDE
 
-The final setup should look something like Figure 3:
+> You MUST follow the order and instructions here or Teensyduino will not work!
 
-<!-- <center><img src="images/LED_bb.jpg" alt="Drawing" style="height: 275px;"/>     <img src="images/LED_schem.jpg" alt="Drawing" style="height: 275px;"/></center> -->
-<!-- <small> **Figure 3:** Visual representation of the LED-Arduino setup (left) and schematic representation of the same setup (right). </small> -->
+1. Use a web browser to navigate to [https://www.arduino.cc/en/Main/OldSoftwareReleases#previous](https://www.arduino.cc/en/Main/OldSoftwareReleases#previous).
+1. Download the installer for version **1.8.6**.  You must choose the installer appropriate for your operating system.
+1. Choose **Just Download** to download the software, or make a donation if you're feeling generous!
+1. Open the file that downloads and run the installer.
+1. Open the Arduino program to make sure it runs and to prepare for the next steps.
 
-### Programming the Arduino
+## Install Teensyduino
 
-1. Open the Arduino IDE and find the "Blink" example:
+1. Use a web browser to navigate to [https://www.pjrc.com/teensy/td_download.html](https://www.pjrc.com/teensy/td_download.html).
+1. Download the correct installer for your operatring system.  Note that steps 1 and 2 on the Teensy page should have been completed when you installed the Arduino IDE, above.
+1. Run the installer.  When prompted:
+  1. Select the `Arduino/` folder for the install location.  If **Next** is greyed out you probably downloaded the wrong version of the Arduino IDE.
+  1. Select **All** when asked which additional libraries to install.
+  
+## Test the Teensy!
 
-```
-File > Examples > Basics > Blink
-```
-    
-The example code has all the features necessary for an Arduino program, and we'll go through it step-by-step.  The grey text at the top surrounded by `/*` or `//` dileneates informative comments about the code.  Just below that, the variables and constants (things to assign values to) are defined.  Here, the constant `led` has been assigned an integer (`int`) value of 13 to represent the LED attached to pin 13.
+### Check the board
+1. Plug your Teensy into the computer via the USB connection.
 
-1. At this point, assign variables for each color of the LED:
+> Be ***EXTREMELY*** careful with the USB connection on the Teensy.  They break ***VERY*** easily!!
 
-```{Rcpp, eval = FALSE}
-int red   = 13
-int blue  = 12
-int green = 11
-```
-    
-Just below the variable definitions is the `setup()` command, which is required for every Arduino program.  The `setup()` command only runs once when the program initializes, so anything containted within the curly braces happens only a single time.  In Arduino (actually C) commands are always followed by `()` and are automatically colored orange by the Arduino IDE.
+1. You should see the orange LED blinking on the Teensy.  If you do not, something is wrong with your Teensy and you should notify your instructor.
 
-1.  For this program, we need to configure the LED pins to *output* (as opposed to input) a signal:
-    
-```{Rcpp, eval = FALSE}
-void setup() {
-    pinMode(red, OUTPUT);   // set pin 13 (red) to OUTPUT
-    pinMode(blue, OUTPUT);  // comments aren't read by Arduino
-    pinMode(green, OUTPUT); // so type whatever you want
-}
-```
-    
-> *Note that spaces and characters preceded by `//` aren't important for running the program, just for making it more legible to humans.  Use these comments to explain what your code is doing.  However, be sure to include all capital letters, brackets and semi-colons because they __are__ important.*
-    
-    
-Next is the `loop()` command, which is also required by every Arduino program.  Anything in the in the `loop()` command is repeated as long as the program runs (i.e. anytime the Arduino is plugged in).  Any repetitive task, like turing the LED on and off, should go here.
-
-1.  Modify the existing code to turn on and off your favorite color:
-    
-```{Rcpp, eval = FALSE}
-void loop() {
-    digitalWrite(blue, HIGH); // turn color on by applying 5V
-    delay(1000);              // wait 1000 milliseconds
-    digitalWrite(blue, LOW);  // turn color off (set to 0V)
-    delay(1000);              // wait again before repeating
-}
-```
-    
-> *Every Arduino program must have `setup()` and `loop()` commands (even if they are empty).  `setup()` tells the microcontroller what to do once when it starts; `loop()` tells it what repetitive task to do.*
-
-1.  That's it! Check your code by pressing the round "verify" check mark in the upper left corner of the IDE.
-1.  If you don't get any errors, you're ready to upload your code:
-      1. Make sure you have selected the correct board type:
-    
-      ```{Rcpp, eval = FALSE}
-      Tools > Board > Arduino Uno
-      ```
-    
-      and the correct serial port:
-   
-      ```{Rcpp, eval = FALSE}
-      Tools > Port > COM X*
-      ```
-      
-      *You may have to try multiple COM ports to find the right one.
-    
-      2. Press the round "upload" arrow next to the verify button.
-Once your code is uploaded, you should see the color you chose flashing on the Arduino.  If it's not, go back a few steps and try and figure out why.
-      3. If your code works, try changing it around to do new things.  You can change the amount of time the LED stays on (the duty cycle) or change which colors are turned on.
-
-## Additional Resources
-1. Blum, Jeremy. *Exploring Arduino: Tools and techniques for electronics wizardy* "Chapter 1: Getting up and Blinking with an LED."  Wiley, 2013.
-1. [Online documentation for blink example](http://arduino.cc/en/Tutorial/Blink)
-1. [Online command dictionary](http://arduino.cc/en/Reference/HomePage)
+### Check the software
+1. Open the Arduino IDE.
+1. Click `File > Examples > 01.Basics > Blink`.
+1. Find the part in the program that says `delay(1000)` and change it to `delay(500)`.
+1. Click **Verify** in the software (checkmark button in upper left corner).
+1. Press the white button on the top of the Teensy.
+1. Press upload in the software (right arrow button, next to checkmark).
+1. You should see the orange LED blink more quickly.  If you encountered any errors, something is could be wrong with your software installation or you may have made a typo in the code.  Notify your instructor of any problems.
