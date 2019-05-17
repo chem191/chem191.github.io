@@ -1,6 +1,6 @@
 # Getting Started with Arduino
 
-**Objective:** Use Arduino to turn an LED on and off.
+**Objective:** Install Arduino and Teensyduino
 
 ## Introduction: What is Arduino? {-}
 
