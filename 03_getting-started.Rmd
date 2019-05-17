@@ -1,6 +1,6 @@
-(PART) Measuring {-}
+# (PART) Measuring {-}
 
-# Getting Started with Teensy & Arduino {#gettingstarted}
+# Exercise 1: Getting Started with Teensy & Arduino {-}
 
 **Objective:** Use Arduino to turn an LED on and off.
 

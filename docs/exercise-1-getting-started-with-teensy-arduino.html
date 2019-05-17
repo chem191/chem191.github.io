@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Getting Started with Teensy &amp; Arduino | CHEM 191: A Teensy Introduction to Atmospheric Chemistry</title>
+  <title>Exercise 1: Getting Started with Teensy &amp; Arduino | CHEM 191: A Teensy Introduction to Atmospheric Chemistry</title>
   <meta name="description" content="Course Materials for CHEM 191: Issues in Environmental Chemistry" />
   <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Getting Started with Teensy &amp; Arduino | CHEM 191: A Teensy Introduction to Atmospheric Chemistry" />
+  <meta property="og:title" content="Exercise 1: Getting Started with Teensy &amp; Arduino | CHEM 191: A Teensy Introduction to Atmospheric Chemistry" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Getting Started with Teensy &amp; Arduino | CHEM 191: A Teensy Introduction to Atmospheric Chemistry" />
+  <meta name="twitter:title" content="Exercise 1: Getting Started with Teensy &amp; Arduino | CHEM 191: A Teensy Introduction to Atmospheric Chemistry" />
   
   <meta name="twitter:description" content="Course Materials for CHEM 191: Issues in Environmental Chemistry" />
   
@@ -153,13 +153,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="part"><span><b>II Theory</b></span></li>
 <li class="chapter" data-level="1" data-path="stuff.html"><a href="stuff.html"><i class="fa fa-check"></i><b>1</b> Stuff</a></li>
 <li class="part"><span><b>III Measuring</b></span></li>
-<li class="chapter" data-level="2" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>2</b> Getting Started with Teensy &amp; Arduino</a><ul>
-<li class="chapter" data-level="2.1" data-path="getting-started.html"><a href="getting-started.html#introduction-what-is-arduino"><i class="fa fa-check"></i><b>2.1</b> Introduction: What is Arduino?</a></li>
-<li class="chapter" data-level="2.2" data-path="getting-started.html"><a href="getting-started.html#lighting-an-led-with-arduino"><i class="fa fa-check"></i><b>2.2</b> Lighting an LED with Arduino</a><ul>
-<li class="chapter" data-level="2.2.1" data-path="getting-started.html"><a href="getting-started.html#connecting-the-leds"><i class="fa fa-check"></i><b>2.2.1</b> Connecting the LEDs</a></li>
-<li class="chapter" data-level="2.2.2" data-path="getting-started.html"><a href="getting-started.html#programming-the-arduino"><i class="fa fa-check"></i><b>2.2.2</b> Programming the Arduino</a></li>
+<li class="chapter" data-level="" data-path="exercise-1-getting-started-with-teensy-arduino.html"><a href="exercise-1-getting-started-with-teensy-arduino.html"><i class="fa fa-check"></i>Exercise 1: Getting Started with Teensy &amp; Arduino</a><ul>
+<li class="chapter" data-level="1.1" data-path="exercise-1-getting-started-with-teensy-arduino.html"><a href="exercise-1-getting-started-with-teensy-arduino.html#introduction-what-is-arduino"><i class="fa fa-check"></i><b>1.1</b> Introduction: What is Arduino?</a></li>
+<li class="chapter" data-level="1.2" data-path="exercise-1-getting-started-with-teensy-arduino.html"><a href="exercise-1-getting-started-with-teensy-arduino.html#lighting-an-led-with-arduino"><i class="fa fa-check"></i><b>1.2</b> Lighting an LED with Arduino</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="exercise-1-getting-started-with-teensy-arduino.html"><a href="exercise-1-getting-started-with-teensy-arduino.html#connecting-the-leds"><i class="fa fa-check"></i><b>1.2.1</b> Connecting the LEDs</a></li>
+<li class="chapter" data-level="1.2.2" data-path="exercise-1-getting-started-with-teensy-arduino.html"><a href="exercise-1-getting-started-with-teensy-arduino.html#programming-the-arduino"><i class="fa fa-check"></i><b>1.2.2</b> Programming the Arduino</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="getting-started.html"><a href="getting-started.html#additional-resources"><i class="fa fa-check"></i><b>2.3</b> Additional Resources</a></li>
+<li class="chapter" data-level="1.3" data-path="exercise-1-getting-started-with-teensy-arduino.html"><a href="exercise-1-getting-started-with-teensy-arduino.html#additional-resources"><i class="fa fa-check"></i><b>1.3</b> Additional Resources</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -181,21 +181,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="getting-started" class="section level1">
-<h1><span class="header-section-number">Chapter 2</span> Getting Started with Teensy &amp; Arduino</h1>
+<div id="exercise-1-getting-started-with-teensy-arduino" class="section level1 unnumbered">
+<h1>Exercise 1: Getting Started with Teensy &amp; Arduino</h1>
 <p><strong>Objective:</strong> Use Arduino to turn an LED on and off.</p>
 <div id="introduction-what-is-arduino" class="section level2">
-<h2><span class="header-section-number">2.1</span> Introduction: What is Arduino?</h2>
+<h2><span class="header-section-number">1.1</span> Introduction: What is Arduino?</h2>
 <p>Arduino is an open-source platform for developing interactive electronic devices. It provides a standard interface to Atmel <em>microcontrollers</em>, which in turn can be programmed by the user to perform specific tasks. Arduino began in 2005 as a student project at the Interaction Design Institute Ivrea in Ivrea, Italy as a way to replace the more expensive microcontrollers the students were using at the time, and has since become very popular for hobby projects, citizen science tools, and even art installations.</p>
 <p>Using an Arduino requires a <em>program</em>, or a set of commands that are uploaded to the Arduino to have it perform specific tasks. In the Arduino community, the term <em>sketch</em> is used synonymously with program. Examples of possible programs include having the Arduino measure things like temperature, light, or humidity, or control things like lights or motors. Although the Arduino can run as a stand-alone device once programmed, it must be initially setup by a computer. It is also possible to create a <em>graphic user interface</em> (GUI) to control things attached to the Arduino using a computer.</p>
 <p>To program the Arduino, we’ll use the <em>integrated devlopment environment</em> (IDE) available on the <a href="http://www.arduino.cc">Arduino website</a>. The IDE is shown in Figure 1 below. Arduino uses the computer language <em>C</em>–probably the most commonly used language in the world–but the IDE handles some of the programming behind the scenes to make it easier for the user. In this exercise, we’ll use an Arduino to turn a light-emitting diode (LED) on and off, and you’ll experience Arduino and the IDE firsthand.</p>
 <!-- !["IDE"](./images/ArduinoIDE.jpg) -->
 </div>
 <div id="lighting-an-led-with-arduino" class="section level2">
-<h2><span class="header-section-number">2.2</span> Lighting an LED with Arduino</h2>
+<h2><span class="header-section-number">1.2</span> Lighting an LED with Arduino</h2>
 <p>Our goal is to turn an LED on and off using an Arduino microcontroller. You’ll have to connect the LED to the microcontroller and write appropriate code to control it. The blink example in the Arduino IDE under <code>File &gt; Examples &gt; Basics &gt; Blink</code> may be helpful in getting started, but will need some editing to work properly with our LEDs.</p>
 <div id="connecting-the-leds" class="section level3">
-<h3><span class="header-section-number">2.2.1</span> Connecting the LEDs</h3>
+<h3><span class="header-section-number">1.2.1</span> Connecting the LEDs</h3>
 <p>The LEDs we have are RGB (red, green, blue) LEDs, and each color has a different terminal that’s used to turn it on and off independently. The LEDs are <em>common cathode</em>, meaning all the colors share a negative terminal and have their own positive terminals. To turn the individual colors on and off, simply turn on the corresponding positive terminal (i.e. set it <em>high</em>). The manufacturere provides a <em>pinout</em> of the LED that shows which pin turns on each color, is reprinted below in Figure 2.</p>
 <!-- ![pinout](images/pinout.jpg) -->
 <!-- <small> **Figure 2:** Dimensional drawing of the LED showing numbered pins (left) and schematic representation of the same LED (right). Reprinted from [the vendor's website](www.taydaelectronics.com/datasheets/A-1094.pdf).</small> -->
@@ -209,7 +209,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- <small> **Figure 3:** Visual representation of the LED-Arduino setup (left) and schematic representation of the same setup (right). </small> -->
 </div>
 <div id="programming-the-arduino" class="section level3">
-<h3><span class="header-section-number">2.2.2</span> Programming the Arduino</h3>
+<h3><span class="header-section-number">1.2.2</span> Programming the Arduino</h3>
 <ol style="list-style-type: decimal">
 <li>Open the Arduino IDE and find the “Blink” example:</li>
 </ol>
@@ -265,7 +265,7 @@ Once your code is uploaded, you should see the color you chose flashing on the A
 </div>
 </div>
 <div id="additional-resources" class="section level2">
-<h2><span class="header-section-number">2.3</span> Additional Resources</h2>
+<h2><span class="header-section-number">1.3</span> Additional Resources</h2>
 <ol style="list-style-type: decimal">
 <li>Blum, Jeremy. <em>Exploring Arduino: Tools and techniques for electronics wizardy</em> “Chapter 1: Getting up and Blinking with an LED.” Wiley, 2013.</li>
 <li><a href="http://arduino.cc/en/Tutorial/Blink">Online documentation for blink example</a></li>

@@ -1,9 +1,9 @@
-(PART) General Course Information {-}
+# (PART) General Course Information {-}
 
-# Syllabus
+# Syllabus {-}
 
-## CHEM 191: Issues in Environmental Chemistry
-#### Chemistry, Earth, and Air: A very short introduction
+## CHEM 191: Issues in Environmental Chemistry {-}
+#### Chemistry, Earth, and Air: A very short introduction {-}
 
 **Instructor:** Dr. Al Fischer, PhD  
 **Office Hours:** By appointment at [calendly.com/drfischer](www.calendly.com/drfischer); drop-ins welcome.  (NS 209)  
@@ -12,7 +12,7 @@ _____
 ***Chem 191: Chemistry, Earth, and Air*** is a freshman seminar course with an emphasis on atmospheric chemistry.  The course is geared toward anyone with an interest in chemistry, atmospheric science, environmental science, and/or engineering.  Students will learn through a combination of lectures and a semester-long project to construct and deploy Arduino-based atmospheric sensors.  An emphasis will be placed on overarching concepts and problem-solving skills rather than rote minutia.
 _____
 
-## Specific Learning Objectives
+## Specific Learning Objectives {-}
 1. Demonstrate the ability to program using the Arduino IDE.
 1. Demonstrate an ability to solder basic electronic components.
 1. Demonstrate an ability to design an electronics enclosure.
@@ -21,7 +21,7 @@ _____
 5. Understand how the scientific process works, both in theory and in practice.
 2. Show preparedness for future college classes, especially those in the sciences and engineering.
 
-## Themes
+## Themes {-}
 *These themes are taken verbatim from the [Atmospheric Science Literacy Framework](https://scied.ucar.edu/atmospheric-science-literacy-framework) and will be used as guideposts throughout the semester.*
 
 - Earth has a thin atmosphere that sustains life.
@@ -32,13 +32,13 @@ _____
 - We seek to understand the past, present, and future behavior of Earth's atmosphere through scientific observation and reasoning.
 - Earth's atmosphere and humans are inextricably linked.
 
-## Prerequisites
+## Prerequisites {-}
 
 Students should be comfortable with algebra and basic statistics (i.e. mean and standard deviation).  A familiarity with chemistry and/or experience programming is helpful but not required.
 
 <div style="page-break-after: always;"></div>
 
-## Required Course Materials
+## Required Course Materials {-}
 The following books are required and are available from the WCU bookstore and most other book sellers. *Additional required reading material will be posted on the Instructor's website and Blackboard.*
 
 - *Air Pollution and Global Warming*, Mark Z. Jacobsen, Cambridge University Press (rental book)
@@ -49,27 +49,27 @@ The following books are required and are available from the WCU bookstore and mo
 Additional required materials:  
 - A scientific calculator (not on a cell phone).  An acceptable calculator can be purchased for less than $10.  It should have the capability to do exponents and trigonometry.
 
-## Technology
+## Technology {-}
 
-### Technology requirements
+### Technology requirements {-}
 Students will need:
 - A laptop computer with at least one standard USB-A port or, for computers without a USB-A port (e.g. newer MacBooks), an appropriate adapter.
 - The [Arduino integrated development environment (IDE)](https://www.arduino.cc/en/Main/Software) and [Teensyduino](https://www.pjrc.com/teensy/td_download.html) add-on.  These software are freely available from the developers for Mac OSX, Windows, and Linux.
 
 In addition, students will be provided with components to construct an air quality sensor, which they must return in working order at the end of the semester.  Any student wishing to keep their sensor should purchase their own materials ahead of time through [Mouser Electronics](www.mouser.com) (a bill of materials is available by request, total cost is about $100).
 
-### Personal technology use policies
+### Personal technology use policies {-}
 
 The use of cell phones during lecture is prohibitied; the sparing use of cell phones during workshop/lab sessions is permitted but discouraged. If you must, please use your cell phone outside the classroom.
 
 In an effort to maintain a productive work environment for all students, please refrain from playing music, videos, etc., in the classroom.
 
-## Off-campus Work
+## Off-campus Work {-}
 Students will occasionally be required to travel off-campus to setup and retrieve data from their sensors.  The round-trip travel distance typically won't be more than 10 miles, although students will be required to sign a waiver before conducting any work off-campus.
 
 <div style="page-break-after: always;"></div>
 
-## Grading
+## Grading {-}
 
 **Conventions:** The grades of A+ (100-97), A (96.9-93), A- (92.9-90), B+ (89.9-87), B (86.9-83), B- (82.9-80), C+ (79.9-77), C (76.9-73), C- (72.9-70), D+ (69.9-67), D (66.9-63), D- (62.9-60) and F (< 60) indicate gradations in quality from Excellent to Failure. Please note that a C- grade is less than satisfactory and may not meet particular program and/or course requirements. Students must be familiar with the class attendance, withdrawal, and drop-add policies and procedures. A percentage breakdown of the final grade is given in the table below.
 
@@ -100,9 +100,9 @@ Final Exam (technical paper detailing sensor and results from it) | 25%
 
 <div style="page-break-after: always;"></div>
 
-## The Fine Print...
+## The Fine Print... {-}
 
-### Course Policies
+### Course Policies {-}
 
 **Classroom Expectations:** The shared learning space of the college classroom is built on respect for each other and each other’s learning. Learning together means our actions can intentionally and unintentionally distract others from their learning goals. As responsible learners who respect the rights of others and vow to minimize avoidable distractions such as: non- academic technology use, coming in late, sleeping, off-topic discussions, doing other homework, eating, etc.
 
@@ -126,7 +126,7 @@ Laboratory Behavior: Never bring food or drink into the laboratory. This include
 
 
 
-### Institutional Policies
+### Institutional Policies {-}
 
 **Course Recording and Broadcasting:** Students may make visual or audio recordings (Recording) of any class related content, using any approved recording device (e.g., smart phone, computer, digital recorder, etc.) upon the prior permission of the instructor and subject to the following restriction(s). The Recording, along with the video capture of visible course materials (e.g., visible PowerPoint slides and/or visible lecture notes), shall be limited to the student’s personal, course related, educational use and shall be subject to all applicable copyright laws and institutional policies. The student may not transfer, transmit, or otherwise disseminate the Recording to any third party, including classmates, without the permission of the instructor. Any violation of these restrictions, or any other restriction verbally communicated by the instructor, may subject the student to the provisions of the WCU Academic Integrity Policy, the WCU Code of Student Conduct or both.
 
@@ -146,7 +146,7 @@ This policy addresses academic integrity violations of undergraduate and graduat
 
 Undergraduate and Graduate Academic Integrity Process: Additional information is available on the Student Success website under Student Community Ethics: http://www.wcu.edu/experience/dean-of-students/academic-integrity.aspx.
 
-### Student Resources
+### Student Resources {-}
 **Writing and Learning Commons (WaLC):** The Writing and Learning Commons (WaLC), located in BELK 207, writing tutoring and online writing and learning resources for all students. To view schedules and make appointments for any of these services, visit tutoring.wcu.edu or call 828-227-2274.
 
 **Math Tutoring Center:** The Mathematics Tutoring Center (MTC) in Stillwell 455 provides drop-in tutoring for math courses and math-related content across the curriculum. Tutoring is available on a drop-in basis, MTWR 9:00am-9:00pm and Friday 9:00am-5:00pm. For more information, please visit http://mtc.wcu.edu/ or contact us at 828–227–3830.
