@@ -8,9 +8,12 @@
 **Instructor:** Dr. Al Fischer, PhD  
 **Office Hours:** By appointment at [calendly.com/drfischer](www.calendly.com/drfischer); drop-ins welcome.  (NS 209)  
 **Email:** [dfischer@wcu.edu](mailto:dfischer@wcu.edu)
-_____
+
+_________________
 ***Chem 191: Chemistry, Earth, and Air*** is a freshman seminar course with an emphasis on atmospheric chemistry.  The course is geared toward anyone with an interest in chemistry, atmospheric science, environmental science, and/or engineering.  Students will learn through a combination of lectures and a semester-long project to construct and deploy Arduino-based atmospheric sensors.  An emphasis will be placed on overarching concepts and problem-solving skills rather than rote minutia.
-_____
+
+_________________
+
 
 ## Specific Learning Objectives {-}
 1. Demonstrate the ability to program using the Arduino IDE.
@@ -83,11 +86,13 @@ Successful Sensor Build (+ return at end of semester) | 20%
 Final Exam (technical paper detailing sensor and results from it) | 25%
 
 **Assignment Submissions:** Students will be required to submit assignments electronically and as hard copies throughout the semester.  Each assignment will state how it should be turned in.
+
 - *For electronic assignments:*
      - Each student will be assigned a personal Dropbox folder to which they will submit assignments.  
      - Files should follow the convention ***firstnameLastname_assignmentName.xyz***.
      - Any files not named appropriately, not in the specified format, or submitted elsewhere will either incur point deductions or not be graded.  
      - Electronic assignments are due at 23:59:59 on the due date or will be counted late.
+
 - *For hard-copy assignments:*
      - Students will turn in a paper copy of the assignment either in class or to the instructors office.  
      - Students should complete any worksheets on the worksheet itself and should not reformat the worksheet.  
@@ -139,6 +144,7 @@ Students, faculty, staff, and administrators of Western Carolina University stri
 This policy addresses academic integrity violations of undergraduate and graduate students. Students, faculty, staff, and administrators of Western Carolina University strive to achieve the highest standards of scholarship and integrity. Any violation of this policy is a serious offense because it threatens the quality of scholarship and undermines the integrity of the community. Instructors have the right to determine the appropriate academic sanctions for violations of the Academic Integrity Policy within their courses, up to and including a final grade of “F” in the course in which the violation occurs.
 
 *Definitions:*
+
 - ***Cheating*** – Using, or attempting to use, unauthorized materials, information, or study aids in any academic exercise.
 - ***Fabrication*** – Creating and/or falsifying information or citation in any academic exercise.
 - ***Plagiarism*** – Representing the words or ideas of someone else as one’s own in any academic exercise.
@@ -153,5 +159,5 @@ Undergraduate and Graduate Academic Integrity Process: Additional information is
 
 **Academic Calendar:** This includes dates for all breaks, university closures, final exams, etc. The academic calendar can be found at http://www.wcu.edu/learn/academic-calendar.asp
 
-### Syllabus Updates
+### Syllabus Updates {-}
 This syllabus and the course schedule are subject to revision as needed. Students will be notified of changes and are responsible for adhering to the modifications.
