@@ -15,3 +15,6 @@ biblio-style: apalike
 ---
 
 # Preface {-}
+
+
+(c) 2019 Al Fischer.  No part of this document may be reproduced without the express written consent of the author (although I'm usually more than happy to oblige).
