@@ -1,6 +1,7 @@
 # Getting Started with Arduino
 
 **Objective:** Install Arduino and Teensyduino
+**To turn in:** Nothing! Make sure your software is installed and working so you're ready for the next class period.
 
 ## Introduction: What is Arduino? {-}
 
@@ -51,6 +52,7 @@ This exercise will walk you through installation of the Arduino IDE, the softwar
 
 ### Check the software
 1. Open the Arduino IDE.
+1. Click `Tools > Board > Teensy 3.5`
 1. Click `File > Examples > 01.Basics > Blink`.
 1. Find the part in the program that says `delay(1000)` and change it to `delay(500)`.
 1. Click **Verify** in the software (checkmark button in upper left corner).

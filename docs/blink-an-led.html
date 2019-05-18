@@ -48,6 +48,69 @@
 
 
 
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -76,7 +139,16 @@
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="blink-an-led.html"><a href="blink-an-led.html"><i class="fa fa-check"></i><b>2</b> Blink an LED</a><ul>
-<li class="chapter" data-level="2.1" data-path="blink-an-led.html"><a href="blink-an-led.html#introduction"><i class="fa fa-check"></i><b>2.1</b> Introduction</a></li>
+<li class="chapter" data-level="" data-path="blink-an-led.html"><a href="blink-an-led.html#introduction"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="" data-path="blink-an-led.html"><a href="blink-an-led.html#how-are-things-connected-to-a-teensy"><i class="fa fa-check"></i>How are things connected to a Teensy?</a></li>
+<li class="chapter" data-level="" data-path="blink-an-led.html"><a href="blink-an-led.html#what-is-a-program"><i class="fa fa-check"></i>What is a program?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.1" data-path="blink-an-led.html"><a href="blink-an-led.html#connecting-the-led"><i class="fa fa-check"></i><b>2.1</b> Connecting the LED</a></li>
+<li class="chapter" data-level="2.2" data-path="blink-an-led.html"><a href="blink-an-led.html#program-the-arduino"><i class="fa fa-check"></i><b>2.2</b> Program the Arduino</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="blink-an-led.html"><a href="blink-an-led.html#one-color"><i class="fa fa-check"></i><b>2.2.1</b> One Color</a></li>
+<li class="chapter" data-level="2.2.2" data-path="blink-an-led.html"><a href="blink-an-led.html#three-colors"><i class="fa fa-check"></i><b>2.2.2</b> Three Colors</a></li>
+<li class="chapter" data-level="2.2.3" data-path="blink-an-led.html"><a href="blink-an-led.html#make-your-own-changes"><i class="fa fa-check"></i><b>2.2.3</b> Make Your Own Changes</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="appendix-a-arduino-cookbook.html"><a href="appendix-a-arduino-cookbook.html"><i class="fa fa-check"></i>Appendix A: Arduino Cookbook</a><ul>
 <li class="chapter" data-level="" data-path="appendix-a-arduino-cookbook.html"><a href="appendix-a-arduino-cookbook.html#recipe-1"><i class="fa fa-check"></i>Recipe 1</a></li>
@@ -103,10 +175,134 @@
             <section class="normal" id="section-">
 <div id="blink-an-led" class="section level1">
 <h1><span class="header-section-number">Exercise 2</span> Blink an LED</h1>
-<p><strong>Objective:</strong> Use Arduino to turn an LED on and off.</p>
-<div id="introduction" class="section level2">
-<h2><span class="header-section-number">2.1</span> Introduction</h2>
+<p><strong>Objective:</strong> Use Arduino to turn an LED on and off.
+<strong>To turn in:</strong> You working Arduino code at the end of the exercise.</p>
+<div id="introduction" class="section level2 unnumbered">
+<h2>Introduction</h2>
+<p>This exercise will explore two concepts: (1) connecting devices to the Arduino and (2) the structure of the Arduino program used to control those devices. As a first example, we’ll connect an LED (light-emitting diode) to the Teensy and write a program to turn in on and off.</p>
+<div id="how-are-things-connected-to-a-teensy" class="section level3 unnumbered">
+<h3>How are things connected to a Teensy?</h3>
+<p>The Teensy can control all sorts of devices, including lights, motors, and various sensors. The device to be controlled must be connected to one of the Teensy’s <em>pins</em>. You can think of a pin as a unique port on the Teensy. Pins can send and receive information, so communication between the pin and the sensor goes both ways. One pin might be used to control a light, while another might be used to read data from a temperature sensor. The pins that are available on the Teensy are shown in the figure below. Some pins provide power (3.3 V), some pins provide a connection to the circuit ground (GND), and some function to send and receive data. Some pins may have several function, each represented by a different color rectangle next to the pin the figure below. Note, though, that each pin can only have one function at any given time. For now, we’ll just focus on the pin numbers. The labeled 0-33 (shown in grey) are called <em>digital pins</em>; they function as both inputs and outputs, but we’ll use just the output functionality in this exercise.</p>
+<p>There are several ways to connect something to the pins of the Teensy. One way is to directly solder items to the pins of the Teensy, in which a soft metal alloy is melted onto two parts as they are connected to make a permanent, metal connection. This is best saved for a final, fully vetted design that won’t ever need to be changed. For this exercise, we’ll use another method, called a solderless breadboard. A breadboard is shown in the figure below. The holes in the breadboard are spaced in such a way that a Teensy can be plugged directly into the board. Columns, labelled A, B, C, …, are connected across the board electrically, such that A1 and B1 are connected; rows are insulated, such that A1 and A2 are not connected. The connections labeled with red and blue lines on each edge are connected together and are sometimes called rails; they provide an easy way to distribute power and ground connections around the board. If that seems confusing, try watching this video <a href="https://www.youtube.com/watch?v=mLOxoK1zj9A">this video</a>.</p>
+<div class="figure">
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/73/400_points_breadboard.jpg" alt="A solderless breadboard. Holes with the same number are connected electrically, except across the gap in the middle, while holes with different numbers are electrically insulated. (image credit: oomlout CC BY-SA 2.0, wikimedia.org)" />
+<p class="caption"><small><em>A solderless breadboard. Holes with the same number are connected electrically, except across the gap in the middle, while holes with different numbers are electrically insulated. (image credit: <a href="https://commons.wikimedia.org/wiki/File:400_points_breadboard.jpg">oomlout CC BY-SA 2.0, wikimedia.org</a>)</em></small></p>
+</div>
+</div>
+<div id="what-is-a-program" class="section level3 unnumbered">
+<h3>What is a program?</h3>
+<p>A <em>program</em>, or <em>sketch</em> in Arduino jargon, is a set of commands stored on the Teensy that tell it what to do. Although a Teensy can do most anything a computer would do, it can only run a single program over and over. For example, this exercise will use a set of commands to program the Teensy to turn an LED on and off. Other options would be to collect data from a temperature sensor, or turn a motor on a off to move a robot (or to do all of those things at once).</p>
+<p>An Arduino program always consists of two parts: (1) a <code>setup()</code> function and (2) a <code>loop()</code> function. The <code>setup()</code> function runs once every time the Teensy is powered on. After that, the Teensy runs the <code>loop()</code> function over and over until it’s turned off. Often, some initial lines of code are included above the <code>setup()</code> function that define things used in the program.</p>
+<p>In the exercise, we’ll connect an 3-color LED to a teensy and write a sketch to control it.</p>
+</div>
+</div>
+<div id="connecting-the-led" class="section level2">
+<h2><span class="header-section-number">2.1</span> Connecting the LED</h2>
+<ol style="list-style-type: decimal">
+<li>Push your Teensy into the breadboard provided and connect the USB cable.</li>
+</ol>
+<blockquote>
+<p>Remember, be <strong><em>EXTREMELY</em></strong> careful with the USB connection on the Teensy. They break <strong><em>VERY</em></strong> easily!!</p>
+</blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li>Push the LED into the breadboard such that none of the leads (wires) are connected to anything else (each one is in it’s own row). Make sure you note which row the longer lead goes into.</li>
+</ol>
+<blockquote>
+<p>Always work with the Teensy unplugged from the computer. This will help ensure no magic smoke escapes.</p>
+</blockquote>
+<ol start="3" style="list-style-type: decimal">
+<li>Use a jumper wire to connect the <strong>longer lead</strong> to the <strong>GND</strong> pin on the Teensy.</li>
+<li>Use 3 more jumper wires to connect the remaining three leads to pins <strong>13, 14, and 15</strong>.</li>
+</ol>
+</div>
+<div id="program-the-arduino" class="section level2">
+<h2><span class="header-section-number">2.2</span> Program the Arduino</h2>
+<div id="one-color" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> One Color</h3>
+<ol style="list-style-type: decimal">
+<li>Open the Arduino IDE and load the Blink example (<code>File &gt; Examples &gt; 0.1 Basic &gt; Blink</code>)</li>
+<li>Go to <code>File &gt; Save As</code> to save the example under a new name in the default location (<code>Documents/Arduino</code>). Call it <strong>lastnameFirstname_blink.ino</strong>.</li>
+</ol>
+<blockquote>
+<p>Remember, files that don’t follow the naming convention <em>exactly</em> will incur point deductions.</p>
+</blockquote>
+<ol start="3" style="list-style-type: decimal">
+<li>You should see the following at the top of the sketch:</li>
+</ol>
+<pre class="sourceCode cpp"><code class="sourceCode cpp">    <span class="co">// Pin 13 has the LED on Teensy 3.0</span>
+    <span class="co">// give it a name:</span>
+    <span class="dt">int</span> led = <span class="dv">13</span>;</code></pre>
+<p>Anything following a <code>//</code> is a comment; it does not affect the Arduino program. Please get in the habit of using comments to describe what each line of code does.</p>
+<p>The line <code>int led = 13</code> defines the name of pin 13 as <code>led</code>. This name could be anything you wish. In this case, led is useful because the LED is connected to pin 13.</p>
+<ol start="4" style="list-style-type: decimal">
+<li>Next is the <code>setup()</code> function. In this case, the only setup necessary is to set the mode of the <code>led</code> pin as an output.</li>
+</ol>
+<pre class="sourceCode cpp"><code class="sourceCode cpp">  <span class="co">// the setup routine runs once when you press reset:</span>
+  <span class="dt">void</span> setup() {                
+    <span class="co">// initialize the digital pin as an output.</span>
+    pinMode(led, OUTPUT);     
+  }</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>Finally, the <code>loop()</code> function, which runs over and over.</li>
+</ol>
+<pre class="sourceCode cpp"><code class="sourceCode cpp">  digitalWrite(led, HIGH);   <span class="co">// turn the LED on (HIGH is the voltage level)</span>
+  delay(<span class="dv">1000</span>);               <span class="co">// wait for a second</span>
+  digitalWrite(led, LOW);    <span class="co">// turn the LED off by making the voltage LOW</span>
+  delay(<span class="dv">1000</span>);               <span class="co">// wait for a second</span></code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li>Assuming all those sections look good, press the <strong>Upload</strong> button (right arrow in top left).</li>
+</ol>
+</div>
+<div id="three-colors" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> Three Colors</h3>
+<p>You should have seen a single color blinking on and off. We really want all three to go on and off. Let’s make some modifications to the code so that will happen.</p>
+<ol style="list-style-type: decimal">
+<li>Define the two extra pins. In this case, it could be useful to refer to them by color.</li>
+</ol>
+<pre class="sourceCode cpp"><code class="sourceCode cpp">    <span class="dt">int</span> blue = <span class="dv">13</span>;   <span class="co">// blue pin connected to pin 13</span>
+    <span class="dt">int</span> green = <span class="dv">14</span>;  <span class="co">// green pin connected to pin 14</span>
+    <span class="dt">int</span> red = <span class="dv">15</span>;    <span class="co">// red pin connected to pin 15</span></code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Set each of those to outputs in the <code>setup()</code> function. You will have to fill in the blanks for the red and green pins below.</li>
+</ol>
+<pre class="sourceCode cpp"><code class="sourceCode cpp">  <span class="co">// the setup routine runs once when you press reset:</span>
+  <span class="dt">void</span> setup() {                
+    pinMode(blue, OUTPUT);     <span class="co">// initialize the blue pin as an output.</span>
+    pinMode(____, OUTPUT);     <span class="co">// initialize the green pin as an output.</span>
+    ______________________     <span class="co">// initialize the red pin as an output.</span>
+  }</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Finally, add the extra colors to the <code>loop()</code> function.</li>
+</ol>
+<pre class="sourceCode cpp"><code class="sourceCode cpp">  <span class="co">// blue</span>
+  digitalWrite(blue, HIGH);   <span class="co">// turn the LED on (HIGH is the voltage level)</span>
+  delay(<span class="dv">1000</span>);                <span class="co">// wait for a second</span>
+  digitalWrite(blue, LOW);    <span class="co">// turn the LED off by making the voltage LOW</span>
+  delay(<span class="dv">1000</span>);                <span class="co">// wait for a second</span>
+  
+  <span class="co">// green</span>
+  digitalWrite(green, HIGH);   <span class="co">// turn the LED on (HIGH is the voltage level)</span>
+  delay(<span class="dv">1000</span>);                 <span class="co">// wait for a second</span>
+  digitalWrite(green, LOW);    <span class="co">// turn the LED off by making the voltage LOW</span>
+  delay(<span class="dv">1000</span>);                 <span class="co">// wait for a second</span>
+  
+  <span class="co">// red</span>
+  digitalWrite(red, HIGH);     <span class="co">// turn the LED on (HIGH is the voltage level)</span>
+  delay(<span class="dv">1000</span>);                 <span class="co">// wait for a second</span>
+  digitalWrite(red, LOW);      <span class="co">// turn the LED off by making the voltage LOW</span>
+  delay(<span class="dv">1000</span>);                 <span class="co">// wait for a second</span></code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Make sure you show your code and blinking LED to your instructor before you move on.</li>
+</ol>
+</div>
+<div id="make-your-own-changes" class="section level3">
+<h3><span class="header-section-number">2.2.3</span> Make Your Own Changes</h3>
+<ol style="list-style-type: decimal">
+<li>Before you leave, modify your code to change the blink pattern. You can change the sequence of the colors, the time between blinks, the number of blinks, or the amount of time each color is on.</li>
+<li>Save your final code and turn it in to Dropbox.</li>
+</ol>
 
+</div>
 </div>
 </div>
             </section>
