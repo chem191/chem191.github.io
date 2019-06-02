@@ -17,5 +17,5 @@ biblio-style: apalike
 # Preface {-}
 
 <small>
-*Copyright 2019 Al Fischer.  No part of this book may be reproduced without the express written consent of the author (although I'm usually more than happy to oblige).*
+*Copyright 2019 Al Fischer.  This work is released under the [CC-BY-NC-SA 4.0 license](https://creativecommons.org/licenses/by-sa/4.0/).  You are free to share, adapt, and reuse this material for non-commercial purposes but you MUST attribute the author and you MUST release the work under the CC-BY-NC-SA 4.0 license.*
 </small>
