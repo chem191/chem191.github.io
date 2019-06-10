@@ -2,6 +2,7 @@ bookdown::gitbook:
   css: style.css
   config:
     toc:
+      collapse: section
       before: |
         <li><a href="http://alphonse.github.io/chem191">CHEM 191 Main Page</a></li>
       after: |
