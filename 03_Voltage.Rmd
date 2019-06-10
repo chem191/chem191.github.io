@@ -2,3 +2,7 @@
 
 **Objective:**
 **To turn in:** 
+
+## Introduction {-}
+
+In the last exercise you used a Teensy to turn a light on and off, although we did not discuss what was happening electrically.
