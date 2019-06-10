@@ -30,11 +30,9 @@ This book will also make use of notes and warnings.  Examples are below.
 
 > A NOTE IN CAPITAL FONT REPRESENTS A SAFETY WARNING.  YOU **MUST** PAY ATTENTION TO THESE WARNING OR YOU MAY BREAK EQUIPMENT AND/OR HARM YOURSELF OR YOUR CLASSMATES.
 
-## About Electricity {-}
+## Is this dangerous? {-}
 
-### Is it dangerous?
-
-Yes! And no.  Although electricity can be very dangerous and even lethal, the work we'll do in this class shouldn't pose any particular danger if done carefully.  There are two important factors to consider when deciding how dangerous an electrical device is: (1) the voltage and (2) the current.  Generally speaking, it takes both to be dangerous.  Most of the voltage in these exercises will be either 3.3V or 5V, with currents on the order of 100 mA. These are relatively low voltages and low currents, are safe to work with, and do not pose a shock hazard.  That said, connecting things incorrectly can still break components, cause them to get very hot (they might burn you), or even go up in smoke so be careful when connecting things!
+Although electricity can be very dangerous and even lethal, the work we'll do in this class shouldn't pose any particular danger if done carefully.  There are two important factors to consider when deciding how dangerous an electrical device is: (1) the voltage and (2) the current.  Generally speaking, it takes both to be dangerous.  Most of the voltage in these exercises will be either 3.3V or 5V, with currents on the order of 100 mA. These are relatively low voltages and low currents, are safe to work with, and do not pose a shock hazard.  That said, connecting things incorrectly can still break components, cause them to get very hot (they might burn you), or even go up in smoke so be careful when connecting things!
 
 ## Additional Resources {-}
 
