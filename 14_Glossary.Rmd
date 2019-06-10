@@ -17,12 +17,16 @@ The potential energy difference between two points in a circuit measured in **vo
 The rate of work, measured in **Watts (W)**.  Practically speaking, power is the rate at which a circuit converts electrical energy to another form of energy (such as light).
 
 $$
-P = V \times i
+P = V i
 $$
 
 ### Resistance (*R*)
 
-The resistance to current flow, measured in **ohms ($\omega$)**.
+The resistance to current flow, measured in **ohms ($\Omega$)**.
+
+$$
+R = \frac{V}{i}
+$$
 
 ### LED
 
