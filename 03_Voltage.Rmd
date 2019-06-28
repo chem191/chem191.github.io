@@ -1,6 +1,6 @@
 # Voltage and Communication
 
-**Objective:** Measure a temperature with Teensy and display the result to the computer screen using serial communication.
+**Objective:** Measure a temperature with Teensy and display the result to the computer screen using serial communication.  
 **To turn in:** 
 
 ## Introduction {-}
