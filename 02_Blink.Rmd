@@ -163,4 +163,9 @@ You should have seen a single color blinking on and off.  Now, make some modific
 ### Make Your Own Changes
 
 1. Before you leave, modify your code to change the blink pattern.  You can change the sequence of the colors, the time between blinks, the number of blinks, or the amount of time each color is on.
-1. Save your final code and turn it in to Dropbox.
+
+### Turn in
+1. A hardcopy of your completed Exercise 2 Worksheet.
+1. An electronic copy of your final Blink code (submit to Dropbox).
+
+    > *Remember, files that don't follow the naming convention **exactly** will incur point deductions.*
