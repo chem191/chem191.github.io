@@ -13,6 +13,7 @@ Teensy is an offshoot of Arduino.  It is capapble of most everything an Arduino 
 ## Using this Book {-}
 
 Some common typographical (formatting) conventions will be used throughout this book.  
+
 ### Code {-}
 
 The exercises will make extensive use of computer code, which will always be represented with `monospace` font with a grey background.  It may be `inline` or 
