@@ -1,8 +1,62 @@
-# Voltage
+# Voltage and Communication
 
-**Objective:**
+**Objective:** Measure a temperature with Teensy and display the result to the computer screen using serial communication.
 **To turn in:** 
 
 ## Introduction {-}
 
-In the last exercise you used a Teensy to turn a light on and off, although we did not discuss what was happening electrically.
+In the last exercise you used a Teensy to turn a light on and off, although we did not discuss what was happening electrically. This exercise will explore the electrical workings of the Teensy and walk you through how to write code to *sense* signals from a device.  More specifically, you'll investigate (1) the concept of **voltage** while sensing temperature and (2) communicating .
+
+### Electricity {-}
+
+When first learning about electricity, it may help to think of it in analogous terms to water.  **Current** is the flow of electricity through a circuit, and is analogous to the current in a river.  Just like water molecules move through the river, charge carriers (electrons) in a move through the wires of the circuit.  **Voltage** is a *potential energy difference* between two points in a circuit.  This is analogous to the potential energy difference in water stored behind a dam and water at the bottom of the dam.   Current will not flow without a voltage difference, just as water will not flow without a difference in height or pressure.
+
+Recall that in the last exercise you turned an LED on and off using a pin on the Teensy.  You did this by alternately setting the pin to `HIGH` and `LOW`, as in:
+
+```{Rcpp, eval = FALSE}
+    digitalWrite(13, HIGH);
+    delay(1000);
+    digitalWrite(13, LOW);
+    delay(1000);
+```
+
+But what did this do internally in the Teensy?  When the Teensy gets the command `digitalWrite(13, HIGH);` it sets the voltage of pin 13 to 3.3 volts (3.3 V is standard voltage for microcontrollers).  Alternatively, when it gets the command `digitalWrite(13, LOW);`, it sets the voltage to 0 V.  Thus, when the voltage is 3.3 V, there is a potential difference across the LED from 3.3 V on the controlling pin (anode) to 0V on the ground pin (cathode).  This causes current to flow through the LED, which in turn causes the LED to light up.  When the voltage is set back to 0, there is no longer a potential difference across the LED, current does not flow, and the LED does not light up.
+
+You may have gotten the idea that voltage and current are inextricably linked, and that's true.  In fact, **Ohm's Law** provides a mathmatical relation between the two:
+
+\[
+\text{Voltage (volts)} = \text{Current (amps)} \times \text{Resistance (ohms, }\Omega\text{)}  \\
+V = iR
+\]
+
+This introduces a new concept, resistance.  **Resistance** is simply the opposition to flow of electrical current.  Resistance can be introduced to a circuit purposely with a device called a **resistor**.  Usually these are a defined, fixed resistance introduced for a specific purpose.  However, many sensors have a resistance that changes proporitionally to some stimulus.  Thus, the voltage across the device will change in response to that stimulus, and the stimulus can be measured simply by measuring the voltage.  As an example of how useful this is, consider a temperature sensor.  A computer or microcontroller cannot sense the temperature directly -- it only understands voltages.  A device that converts changes in temperature to changes in voltage allows the computer to infer changes in temperature.
+
+Although the voltage output from the Teensy pin was either HIGH or LOW, the voltage output from the temperature sensor can be any value.  A signal that can be only HIGH or LOW (i.e. on or off, 1 or 0), is called a **digital signal**.  Digital signals are often used to communicate between computers and to control many devices because they are relatively immune to outside noise.  Many sensors, on the other hand, produce signals that vary *continuously*, and such signals are called **analog signals**.  
+
+The Teensy can read *digital* signals on any of its digital I/O (input/output) pins (grey labels on the pinout diagram).  The Teensy can read *analog* signals on any of the analog input pin, which are shown with orange labels in the pinout diagram and numbered A0 through A22 (the A stands for analog).
+
+### Communicating via the serial port {-}
+
+In the previous exercise, you used digital signals to control an LED, but there was no communication between the Teensy and computer after the sketch was uploaded.  When reading signals, it's often useful to display the reading on the computer screen to have real-time feedback from the program.  To do this, the data collected on the Teensy board must be sent to the computer, the computer must read the data, and the computer must display it on the screen.  The communication protocol used to do this is called **serial communication**.  This is a very widely used protocol, and most computers used to come with a serial port built in.  In our case, we'll conduct serial communication over the USB port.
+
+Using serial communication on the Teensy is relatively simple.  The first step is to open the serial port and tell it what data transfer speed to use (basically how quickly the Teensy and the computer talk to each other).
+
+```{Rcpp, eval = FALSE}
+    Serial.begin(9600);
+```
+
+Once the connection is open, you can print most anything to the serial port you wish.  For example, a simple [hello world](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program) program would look something like:
+
+```{Rcpp, eval = FALSE}
+    Serial.begin(9600);
+    Serial.print("Hello, World!");
+```
+
+The above pseudocode would print "Hello, World!" to the computer's serial port.  The result could be displayed on the computer screen by opening the serial monitor in the Arduino IDE.  There are a few more details you'll learn as you go.
+
+In this exercise, you'll measure ambient temperatures using a temperature sensor and display the result to the computer screen via the serial port.
+
+## Connect the Temperature Sensor
+
+## Program the Teensy
+

@@ -5,7 +5,7 @@
 
 ## Introduction {-}
 
-This exercise will explore two concepts: (1) connecting devices to the Arduino and (2) the structure of the Arduino program used to control those devices.  As a first example, we'll connect an LED (light-emitting diode) to the Teensy and write a program to turn it on and off.
+This exercise will explore two concepts: (1) connecting devices to the Arduino and (2) the structure of the Arduino program used to *control* those devices.  As a first example, we'll connect an LED (light-emitting diode) to the Teensy and write a program to turn it on and off.
 
 ### How are things connected to a Teensy? {-}
 
@@ -25,7 +25,34 @@ A breadboard is shown in the figure below.  The holes in the breadboard are spac
 
 A *program*, or *sketch* in Arduino jargon, is a set of commands stored on the Teensy that tell it what to do.  Although a Teensy can do most anything a computer would do, it can only run a single program over and over.  For example, this exercise involves programming the Teensy to turn an LED on and off so that it blinks.  Other options would be to collect data from a temperature sensor, or turn a motor on a off to move a robot (or to do all of those things at once).
 
-An Arduino program always consists of two parts: (1) a `setup()` function and (2) a `loop()` function (more details about what a function is will come in future exercises).  The `setup()` function runs once every time the Teensy is powered on.  After that, the Teensy runs the `loop()` function over and over until it's turned off.  Usually, some initial lines of code are included above the `setup()` function provide definitions used throughout the program.
+An Arduino program always consists of two parts: (1) a `setup()` function and (2) a `loop()` function (more details about what a function is will come in future exercises).  The `setup()` function runs once every time the Teensy is powered on.  After that, the Teensy runs the `loop()` function over and over until it's turned off.  Usually, some initial lines of code are included above the `setup()` function provide definitions used throughout the program.  A "bare minimum" program with the `setup()` and `loop()` functions is shown below.  Note that this program does nothing other than run.
+
+```{Rcpp, eval = FALSE}
+    void setup() {
+      // anything written here will execute exactly once on startup
+    }
+    
+    void loop() {
+      // anything written here will execute over and over indefinitely until the power is turned off
+    }
+```
+
+Arduino sketches (programs) are written with the Arduino IDE (see Chapter 1).  To begin, you open the IDE and write your code in the text area of the program.  When your're done writing your code, you compile it and upload it to the board to run it.  If it compiles and uploads correctly, you will see a "Success" message in the message are of the IDE; if not, you'll see an error message and will need to troubleshoot your code.
+
+You should use comments when writing your program to clairfy what each part does.  Comments are not read by the compiler/board, and do not execute.  In other words, they are only to help humans reading the code understand it more easily.  To add a comment, just use the ``\\`` symbol; anything after that symbol won't be read by the program.  For example, you can make an entire line a comment, like the first line below.
+
+```{Rcpp, eval = FALSE}
+    // Pin 13 has the LED on Teensy 3.0
+    int led = 13;
+```
+
+You could also make a portion of a line a comment, like the second half of the line below.
+
+```{Rcpp, eval = FALSE}
+    int led = 13; // Pin 13 has the LED on Teensy 3.0
+```
+
+Finally, note that every line in the program *must* end with a semi-colon, `;`.
 
 In the exercise, we'll connect an 3-color LED to a Teensy and write a sketch to control it.
 
@@ -44,7 +71,7 @@ In the exercise, we'll connect an 3-color LED to a Teensy and write a sketch to 
 
 ![<small>*Your final setup should look something like this picture.*</small>](images/breadboard_led_teensy.png)
 
-## Program the Arduino
+## Program the Teensy
 
 ### One Color
 
@@ -61,7 +88,7 @@ In the exercise, we'll connect an 3-color LED to a Teensy and write a sketch to 
     int led = 13;
 ```
 
-  Anything following a `//` is a comment; it does not affect the Arduino program.  Please get in the habit of using comments to describe what each line of code does.
+  Remember, anything following a `//` is a comment; it does not affect the Arduino program.  Get in the habit of using comments to describe what each line of code does.
   
   The line `int led = 13` defines the name of pin 13 as `led`.  This name could be anything you wish.  In this case, `led` is useful because the LED is connected to pin 13.
 
@@ -83,7 +110,7 @@ In the exercise, we'll connect an 3-color LED to a Teensy and write a sketch to 
   delay(1000);               // wait for a second
 ```
 
-6. Assuming all those sections look good, press the **Upload** button (right arrow in top left).
+6. Assuming all those sections look good, press the **Upload** to button (right arrow in top left) to save, compile, and upload your sketch.
 
 ### Three Colors
 
@@ -96,6 +123,8 @@ You should have seen a single color blinking on and off.  Now, make some modific
     int green = 14;  // green pin connected to pin 14
     int red = 15;    // red pin connected to pin 15
 ```
+
+> *Have you saved your work yet?  The IDE doesn't autosave, so make sure you save it **frequently**!*
 
 2. Set each of those to outputs in the `setup()` function.  You will have to fill in the blanks for the red and green pins below.
 ```{Rcpp, eval = FALSE}
