@@ -47,7 +47,7 @@ This exercise will walk you through installation of the Arduino IDE, the softwar
 
     > BE ***EXTREMELY*** CAREFUL WITH THE USB CONNECTION ON THE TEENSY.  THEY BREAK ***VERY*** EASILY!!
 
-1. You should see the orange LED blinking on the Teensy.  If you do not, something is wrong with your Teensy and you should notify your instructor.
+1. You should see the orange light blinking on the Teensy.  If you do not, something is wrong with your Teensy and you should notify your instructor.
 
 ### Check the software
 1. Open the Arduino IDE.
@@ -57,4 +57,4 @@ This exercise will walk you through installation of the Arduino IDE, the softwar
 1. Click **Verify** in the software (checkmark button in upper left corner).
 1. Press the white button on the top of the Teensy.
 1. Press upload in the software (right arrow button, next to checkmark).
-1. You should see the orange LED blink more quickly.  If you encountered any errors, something could be wrong with your software installation or you may have made a typo in the code.  Notify your instructor of any problems.
+1. You should see the orange light blink more quickly.  If you encountered any errors, something could be wrong with your software installation or you may have made a typo in the code.  Notify your instructor of any problems.
