@@ -1,9 +1,18 @@
 # Functions
 
-**Objective:**
+**Objective:** 
 **To turn in:** 
 
-# Steps to a Successful Project
+## Introduction {-}
+
+The algorithm.
+
+## Writing a `blink()` Function
+
+## Using Functions
+
+
+<!-- # Steps to a Successful Project -->
 
 <!-- 1. Define your objective. -->
 <!-- 2. Write the algorithm. -->
