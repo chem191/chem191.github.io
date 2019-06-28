@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Preface | CHEM 191 Workbook: Building a Teensy Air Quality Monitor</title>
+  <title>Exercise 4 Functions: Building Blocks for Programs | CHEM 191 Workbook: Building a Teensy Air Quality Monitor</title>
   <meta name="description" content="Course Materials for CHEM 191: Issues in Environmental Chemistry" />
   <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Preface | CHEM 191 Workbook: Building a Teensy Air Quality Monitor" />
+  <meta property="og:title" content="Exercise 4 Functions: Building Blocks for Programs | CHEM 191 Workbook: Building a Teensy Air Quality Monitor" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Preface | CHEM 191 Workbook: Building a Teensy Air Quality Monitor" />
+  <meta name="twitter:title" content="Exercise 4 Functions: Building Blocks for Programs | CHEM 191 Workbook: Building a Teensy Air Quality Monitor" />
   
   <meta name="twitter:description" content="Course Materials for CHEM 191: Issues in Environmental Chemistry" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html">
-<link rel="next" href="getting-started-with-arduino.html">
+<link rel="prev" href="voltage-and-communication.html">
+<link rel="next" href="soldering-and-pcb-assembly.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -233,54 +233,118 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<div id="what-is-arduino" class="section level2 unnumbered">
-<h2>What is Arduino?</h2>
-<p>Over the course of the semester, we will build air quality monitors using the Teensy microcontroller platform. This platform is an offshoot of the popular Arduino microcontrollers, and they are very similar. This workbook will introduce you to the basics of Arduino and Teensy, and walk you through assembling and programming your air quality sensor.</p>
-<p><strong>Arduino</strong> is an <a href="http://www.wikipedia.com/wiki/Open-source">open-source</a> platform for developing interactive electronic devices. Arduinos of various flavors are used for all variety of things, from controlling motors and lights to reading data from sensors. Exercise 1 will provide a more thorough overview of Arduino.</p>
-</div>
-<div id="ok-but-what-is-teensy" class="section level2 unnumbered">
-<h2>OK, but what is Teensy?</h2>
-<p>Teensy is an offshoot of Arduino. It is capapble of most everything an Arduino can do and often much more. You might think of it as the supercar version of an Arduino. Aside from being more capable, it’s also smaller – a fact that gives rise to it’s name (Teensy). In this class, the names Teensy and Arduino will be used interchangeably. Exercise 1 will provide a more thorough overview of Teensy.</p>
-</div>
-<div id="using-this-book" class="section level2 unnumbered">
-<h2>Using this Book</h2>
-<p>Some common typographical (formatting) conventions will be used throughout this book.</p>
-<div id="code" class="section level3 unnumbered">
-<h3>Code</h3>
-<p>The exercises will make extensive use of computer code, which will always be represented with <code>monospace</code> font with a grey background. It may be <code>inline</code> or</p>
-<pre><code>offset.</code></pre>
-<p>When you see code, you should take time to thoroughly digest it. Sometimes the code may work as-is; other times you may have to add to the code to make it work. And other times the code may be <code>pseudocode</code>, which is example code that looks like it would work but will not actually compile. The code will often be color-coded to highlight various features of the programming language.</p>
-</div>
-<div id="notes-and-warnings" class="section level3 unnumbered">
-<h3>Notes and Warnings</h3>
-<p>This book will also make use of notes and warnings. Examples are below.</p>
+<div id="functions-building-blocks-for-programs" class="section level1">
+<h1><span class="header-section-number">Exercise 4</span> Functions: Building Blocks for Programs</h1>
+<p><strong>Objective:</strong>
+<strong>To turn in:</strong></p>
+<div id="introduction-3" class="section level2 unnumbered">
+<h2>Introduction</h2>
+<p>In previous exercises discussed the two function, <code>setup()</code> and <code>loop()</code> that are necessary for every Arduino sketch. You’ve also (perhaps unknowingly) used pre-defined functions to achieve tasks. In programming, a <strong>function</strong> is a defined piece of reusable code that can be used to perform an action. You could think of functions as modules that can be stacked together to create a program. For example, the items <code>digitalWrite()</code> and <code>Serial.print()</code> are both functions. The first, as we’ve seen, controls the logic level of a digital I/O pin on the Teensy while the latter prints data to the serial port.</p>
+<p>Note that functions all have a defined stucture, or <em>syntax</em>. This may vary from language to langages, but will be the same within any language. In Arduino (C), functions always take the form <code>function(argument_1, argument 2, ...);</code>, where <code>function()</code> is the function and <code>argument_1</code>, etc., are the entities the function acts on or uses in some way while executing the function. This is very similar to functions in mathmatics. Assume, for example:</p>
+<p><span class="math display">\[
+f(x) = 3x \\
+\]</span></p>
+<p>Here, we’ve defined a function, <span class="math inline">\(f\)</span>, that acts on argument <span class="math inline">\(x\)</span>. If we write <span class="math inline">\(f(2)\)</span>, we are saying we wish to substitute 2 for x in the function, yielding <span class="math inline">\(f(x) = 3 \times 2 = 6\)</span>.</p>
+<p>We could just as easily do this in Arduino. Using the same example, we can define a function <code>f()</code>:</p>
+<pre class="sourceCode cpp"><code class="sourceCode cpp">  <span class="dt">int</span> f(<span class="dt">int</span> x) {
+    <span class="cf">return</span> <span class="dv">3</span>*x
+  }</code></pre>
+<p>This function is equivalent to the mathmatical expression above. First, we define a function <code>f()</code> that takes one argument, <code>x</code> (contained within the parentheses). Within the function (denoted by the curly braces), we ask Arduino to output, or <strong>return</strong>, <span class="math inline">\(3 \times x\)</span>. After defining the function, we could write <code>f(2)</code> and Arduino would output <code>6</code>.</p>
 <blockquote>
-<p><em>A note is written in a quote box with italic font and represents background information or a bit of knowledge to think about.</em></p>
+<p>*What would Arduino output if you wrote <code>f(4)</code>?</p>
 </blockquote>
-<blockquote>
-<p>A NOTE ALL CAPITAL LETTERS REPRESENTS A SAFETY WARNING. YOU <strong>MUST</strong> PAY ATTENTION TO THESE WARNING OR YOU MAY BREAK EQUIPMENT AND/OR HARM YOURSELF OR YOUR CLASSMATES.</p>
-</blockquote>
+<div id="using-functions" class="section level3">
+<h3><span class="header-section-number">4.0.1</span> Using Functions</h3>
+<p>Although most of the work done in this class will rely on pre-written functions, You’ll explore the methods for writing your own function in this exercise to help you understand how they work. As mentioned above, you can think of function as modules or building blocks that can be combined to create desired outcome. For example, if you wished to create a program that flashed a light everytime the temperature was read and then displayed the result to the screen, you might wish to combine blocks for reading the temperature, flashing a light, and printing data to the computer screen:</p>
+<p><img src="images/blockDiagram_basic.png" /></p>
+<p>Creating the <strong>block diagrams</strong> can be very helpful in visualizing what a program will do, and just the process of creating one can help you think through what the program needs to achieve line-by-line. The program above has one problem: it assumes there is a function called <code>blink()</code> that will flash the LED. This is not true, but you’ll make one in this exercise. A list of built in functions can be found on the <a href="https://www.arduino.cc/reference/en/">Arduino website</a>; other functions specific to this class can be found in <a href="appendix-c-functions.html#appendix-c-functions">Appendix C</a>.</p>
 </div>
 </div>
-<div id="is-this-work-dangerous" class="section level2 unnumbered">
-<h2>Is this work dangerous?</h2>
-<p>Although electricity can be very dangerous and even lethal, the work we’ll do in this class shouldn’t pose any particular danger if done carefully. There are two important factors to consider when deciding how dangerous an electrical device is: (1) the voltage and (2) the current. Generally speaking, it takes both to be dangerous. Most of the voltage in these exercises will be either 3.3V or 5V, with currents on the order of 100 mA. These are relatively low voltages and low currents, are safe to work with, and do not pose a shock hazard. That said, connecting things incorrectly can still break components, cause them to get very hot (they might burn you), or even go up in smoke – be careful and double check yourself/your lab partner when connecting things!</p>
-</div>
-<div id="additional-resources" class="section level2 unnumbered">
-<h2>Additional Resources</h2>
-<p>There are myriad books, blog posts, and websites about Arduino, but few specifically deal with the Teensy version. This workbook and the <a href="http://www.pjrc.com">Teensy website</a> are your best resources regarding Teensy-specific items. The code used to program the Teensy (and Arduinos) is a version of <code>C</code>; knowing that will be useful when trying to find help online. The <a href="https://www.arduino.cc/reference/en/">Arduino language reference</a> provides a list of available functionalities and syntax.</p>
-<p>If you want more general information on programming Arduinos, the Arduino IDE, or electronics, you may check some of the following:</p>
+<div id="writing-a-blink-function" class="section level2">
+<h2><span class="header-section-number">4.1</span> Writing a <code>blink()</code> Function</h2>
+<ol style="list-style-type: decimal">
+<li>On your worksheet, create a diagram like the one above for a function that would blink and LED on and off. Your function should:</li>
+</ol>
 <ul>
-<li>Monk, Simon. <a href="https://www.amazon.com/Programming-Arduino-Getting-Started-Sketches/dp/0071784225"><strong><em>Programming Arduino: Getting Started with Sketches</em></strong></a>.<br />
-</li>
-<li>Scherz, Paul and Simon Monk. <a href="https://www.amazon.com/Practical-Electronics-Inventors-Fourth-Scherz/dp/1259587541/ref=pd_lpo_sbs_14_t_0?_encoding=UTF8&amp;psc=1&amp;refRID=9JN842FPFMNAA9RQV8X3"><strong><em>Practical Electronics for Inventors</em></strong></a>.<br />
-</li>
-<li>The Arduino <a href="https://forum.arduino.cc/">forum</a>.<br />
-</li>
-<li>Boxall, John. <a href="https://www.amazon.com/Arduino-Workshop-Hands-Introduction-Projects/dp/1593274483"><strong><em>Arduino Workshop</em></strong></a>.</li>
+<li>Be called <code>blink()</code>.</li>
+<li>Turn the LED on for a set amount of time.</li>
+<li>Turn the LED off for a set amount of time.</li>
 </ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Define your function in Arduino. Open a blank sketch by clicking <code>File &gt; Examples &gt; Bare Minimum</code>. Add your variable definitions to the top and set the appropriate pins as outputs in your <code>setup()</code> function using <code>pinMode</code>. Refer to your previous exercises if you can’t remember how to do those things.</li>
+</ol>
+<pre class="sourceCode cpp"><code class="sourceCode cpp">  <span class="co">// define variables here</span>
+  
+  <span class="dt">void</span> setup() {
+    <span class="co">// set pinMode() here</span>
+  }
+  
+  <span class="dt">void</span> loop() {
+    <span class="co">// leave blank for now</span>
+  }</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Define your <code>blink()</code> function at the bottom of your sketch. Follow the format below (don’t worry about the <code>void</code> part now – just know that you need to use it).</li>
+</ol>
+<pre class="sourceCode cpp"><code class="sourceCode cpp">  <span class="co">// define variables here</span>
+  
+  <span class="dt">void</span> setup() {
+    <span class="co">// set pinMode() here</span>
+  }
+  
+  <span class="dt">void</span> loop() {
+    <span class="co">// leave blank for now</span>
+  }
+  
+  <span class="dt">void</span> blink(<span class="dt">int</span> ledPin) {
+    digitalWrite(ledPin, HIGH); <span class="co">// turn LED on</span>
+    ___________________________ <span class="co">// wait x milliseconds</span>
+    ___________________________ <span class="co">// turn LED off</span>
+    ___________________________ <span class="co">// wait x milliseconds</span>
+  }</code></pre>
+</div>
+<div id="using-functions-1" class="section level2">
+<h2><span class="header-section-number">4.2</span> Using Functions</h2>
+<ol style="list-style-type: decimal">
+<li>Add the function into your code and test it out.</li>
+</ol>
+<pre class="sourceCode cpp"><code class="sourceCode cpp">  <span class="co">// define variables here</span>
+  
+  <span class="dt">void</span> setup() {
+    <span class="co">// set pinMode() here</span>
+  }
+  
+  <span class="dt">void</span> loop() {
+    blink(________);
+  }
+  
+  <span class="dt">void</span> blink(<span class="dt">int</span> ledPin) {
+    digitalWrite(ledPin, HIGH); <span class="co">// turn LED on</span>
+    ___________________________ <span class="co">// wait x milliseconds</span>
+    ___________________________ <span class="co">// turn LED off</span>
+    ___________________________ <span class="co">// wait x milliseconds</span>
+  }</code></pre>
+</div>
+<div id="write-functions-with-multiple-arguments" class="section level2">
+<h2><span class="header-section-number">4.3</span> Write Functions With Multiple Arguments</h2>
+<ol style="list-style-type: decimal">
+<li>Create a second function called <code>blink2();</code>. It should do the same thing as blink but allow for a variable blinking time.</li>
+</ol>
+<pre class="sourceCode cpp"><code class="sourceCode cpp">  <span class="dt">void</span> blink(<span class="dt">int</span> ledPin, <span class="dt">int</span> interval) {
+    <span class="co">// turn LED on</span>
+    <span class="co">// wait x milliseconds</span>
+    <span class="co">// turn LED off</span>
+    <span class="co">// wait x milliseconds</span>
+  }</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Add this to your code and use it with <code>blink()</code>.</li>
+</ol>
+</div>
+<div id="turn-in-1" class="section level2">
+<h2><span class="header-section-number">4.4</span> Turn In</h2>
+<ol style="list-style-type: decimal">
+<li>Turn in a hardcopy of your completed worksheet.</li>
+<li>Turn in an electronic copy of your code containing the functions <code>blink();</code> and <code>blink2()</code> that shows use of both.</li>
+</ol>
 
 </div>
 </div>
@@ -289,8 +353,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="getting-started-with-arduino.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="voltage-and-communication.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="soldering-and-pcb-assembly.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
