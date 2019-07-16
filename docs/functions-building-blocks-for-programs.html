@@ -49,9 +49,9 @@
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -61,16 +61,14 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -79,9 +77,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  {  }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -189,23 +187,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="appendix-b-gory-details.html"><a href="appendix-b-gory-details.html"><i class="fa fa-check"></i>Appendix B: Gory Details</a><ul>
 <li class="chapter" data-level="" data-path="appendix-b-gory-details.html"><a href="appendix-b-gory-details.html#using-the-snooze-library"><i class="fa fa-check"></i>Using the Snooze Library</a></li>
 <li class="chapter" data-level="" data-path="appendix-b-gory-details.html"><a href="appendix-b-gory-details.html#using-the-rtc"><i class="fa fa-check"></i>Using the RTC</a></li>
-<li class="chapter" data-level="" data-path="appendix-b-gory-details.html"><a href="appendix-b-gory-details.html#char-vs.-string"><i class="fa fa-check"></i>Char[] vs. String</a></li>
+<li><a href="appendix-b-gory-details.html#char-vs.string">Char<span></span> vs. String</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html"><i class="fa fa-check"></i>Appendix C: Functions</a><ul>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#blink"><i class="fa fa-check"></i>blink()</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#checkconnection"><i class="fa fa-check"></i>checkConnection()</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#createfilenameint-y-int-m-int-d"><i class="fa fa-check"></i>createFileName(int y, int m, int d)</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#filldigitsint-digits"><i class="fa fa-check"></i>fillDigits(int digits)</a></li>
 <li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#getteensy3time"><i class="fa fa-check"></i>getTeensy3Time()</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#performpmreading"><i class="fa fa-check"></i>performPMReading()</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#printdata"><i class="fa fa-check"></i>printData()</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#setbmesamplingparameters"><i class="fa fa-check"></i>setBMESamplingParameters()</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#initializeboard"><i class="fa fa-check"></i>initializeBoard()</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#pmstartmeasurement"><i class="fa fa-check"></i>pmStartMeasurement()</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#pmstopmeasurement"><i class="fa fa-check"></i>pmStopMeasurement()</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#writefilechar-filename16"><i class="fa fa-check"></i>writeFile(char filename[16])</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#blink"><i class="fa fa-check"></i>blink()</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#filldigitsint-digits"><i class="fa fa-check"></i>fillDigits(int digits)</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#printtimeint-h-int-m-int-s"><i class="fa fa-check"></i>printTime(int h, int m, int s)</a></li>
 <li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#printdateint-y-int-m-int-d"><i class="fa fa-check"></i>printDate(int y, int m, int d)</a></li>
 <li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#printdatetimestring-d-string-t"><i class="fa fa-check"></i>printDateTime(String d, String t)</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#printtimeint-h-int-m-int-s"><i class="fa fa-check"></i>printTime(int h, int m, int s)</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#setbmesamplingparameters"><i class="fa fa-check"></i>setBMESamplingParameters()</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#turnsensorsoff"><i class="fa fa-check"></i>turnSensorsOff()</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#turnsensorson"><i class="fa fa-check"></i>turnSensorsOn()</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#writefilechar-filename16"><i class="fa fa-check"></i>writeFile(char filename[16])</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#printdata"><i class="fa fa-check"></i>printData()</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#createfilenameint-y-int-m-int-d"><i class="fa fa-check"></i>createFileName(int y, int m, int d)</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="appendix-d-strategies-for-troubleshooting.html"><a href="appendix-d-strategies-for-troubleshooting.html"><i class="fa fa-check"></i>Appendix D: Strategies for Troubleshooting</a></li>
 <li class="chapter" data-level="" data-path="glossary-and-abbreviations.html"><a href="glossary-and-abbreviations.html"><i class="fa fa-check"></i>Glossary and Abbreviations</a><ul>
@@ -249,9 +246,9 @@ f(x) = 3x \\
 \]</span></p>
 <p>Here, we’ve defined a function, <span class="math inline">\(f\)</span>, that acts on argument <span class="math inline">\(x\)</span>. If we write <span class="math inline">\(f(2)\)</span>, we are saying we wish to substitute 2 for x in the function, yielding <span class="math inline">\(f(x) = 3 \times 2 = 6\)</span>.</p>
 <p>We could just as easily do this in Arduino. Using the same example, we can define a function <code>f()</code>:</p>
-<pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="functions-building-blocks-for-programs.html#cb14-1"></a>  <span class="dt">int</span> f(<span class="dt">int</span> x) {</span>
-<span id="cb14-2"><a href="functions-building-blocks-for-programs.html#cb14-2"></a>    <span class="cf">return</span> <span class="dv">3</span>*x</span>
-<span id="cb14-3"><a href="functions-building-blocks-for-programs.html#cb14-3"></a>  }</span></code></pre></div>
+<pre class="sourceCode cpp"><code class="sourceCode cpp">  <span class="dt">int</span> f(<span class="dt">int</span> x) {
+    <span class="cf">return</span> <span class="dv">3</span>*x
+  }</code></pre>
 <p>This function is equivalent to the mathmatical expression above. First, we define a function <code>f()</code> that takes one argument, <code>x</code> (contained within the parentheses). Within the function (denoted by the curly braces), we ask Arduino to output, or <strong>return</strong>, <span class="math inline">\(3 \times x\)</span>. After defining the function, we could write <code>f(2)</code> and Arduino would output <code>6</code>.</p>
 <blockquote>
 <p>*What would Arduino output if you wrote <code>f(4)</code>?</p>
@@ -276,68 +273,68 @@ f(x) = 3x \\
 <ol start="2" style="list-style-type: decimal">
 <li>Define your function in Arduino. Open a blank sketch by clicking <code>File &gt; Examples &gt; Bare Minimum</code>. Add your variable definitions to the top and set the appropriate pins as outputs in your <code>setup()</code> function using <code>pinMode</code>. Refer to your previous exercises if you can’t remember how to do those things.</li>
 </ol>
-<pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="functions-building-blocks-for-programs.html#cb15-1"></a>  <span class="co">// define variables here</span></span>
-<span id="cb15-2"><a href="functions-building-blocks-for-programs.html#cb15-2"></a>  </span>
-<span id="cb15-3"><a href="functions-building-blocks-for-programs.html#cb15-3"></a>  <span class="dt">void</span> setup() {</span>
-<span id="cb15-4"><a href="functions-building-blocks-for-programs.html#cb15-4"></a>    <span class="co">// set pinMode() here</span></span>
-<span id="cb15-5"><a href="functions-building-blocks-for-programs.html#cb15-5"></a>  }</span>
-<span id="cb15-6"><a href="functions-building-blocks-for-programs.html#cb15-6"></a>  </span>
-<span id="cb15-7"><a href="functions-building-blocks-for-programs.html#cb15-7"></a>  <span class="dt">void</span> loop() {</span>
-<span id="cb15-8"><a href="functions-building-blocks-for-programs.html#cb15-8"></a>    <span class="co">// leave blank for now</span></span>
-<span id="cb15-9"><a href="functions-building-blocks-for-programs.html#cb15-9"></a>  }</span></code></pre></div>
+<pre class="sourceCode cpp"><code class="sourceCode cpp">  <span class="co">// define variables here</span>
+  
+  <span class="dt">void</span> setup() {
+    <span class="co">// set pinMode() here</span>
+  }
+  
+  <span class="dt">void</span> loop() {
+    <span class="co">// leave blank for now</span>
+  }</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Define your <code>blink()</code> function at the bottom of your sketch. Follow the format below (don’t worry about the <code>void</code> part now – just know that you need to use it).</li>
 </ol>
-<pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb16-1"><a href="functions-building-blocks-for-programs.html#cb16-1"></a>  <span class="co">// define variables here</span></span>
-<span id="cb16-2"><a href="functions-building-blocks-for-programs.html#cb16-2"></a>  </span>
-<span id="cb16-3"><a href="functions-building-blocks-for-programs.html#cb16-3"></a>  <span class="dt">void</span> setup() {</span>
-<span id="cb16-4"><a href="functions-building-blocks-for-programs.html#cb16-4"></a>    <span class="co">// set pinMode() here</span></span>
-<span id="cb16-5"><a href="functions-building-blocks-for-programs.html#cb16-5"></a>  }</span>
-<span id="cb16-6"><a href="functions-building-blocks-for-programs.html#cb16-6"></a>  </span>
-<span id="cb16-7"><a href="functions-building-blocks-for-programs.html#cb16-7"></a>  <span class="dt">void</span> loop() {</span>
-<span id="cb16-8"><a href="functions-building-blocks-for-programs.html#cb16-8"></a>    <span class="co">// leave blank for now</span></span>
-<span id="cb16-9"><a href="functions-building-blocks-for-programs.html#cb16-9"></a>  }</span>
-<span id="cb16-10"><a href="functions-building-blocks-for-programs.html#cb16-10"></a>  </span>
-<span id="cb16-11"><a href="functions-building-blocks-for-programs.html#cb16-11"></a>  <span class="dt">void</span> blink(<span class="dt">int</span> ledPin) {</span>
-<span id="cb16-12"><a href="functions-building-blocks-for-programs.html#cb16-12"></a>    digitalWrite(ledPin, HIGH); <span class="co">// turn LED on</span></span>
-<span id="cb16-13"><a href="functions-building-blocks-for-programs.html#cb16-13"></a>    ___________________________ <span class="co">// wait x milliseconds</span></span>
-<span id="cb16-14"><a href="functions-building-blocks-for-programs.html#cb16-14"></a>    ___________________________ <span class="co">// turn LED off</span></span>
-<span id="cb16-15"><a href="functions-building-blocks-for-programs.html#cb16-15"></a>    ___________________________ <span class="co">// wait x milliseconds</span></span>
-<span id="cb16-16"><a href="functions-building-blocks-for-programs.html#cb16-16"></a>  }</span></code></pre></div>
+<pre class="sourceCode cpp"><code class="sourceCode cpp">  <span class="co">// define variables here</span>
+  
+  <span class="dt">void</span> setup() {
+    <span class="co">// set pinMode() here</span>
+  }
+  
+  <span class="dt">void</span> loop() {
+    <span class="co">// leave blank for now</span>
+  }
+  
+  <span class="dt">void</span> blink(<span class="dt">int</span> ledPin) {
+    digitalWrite(ledPin, HIGH); <span class="co">// turn LED on</span>
+    ___________________________ <span class="co">// wait x milliseconds</span>
+    ___________________________ <span class="co">// turn LED off</span>
+    ___________________________ <span class="co">// wait x milliseconds</span>
+  }</code></pre>
 </div>
 <div id="using-functions-1" class="section level2">
 <h2><span class="header-section-number">4.2</span> Using Functions</h2>
 <ol style="list-style-type: decimal">
 <li>Add the function into your code and test it out.</li>
 </ol>
-<pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb17-1"><a href="functions-building-blocks-for-programs.html#cb17-1"></a>  <span class="co">// define variables here</span></span>
-<span id="cb17-2"><a href="functions-building-blocks-for-programs.html#cb17-2"></a>  </span>
-<span id="cb17-3"><a href="functions-building-blocks-for-programs.html#cb17-3"></a>  <span class="dt">void</span> setup() {</span>
-<span id="cb17-4"><a href="functions-building-blocks-for-programs.html#cb17-4"></a>    <span class="co">// set pinMode() here</span></span>
-<span id="cb17-5"><a href="functions-building-blocks-for-programs.html#cb17-5"></a>  }</span>
-<span id="cb17-6"><a href="functions-building-blocks-for-programs.html#cb17-6"></a>  </span>
-<span id="cb17-7"><a href="functions-building-blocks-for-programs.html#cb17-7"></a>  <span class="dt">void</span> loop() {</span>
-<span id="cb17-8"><a href="functions-building-blocks-for-programs.html#cb17-8"></a>    blink(________);</span>
-<span id="cb17-9"><a href="functions-building-blocks-for-programs.html#cb17-9"></a>  }</span>
-<span id="cb17-10"><a href="functions-building-blocks-for-programs.html#cb17-10"></a>  </span>
-<span id="cb17-11"><a href="functions-building-blocks-for-programs.html#cb17-11"></a>  <span class="dt">void</span> blink(<span class="dt">int</span> ledPin) {</span>
-<span id="cb17-12"><a href="functions-building-blocks-for-programs.html#cb17-12"></a>    digitalWrite(ledPin, HIGH); <span class="co">// turn LED on</span></span>
-<span id="cb17-13"><a href="functions-building-blocks-for-programs.html#cb17-13"></a>    ___________________________ <span class="co">// wait x milliseconds</span></span>
-<span id="cb17-14"><a href="functions-building-blocks-for-programs.html#cb17-14"></a>    ___________________________ <span class="co">// turn LED off</span></span>
-<span id="cb17-15"><a href="functions-building-blocks-for-programs.html#cb17-15"></a>    ___________________________ <span class="co">// wait x milliseconds</span></span>
-<span id="cb17-16"><a href="functions-building-blocks-for-programs.html#cb17-16"></a>  }</span></code></pre></div>
+<pre class="sourceCode cpp"><code class="sourceCode cpp">  <span class="co">// define variables here</span>
+  
+  <span class="dt">void</span> setup() {
+    <span class="co">// set pinMode() here</span>
+  }
+  
+  <span class="dt">void</span> loop() {
+    blink(________);
+  }
+  
+  <span class="dt">void</span> blink(<span class="dt">int</span> ledPin) {
+    digitalWrite(ledPin, HIGH); <span class="co">// turn LED on</span>
+    ___________________________ <span class="co">// wait x milliseconds</span>
+    ___________________________ <span class="co">// turn LED off</span>
+    ___________________________ <span class="co">// wait x milliseconds</span>
+  }</code></pre>
 </div>
 <div id="write-functions-with-multiple-arguments" class="section level2">
 <h2><span class="header-section-number">4.3</span> Write Functions With Multiple Arguments</h2>
 <ol style="list-style-type: decimal">
 <li>Create a second function called <code>blink2();</code>. It should do the same thing as blink but allow for a variable blinking time.</li>
 </ol>
-<pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb18-1"><a href="functions-building-blocks-for-programs.html#cb18-1"></a>  <span class="dt">void</span> blink(<span class="dt">int</span> ledPin, <span class="dt">int</span> interval) {</span>
-<span id="cb18-2"><a href="functions-building-blocks-for-programs.html#cb18-2"></a>    <span class="co">// turn LED on</span></span>
-<span id="cb18-3"><a href="functions-building-blocks-for-programs.html#cb18-3"></a>    <span class="co">// wait x milliseconds</span></span>
-<span id="cb18-4"><a href="functions-building-blocks-for-programs.html#cb18-4"></a>    <span class="co">// turn LED off</span></span>
-<span id="cb18-5"><a href="functions-building-blocks-for-programs.html#cb18-5"></a>    <span class="co">// wait x milliseconds</span></span>
-<span id="cb18-6"><a href="functions-building-blocks-for-programs.html#cb18-6"></a>  }</span></code></pre></div>
+<pre class="sourceCode cpp"><code class="sourceCode cpp">  <span class="dt">void</span> blink(<span class="dt">int</span> ledPin, <span class="dt">int</span> interval) {
+    <span class="co">// turn LED on</span>
+    <span class="co">// wait x milliseconds</span>
+    <span class="co">// turn LED off</span>
+    <span class="co">// wait x milliseconds</span>
+  }</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Add this to your code and use it with <code>blink()</code>.</li>
 </ol>
