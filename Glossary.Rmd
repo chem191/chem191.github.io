@@ -1,4 +1,4 @@
-# Glossary and Abbreviations {-}
+# Appendix C: Glossary and Abbreviations {-}
 
 ### Current (*i*) {-}
 

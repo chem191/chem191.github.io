@@ -1,4 +1,4 @@
-# Appendix C: Function Library {-}
+# Appendix A: Function Library {-}
 
 
 ## blink() {-}

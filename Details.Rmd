@@ -1,4 +1,4 @@
-# Appendix B: Gory Details {-}
+# Appendix D: Gory Details {-}
 
 ## Using the Snooze Library {-}
 

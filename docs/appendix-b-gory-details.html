@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Appendix B: Gory Details | CHEM 191 Workbook: Building a Teensy Air Quality Monitor</title>
   <meta name="description" content="Course Materials for CHEM 191: Issues in Environmental Chemistry" />
-  <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Appendix B: Gory Details | CHEM 191 Workbook: Building a Teensy Air Quality Monitor" />
   <meta property="og:type" content="book" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="appendix-a-arduino-cookbook.html">
-<link rel="next" href="appendix-c-functions.html">
+<link rel="next" href="appendix-c-function-library.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -49,26 +49,27 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -77,9 +78,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -187,22 +188,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="appendix-b-gory-details.html"><a href="appendix-b-gory-details.html"><i class="fa fa-check"></i>Appendix B: Gory Details</a><ul>
 <li class="chapter" data-level="" data-path="appendix-b-gory-details.html"><a href="appendix-b-gory-details.html#using-the-snooze-library"><i class="fa fa-check"></i>Using the Snooze Library</a></li>
 <li class="chapter" data-level="" data-path="appendix-b-gory-details.html"><a href="appendix-b-gory-details.html#using-the-rtc"><i class="fa fa-check"></i>Using the RTC</a></li>
-<li><a href="appendix-b-gory-details.html#char-vs.string">Char<span></span> vs. String</a></li>
+<li class="chapter" data-level="" data-path="appendix-b-gory-details.html"><a href="appendix-b-gory-details.html#char-vs.-string"><i class="fa fa-check"></i>Char[] vs. String</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html"><i class="fa fa-check"></i>Appendix C: Functions</a><ul>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#getteensy3time"><i class="fa fa-check"></i>getTeensy3Time()</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#setbmesamplingparameters"><i class="fa fa-check"></i>setBMESamplingParameters()</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#initializeboard"><i class="fa fa-check"></i>initializeBoard()</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#pmstartmeasurement"><i class="fa fa-check"></i>pmStartMeasurement()</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#pmstopmeasurement"><i class="fa fa-check"></i>pmStopMeasurement()</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#writefilechar-filename16"><i class="fa fa-check"></i>writeFile(char filename[16])</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#blink"><i class="fa fa-check"></i>blink()</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#filldigitsint-digits"><i class="fa fa-check"></i>fillDigits(int digits)</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#printtimeint-h-int-m-int-s"><i class="fa fa-check"></i>printTime(int h, int m, int s)</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#printdateint-y-int-m-int-d"><i class="fa fa-check"></i>printDate(int y, int m, int d)</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#printdatetimestring-d-string-t"><i class="fa fa-check"></i>printDateTime(String d, String t)</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#printdata"><i class="fa fa-check"></i>printData()</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#createfilenameint-y-int-m-int-d"><i class="fa fa-check"></i>createFileName(int y, int m, int d)</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html"><i class="fa fa-check"></i>Appendix C: Function Library</a><ul>
+<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#blink"><i class="fa fa-check"></i>blink()</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#checkconnection"><i class="fa fa-check"></i>checkConnection()</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#createfilenameint-y-int-m-int-d"><i class="fa fa-check"></i>createFileName(int y, int m, int d)</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#filldigitsint-digits"><i class="fa fa-check"></i>fillDigits(int digits)</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#getteensy3time"><i class="fa fa-check"></i>getTeensy3Time()</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#performpmreading"><i class="fa fa-check"></i>performPMReading()</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#printdata"><i class="fa fa-check"></i>printData()</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#printdateint-y-int-m-int-d"><i class="fa fa-check"></i>printDate(int y, int m, int d)</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#printdatetimestring-d-string-t"><i class="fa fa-check"></i>printDateTime(String d, String t)</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#printtimeint-h-int-m-int-s"><i class="fa fa-check"></i>printTime(int h, int m, int s)</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#setbmesamplingparameters"><i class="fa fa-check"></i>setBMESamplingParameters()</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#turnsensorsoff"><i class="fa fa-check"></i>turnSensorsOff()</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#turnsensorson"><i class="fa fa-check"></i>turnSensorsOn()</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#writefilechar-filename16"><i class="fa fa-check"></i>writeFile(char filename[16])</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="appendix-d-strategies-for-troubleshooting.html"><a href="appendix-d-strategies-for-troubleshooting.html"><i class="fa fa-check"></i>Appendix D: Strategies for Troubleshooting</a></li>
 <li class="chapter" data-level="" data-path="glossary-and-abbreviations.html"><a href="glossary-and-abbreviations.html"><i class="fa fa-check"></i>Glossary and Abbreviations</a><ul>
@@ -240,14 +242,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The Snooze library for Teensy allows us to put the Teensy into a hibernation mode, wherein it uses very little power. The Snooze library and it’s documentation can be found here: <a href="">https://github.com/duff2013/Snooze</a>.</p>
 <p>The library allows for numerous wakeups, including checking if a button is pressed, using a delay, and checking for a voltage threshold to be crossed among other options. We’ll use the real-time clock (RTC) wakeup for this project. The RTC wakeup allows the user to wake the Teensy up after a defined amount of time, as counted in hours, minutes, and/or seconds by the RTC on the Teensy.</p>
 <p>The first step to using Snooze is to call the library, load the alarm driver, and configure the SnoozeBlock to use the alarm driver. All of this goes <em>before</em> the <code>setup()</code> portion of the program.</p>
-<pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="pp">#include </span><span class="im">&lt;Snooze.h&gt;</span>
-SnoozeAlarm alarm;
-SnoozeBlock config_teensy35(alarm)</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb19-1"><a href="appendix-b-gory-details.html#cb19-1"></a><span class="pp">#include </span><span class="im">&lt;Snooze.h&gt;</span></span>
+<span id="cb19-2"><a href="appendix-b-gory-details.html#cb19-2"></a>SnoozeAlarm alarm;</span>
+<span id="cb19-3"><a href="appendix-b-gory-details.html#cb19-3"></a>SnoozeBlock config_teensy35(alarm)</span></code></pre></div>
 <p>Then, we set the RTC timer for the desired snooze period (in the <code>setup()</code> function). In the example below the Teensy will wake up after 5 minutes.</p>
-<pre class="sourceCode cpp"><code class="sourceCode cpp">alarm.setRtcTimer(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">0</span>); <span class="co">// h, m, s</span></code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb20-1"><a href="appendix-b-gory-details.html#cb20-1"></a>alarm.setRtcTimer(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">0</span>); <span class="co">// h, m, s</span></span></code></pre></div>
 <p>Finally, we put the Teensy into hibernation mode <code>loop()</code> function. Other options exist, such as deep sleep and sleep, but hibernate uses the least power.</p>
-<pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="dt">int</span> who;
-who = Snooze.hibernate(config_teensy35);</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb21-1"><a href="appendix-b-gory-details.html#cb21-1"></a><span class="dt">int</span> who;</span>
+<span id="cb21-2"><a href="appendix-b-gory-details.html#cb21-2"></a>who = Snooze.hibernate(config_teensy35);</span></code></pre></div>
 <p>The Snooze function will return the pin number that caused the Teensy to wake up. The RTC wakes the Teensy up on pin 35. To know when that’s happened, we just wait until <code>who</code> is set to 35.</p>
 <pre class="rccp"><code>if (who == 35) {
   # do something here
@@ -262,8 +264,8 @@ who = Snooze.hibernate(config_teensy35);</code></pre>
 <li>The RTC runs during hibernation at full functionality. However, the Time library needs to resync everytime the Teensy wakes up using <code>setSyncProvider(getTeensy3Time);</code></li>
 </ul>
 </div>
-<div id="char-vs.string" class="section level2 unnumbered">
-<h2>Char<a href="index.html#section"></a> vs. String</h2>
+<div id="char-vs.-string" class="section level2 unnumbered">
+<h2>Char[] vs. String</h2>
 
 </div>
 </div>
@@ -273,7 +275,7 @@ who = Snooze.hibernate(config_teensy35);</code></pre>
         </div>
       </div>
 <a href="appendix-a-arduino-cookbook.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="appendix-c-functions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="appendix-c-function-library.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

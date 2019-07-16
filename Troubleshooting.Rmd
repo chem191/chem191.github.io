@@ -1,4 +1,4 @@
-# Appendix D: Strategies for Troubleshooting {-}
+# Appendix B: Strategies for Troubleshooting {-}
 
 <!-- # Steps to a Successful Project -->
 

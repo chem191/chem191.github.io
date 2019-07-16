@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Appendix D: Strategies for Troubleshooting | CHEM 191 Workbook: Building a Teensy Air Quality Monitor</title>
   <meta name="description" content="Course Materials for CHEM 191: Issues in Environmental Chemistry" />
-  <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Appendix D: Strategies for Troubleshooting | CHEM 191 Workbook: Building a Teensy Air Quality Monitor" />
   <meta property="og:type" content="book" />
@@ -30,7 +30,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="appendix-c-functions.html">
+<link rel="prev" href="appendix-c-function-library.html">
 <link rel="next" href="glossary-and-abbreviations.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -49,26 +49,27 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -77,9 +78,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -187,22 +188,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="appendix-b-gory-details.html"><a href="appendix-b-gory-details.html"><i class="fa fa-check"></i>Appendix B: Gory Details</a><ul>
 <li class="chapter" data-level="" data-path="appendix-b-gory-details.html"><a href="appendix-b-gory-details.html#using-the-snooze-library"><i class="fa fa-check"></i>Using the Snooze Library</a></li>
 <li class="chapter" data-level="" data-path="appendix-b-gory-details.html"><a href="appendix-b-gory-details.html#using-the-rtc"><i class="fa fa-check"></i>Using the RTC</a></li>
-<li><a href="appendix-b-gory-details.html#char-vs.string">Char<span></span> vs. String</a></li>
+<li class="chapter" data-level="" data-path="appendix-b-gory-details.html"><a href="appendix-b-gory-details.html#char-vs.-string"><i class="fa fa-check"></i>Char[] vs. String</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html"><i class="fa fa-check"></i>Appendix C: Functions</a><ul>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#getteensy3time"><i class="fa fa-check"></i>getTeensy3Time()</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#setbmesamplingparameters"><i class="fa fa-check"></i>setBMESamplingParameters()</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#initializeboard"><i class="fa fa-check"></i>initializeBoard()</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#pmstartmeasurement"><i class="fa fa-check"></i>pmStartMeasurement()</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#pmstopmeasurement"><i class="fa fa-check"></i>pmStopMeasurement()</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#writefilechar-filename16"><i class="fa fa-check"></i>writeFile(char filename[16])</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#blink"><i class="fa fa-check"></i>blink()</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#filldigitsint-digits"><i class="fa fa-check"></i>fillDigits(int digits)</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#printtimeint-h-int-m-int-s"><i class="fa fa-check"></i>printTime(int h, int m, int s)</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#printdateint-y-int-m-int-d"><i class="fa fa-check"></i>printDate(int y, int m, int d)</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#printdatetimestring-d-string-t"><i class="fa fa-check"></i>printDateTime(String d, String t)</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#printdata"><i class="fa fa-check"></i>printData()</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-functions.html"><a href="appendix-c-functions.html#createfilenameint-y-int-m-int-d"><i class="fa fa-check"></i>createFileName(int y, int m, int d)</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html"><i class="fa fa-check"></i>Appendix C: Function Library</a><ul>
+<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#blink"><i class="fa fa-check"></i>blink()</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#checkconnection"><i class="fa fa-check"></i>checkConnection()</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#createfilenameint-y-int-m-int-d"><i class="fa fa-check"></i>createFileName(int y, int m, int d)</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#filldigitsint-digits"><i class="fa fa-check"></i>fillDigits(int digits)</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#getteensy3time"><i class="fa fa-check"></i>getTeensy3Time()</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#performpmreading"><i class="fa fa-check"></i>performPMReading()</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#printdata"><i class="fa fa-check"></i>printData()</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#printdateint-y-int-m-int-d"><i class="fa fa-check"></i>printDate(int y, int m, int d)</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#printdatetimestring-d-string-t"><i class="fa fa-check"></i>printDateTime(String d, String t)</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#printtimeint-h-int-m-int-s"><i class="fa fa-check"></i>printTime(int h, int m, int s)</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#setbmesamplingparameters"><i class="fa fa-check"></i>setBMESamplingParameters()</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#turnsensorsoff"><i class="fa fa-check"></i>turnSensorsOff()</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#turnsensorson"><i class="fa fa-check"></i>turnSensorsOn()</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#writefilechar-filename16"><i class="fa fa-check"></i>writeFile(char filename[16])</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="appendix-d-strategies-for-troubleshooting.html"><a href="appendix-d-strategies-for-troubleshooting.html"><i class="fa fa-check"></i>Appendix D: Strategies for Troubleshooting</a></li>
 <li class="chapter" data-level="" data-path="glossary-and-abbreviations.html"><a href="glossary-and-abbreviations.html"><i class="fa fa-check"></i>Glossary and Abbreviations</a><ul>
@@ -249,7 +251,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="appendix-c-functions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="appendix-c-function-library.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="glossary-and-abbreviations.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
