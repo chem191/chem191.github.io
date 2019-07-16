@@ -27,7 +27,7 @@ A *program*, or *sketch* in Arduino jargon, is a set of commands stored on the T
 
 An Arduino program always consists of two parts: (1) a `setup()` function and (2) a `loop()` function (more details about what a function is will come in future exercises).  The `setup()` function runs once every time the Teensy is powered on.  After that, the Teensy runs the `loop()` function over and over until it's turned off.  Usually, some initial lines of code are included above the `setup()` function provide definitions used throughout the program.  A "bare minimum" program with the `setup()` and `loop()` functions is shown below.  Note that this program does nothing other than run.
 
-```{Rcpp, eval = FALSE}
+```{cpp, eval = FALSE}
     void setup() {
       // anything written here will execute exactly once on startup
     }
@@ -41,14 +41,14 @@ Arduino sketches (programs) are written with the Arduino IDE (see Chapter 1).  T
 
 You should use comments when writing your program to clairfy what each part does.  Comments are not read by the compiler/board, and do not execute.  In other words, they are only to help humans reading the code understand it more easily.  To add a comment, just use the ``\\`` symbol; anything after that symbol won't be read by the program.  For example, you can make an entire line a comment, like the first line below.
 
-```{Rcpp, eval = FALSE}
+```{cpp, eval = FALSE}
     // Pin 13 has the LED on Teensy 3.0
     int led = 13;
 ```
 
 You could also make a portion of a line a comment, like the second half of the line below.
 
-```{Rcpp, eval = FALSE}
+```{cpp, eval = FALSE}
     int led = 13; // Pin 13 has the LED on Teensy 3.0
 ```
 
@@ -82,7 +82,7 @@ In the exercise, we'll connect an 3-color LED to a Teensy and write a sketch to 
 
 3. You should see the following at the top of the sketch:
 
-```{Rcpp, eval = FALSE}
+```{cpp, eval = FALSE}
     // Pin 13 has the LED on Teensy 3.0
     // give it a name:
     int led = 13;
@@ -94,7 +94,7 @@ In the exercise, we'll connect an 3-color LED to a Teensy and write a sketch to 
 
 4. Next is the `setup()` function.  In this case, the only setup necessary is to set the mode of the `led` pin as an output.
 
-```{Rcpp, eval = FALSE}
+```{cpp, eval = FALSE}
   // the setup routine runs once when you press reset:
   void setup() {                
     // initialize the digital pin as an output.
@@ -103,7 +103,7 @@ In the exercise, we'll connect an 3-color LED to a Teensy and write a sketch to 
 ```
 
 5. Finally, the `loop()` function, which runs over and over.
-```{Rcpp, eval = FALSE}
+```{cpp, eval = FALSE}
   digitalWrite(led, HIGH);   // turn the LED on (HIGH is the voltage level)
   delay(1000);               // wait for a second
   digitalWrite(led, LOW);    // turn the LED off by making the voltage LOW
@@ -118,7 +118,7 @@ You should have seen a single color blinking on and off.  Now, make some modific
 
 1. Define the two extra pins.  In this case, it could be useful to refer to them by color.
 
-```{Rcpp, eval = FALSE}
+```{cpp, eval = FALSE}
     int blue = 13;   // blue pin connected to pin 13
     int green = 14;  // green pin connected to pin 14
     int red = 15;    // red pin connected to pin 15
@@ -127,7 +127,7 @@ You should have seen a single color blinking on and off.  Now, make some modific
 > *Have you saved your work yet?  The IDE doesn't autosave, so make sure you save it **frequently**!*
 
 2. Set each of those to outputs in the `setup()` function.  You will have to fill in the blanks for the red and green pins below.
-```{Rcpp, eval = FALSE}
+```{cpp, eval = FALSE}
   // the setup routine runs once when you press reset:
   void setup() {                
     pinMode(blue, OUTPUT);     // initialize the blue pin as an output.
@@ -138,7 +138,7 @@ You should have seen a single color blinking on and off.  Now, make some modific
 
 3. Finally, add the extra colors to the `loop()` function.
 
-```{Rcpp, eval = FALSE}
+```{cpp, eval = FALSE}
   // blue
   digitalWrite(blue, HIGH);   // turn the LED on (HIGH is the voltage level)
   delay(1000);                // wait for a second
