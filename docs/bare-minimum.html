@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Exercise 1 Getting Started with Arduino | CHEM 191 Workbook: Building a Teensy Air Quality Monitor</title>
+  <title>Exercise 4 Bare Minimum | CHEM 191 Workbook: Building a Teensy Air Quality Monitor</title>
   <meta name="description" content="Course Materials for CHEM 191: Issues in Environmental Chemistry" />
   <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Exercise 1 Getting Started with Arduino | CHEM 191 Workbook: Building a Teensy Air Quality Monitor" />
+  <meta property="og:title" content="Exercise 4 Bare Minimum | CHEM 191 Workbook: Building a Teensy Air Quality Monitor" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Exercise 1 Getting Started with Arduino | CHEM 191 Workbook: Building a Teensy Air Quality Monitor" />
+  <meta name="twitter:title" content="Exercise 4 Bare Minimum | CHEM 191 Workbook: Building a Teensy Air Quality Monitor" />
   
   <meta name="twitter:description" content="Course Materials for CHEM 191: Issues in Environmental Chemistry" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="preface.html">
-<link rel="next" href="blink-an-led.html">
+<link rel="prev" href="voltage-and-communication.html">
+<link rel="next" href="functions-building-blocks-for-programs.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -233,76 +233,78 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="getting-started-with-arduino" class="section level1">
-<h1><span class="header-section-number">Exercise 1</span> Getting Started with Arduino</h1>
-<p><strong>Objective:</strong> Install Arduino and Teensyduino<br />
-<strong>To turn in:</strong> Nothing! Make sure your software is installed and working so you’re ready for the next class period.</p>
-<div id="introduction" class="section level2 unnumbered">
-<h2>Introduction</h2>
-<p><strong>Arduino</strong> is an <a href="http://www.wikipedia.com/wiki/Open-source">open-source</a> platform for developing interactive electronic devices. More specifically, Arduinos are <a href="https://en.wikipedia.org/wiki/Microcontroller"><em>microcontrollers</em></a>, which are essentially small computers that can be programmed to perform a specific task over and over again. Microcontrollers are ubiquitous in the modern world and are embedded in scientific equipment, cars, cell phones, and nearly every other electronic device. Arduino provides a simple, standardized interface for microcontrollers, which has led it to become a very popular tool for hobby projects, citizen science tools, and even art installations. Arduino began in 2005 as a student project at the Interaction Design Institute Ivrea in Ivrea, Italy.</p>
-<div class="figure">
-<img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Arduino_Uno_-_R3.jpg" alt="" />
-<p class="caption"><small><em>An Arduino Uno. This class will use a variant of the Arduino, called the Teensy, as described below. (image credit: <a href="https://commons.wikimedia.org/wiki/File:Arduino_Uno_-_R3.jpg">Spark Fun, CC BY 2.0</a>)</em></small></p>
-</div>
-<p>Using an Arduino requires a <em>program</em>, or a set of commands that are uploaded to the Arduino to have it perform the desired task. In the Arduino community, the term <em>sketch</em> is used synonymously with program. Examples of possible programs include having the Arduino <strong>measure</strong> things like temperature, light, or humidity, or <strong>control</strong> things like lights or motors. You could even have it measure the temperature and turn on a heater when it gets too cold. Although an Arduino can run as a stand-alone device once setup, it must first be programmed by a computer.</p>
-<p>To program the Arduino, we’ll use the a piece of software called an <em>integrated development environment</em> (IDE) that’s available for free on the <a href="http://www.arduino.cc">Arduino website</a>. The IDE is shown in the figure below. At the top of the IDE is the menu bar, just like any other program. The middle part of the IDE is the “text area”, and looks like a text editor or simple word processing program. The text area is where you write the code. Finally, the black bottom region of the editor is the message area; this is the area where important messages detailing errors and successes will be displayed. Arduino code is written in the programming language <em>C</em> – probably the most commonly used language in the world – but the IDE handles some of the programming behind the scenes to make it easier for the user.</p>
-<div class="figure">
-<img src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Arduino_IDE_-_Blink.png" alt="" />
-<p class="caption"><small><em>Arduino IDE showing an example program (image credit: <a href="https://commons.wikimedia.org/wiki/File:Arduino_IDE_-_Blink.png">Cedar101 [CC0], wikimedia.org</a>)</em></small></p>
-</div>
-<p>Part of the beauty of Arduino is its open-source nature. Many spin-offs and flavors of Arduino exist due to it’s open-source nature, each with its own unique benefits. In this class, we’ll use a variant of Arduino called the <strong><em>Teensy</em></strong> (specifically Teensy 3.5). The Teensy is programmed in the same way as an Arduino, but has a smaller form-factor and more capabilities than a standard Arduino. The picture below shows a Teensy 3.5 and the functions of each connection on the Teensy. Seeing all the functions laid out like that can be overwhelming, but we’ll walk through the ones we need to use step-by-step in future exercises.</p>
-<div class="figure">
-<img src="https://www.pjrc.com/teensy/card8a_rev2.png" alt="" />
-<p class="caption"><small><em>A Teensy Board, with the pin (connection) numbers and functionalities shown (reprinted from <a href="https://www.pjrc.com/teensy/pinout.html">PJRC.com</a>).</em></small></p>
-</div>
-<p>This exercise will walk you through installation of the Arduino IDE, the software for the Teensy (Teensyduino), and an initial check of the board.</p>
-</div>
-<div id="install-the-arduino-ide" class="section level2">
-<h2><span class="header-section-number">1.1</span> Install the Arduino IDE</h2>
+<div id="bare-minimum" class="section level1">
+<h1><span class="header-section-number">Exercise 4</span> Bare Minimum</h1>
+<ol style="list-style-type: decimal">
+<li><p>Open the Arduino IDE and load a new file (if one doesn’t open automatically).</p></li>
+<li><p>Go to <code>File &gt; Save As</code> to save the example under a new name in the default location (<code>Documents/Arduino</code>). Call it <strong>groupName_voltage.ino</strong>.</p>
 <blockquote>
-<p><em>You MUST follow the order of the instructions here or Teensyduino will not work!</em></p>
-</blockquote>
-<ol style="list-style-type: decimal">
-<li>Use a web browser to navigate to <a href="https://www.arduino.cc/en/Main/OldSoftwareReleases#previous">https://www.arduino.cc/en/Main/OldSoftwareReleases#previous</a>.</li>
-<li>Download the installer for version <strong>1.8.6</strong>. You must choose the installer appropriate for your operating system.</li>
-<li>Choose <strong>Just Download</strong> to download the software, or make a donation if you’re feeling generous!</li>
-<li>Open the file that downloads and run the installer.</li>
-<li>Open the Arduino program to make sure it runs and to prepare for the next steps.</li>
-</ol>
-</div>
-<div id="install-teensyduino" class="section level2">
-<h2><span class="header-section-number">1.2</span> Install Teensyduino</h2>
-<ol style="list-style-type: decimal">
-<li>Use a web browser to navigate to <a href="https://www.pjrc.com/teensy/td_download.html">https://www.pjrc.com/teensy/td_download.html</a>.</li>
-<li>Download the correct installer for your operatring system. Note that steps 1 and 2 on the Teensy page should have been completed when you installed the Arduino IDE, above.</li>
-<li>Run the installer. When prompted:</li>
-<li>Select the <code>Arduino/</code> folder for the install location. If <strong>Next</strong> is greyed out you probably downloaded the wrong version of the Arduino IDE.</li>
-<li>Select <strong>All</strong> when asked which additional libraries to install.</li>
-</ol>
-</div>
-<div id="test-the-teensy" class="section level2">
-<h2><span class="header-section-number">1.3</span> Test the Teensy!</h2>
-<div id="check-the-board" class="section level3">
-<h3><span class="header-section-number">1.3.1</span> Check the board</h3>
-<ol style="list-style-type: decimal">
-<li><p>Plug your Teensy into the computer via the USB connection.</p>
-<blockquote>
-<p>BE <strong><em>EXTREMELY</em></strong> CAREFUL WITH THE USB CONNECTION ON THE TEENSY. THEY BREAK <strong><em>VERY</em></strong> EASILY!!</p>
+<p><em>Remember, files that don’t follow the naming convention <strong>exactly</strong> will incur point deductions.</em></p>
 </blockquote></li>
-<li><p>You should see the orange light blinking on the Teensy. If you do not, something is wrong with your Teensy and you should notify your instructor.</p></li>
+<li><p>Create a <code>setup()</code> function and start serial communication within it:</p></li>
+</ol>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="bare-minimum.html#cb14-1"></a>    <span class="dt">void</span> setup() {</span>
+<span id="cb14-2"><a href="bare-minimum.html#cb14-2"></a>        Serial.begin(<span class="dv">9600</span>);  <span class="co">// start serial communication at a rate of 9600 bits per second (the standard)</span></span>
+<span id="cb14-3"><a href="bare-minimum.html#cb14-3"></a>    }</span></code></pre></div>
+<ol start="4" style="list-style-type: decimal">
+<li>Create a <code>loop()</code> function, read the sensor data, and print it to the serial port:</li>
+</ol>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="bare-minimum.html#cb15-1"></a>    <span class="dt">void</span> loop() {</span>
+<span id="cb15-2"><a href="bare-minimum.html#cb15-2"></a>        value = analogRead(<span class="dv">0</span>); <span class="co">// read sensor</span></span>
+<span id="cb15-3"><a href="bare-minimum.html#cb15-3"></a>        Serial.println(value); <span class="co">// print result to serial port</span></span>
+<span id="cb15-4"><a href="bare-minimum.html#cb15-4"></a>        delay(<span class="dv">1000</span>);           <span class="co">// wait for 1 second</span></span>
+<span id="cb15-5"><a href="bare-minimum.html#cb15-5"></a>    }</span></code></pre></div>
+<ol start="5" style="list-style-type: decimal">
+<li>Press the <strong>Upload</strong> button to send your sketch to the Teensy. Once you get it loaded, click the <strong>Serial Monitor</strong> button to see if the communication is working. You should see a number between 400 and 500 if you sensor is working correctly.</li>
+</ol>
+<div id="converting-to-temperature" class="section level2">
+<h2><span class="header-section-number">4.1</span> Converting to Temperature</h2>
+<p>The Teensy reports values in bits, which isn’t very meaningful to humans. What we really care about is the temperature. The formula to get from bits to degrees C (for this sensor connected to a Teensy) is:</p>
+<pre><code>\[
+    ^{\circ}C = 25 + (\text{value} - 512) / 11.3
+\]</code></pre>
+<ol style="list-style-type: decimal">
+<li>Add the above forumla to your code to convert to temperature. Also change the code to print the temperature to the serial port instead of the raw value.</li>
+</ol>
+<div class="sourceCode" id="cb17"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb17-1"><a href="bare-minimum.html#cb17-1"></a>    <span class="dt">void</span> loop() {</span>
+<span id="cb17-2"><a href="bare-minimum.html#cb17-2"></a>        value = analogRead(<span class="dv">0</span>); <span class="co">// read sensor</span></span>
+<span id="cb17-3"><a href="bare-minimum.html#cb17-3"></a>        temp  = ____________________________; <span class="co">// convert to temperature</span></span>
+<span id="cb17-4"><a href="bare-minimum.html#cb17-4"></a>        ______________________; <span class="co">// print the temperature to the serial port.</span></span>
+<span id="cb17-5"><a href="bare-minimum.html#cb17-5"></a>        delay(<span class="dv">1000</span>);            <span class="co">// wait for 1 second</span></span>
+<span id="cb17-6"><a href="bare-minimum.html#cb17-6"></a>    }</span></code></pre></div>
+<ol style="list-style-type: decimal">
+<li>Upload your code and see if it works.</li>
 </ol>
 </div>
-<div id="check-the-software" class="section level3">
-<h3><span class="header-section-number">1.3.2</span> Check the software</h3>
+<div id="cleaning-up-the-output" class="section level2">
+<h2><span class="header-section-number">4.2</span> Cleaning up the Output</h2>
+<p>You can also print text to the serial port. When you use <code>Serial.print()</code> or <code>Serial.println()</code> to print text, it should always be in quote marks (this is technically called a <em>string</em>). For example, <code>Serial.println(Hello, world!)</code> would NOT work, but <code>Serial.println("Hello, world!")</code> would. To clean up you data output, try printing "*C" after the temperature to indicate the units.</p>
 <ol style="list-style-type: decimal">
-<li>Open the Arduino IDE.</li>
-<li>Click <code>Tools &gt; Board &gt; Teensy 3.5</code></li>
-<li>Click <code>File &gt; Examples &gt; 01.Basics &gt; Blink</code>.</li>
-<li>Find the part in the program that says <code>delay(1000)</code> and change it to <code>delay(500)</code>.</li>
-<li>Click <strong>Verify</strong> in the software (checkmark button in upper left corner).</li>
-<li>Press the white button on the top of the Teensy.</li>
-<li>Press upload in the software (right arrow button, next to checkmark).</li>
-<li>You should see the orange light blink more quickly. If you encountered any errors, something could be wrong with your software installation or you may have made a typo in the code. Notify your instructor of any problems.</li>
+<li>Change <code>Serial.println(temp)</code> to <code>Serial.print(temp)</code>. These two functions are very similar, with one difference: <code>println</code> creates a new line when it’s finished (like pressing enter on the keyboard) whereas <code>print</code> does not.</li>
+<li>Add a line just below <code>Serial.print(temp)</code> to print the "*C" symbology:</li>
+</ol>
+<div class="sourceCode" id="cb18"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb18-1"><a href="bare-minimum.html#cb18-1"></a>    Serial.print(temp);</span>
+<span id="cb18-2"><a href="bare-minimum.html#cb18-2"></a>    Serial.println(<span class="st">&quot;*C&quot;</span>);</span></code></pre></div>
+<div id="make-your-own-changes-1" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Make Your Own Changes</h3>
+<ol style="list-style-type: decimal">
+<li>Before you leave, add a line in your code to convert from degrees C to degrees F.</li>
+<li>Once you’ve converted to F, print the results for both degrees C and degrees F. Your values should:
+<ul>
+<li>Be printed to the serial port <em>on the same line</em>.</li>
+<li>Include the units “<em>C" and "</em>F” where needed.</li>
+<li>Be separated from each other with a space (either " " or ‘’).</li>
+</ul></li>
+</ol>
+</div>
+<div id="turn-in-1" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Turn in</h3>
+<ol style="list-style-type: decimal">
+<li><p>A hardcopy of your completed Exercise 3 Worksheet.</p></li>
+<li><p>An electronic copy of your final Voltage code (submit to Dropbox).</p>
+<blockquote>
+<p><em>Remember, files that don’t follow the naming convention <strong>exactly</strong> will incur point deductions.</em></p>
+</blockquote></li>
 </ol>
 
 </div>
@@ -313,8 +315,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="preface.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="blink-an-led.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="voltage-and-communication.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="functions-building-blocks-for-programs.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
