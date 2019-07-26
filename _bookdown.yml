@@ -11,7 +11,7 @@ rmd_files: [
             "02_Blink.Rmd",
             "03_Voltage.Rmd",
             "04_Functions.Rmd",
-            # "05_Soldering.Rmd",
+            "05_Soldering.Rmd",
             "FunctionsLibrary.Rmd",
             "Troubleshooting.Rmd",
             "Glossary.Rmd",

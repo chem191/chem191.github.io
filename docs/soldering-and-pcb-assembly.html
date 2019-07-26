@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Exercise 5 Soldering and PCB Assembly | CHEM 191 Workbook: Building a Teensy Air Quality Monitor</title>
+  <title>Exercise 6 Soldering and PCB Assembly | CHEM 191 Workbook: Building a Teensy Air Quality Monitor</title>
   <meta name="description" content="Course Materials for CHEM 191: Issues in Environmental Chemistry" />
   <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Exercise 5 Soldering and PCB Assembly | CHEM 191 Workbook: Building a Teensy Air Quality Monitor" />
+  <meta property="og:title" content="Exercise 6 Soldering and PCB Assembly | CHEM 191 Workbook: Building a Teensy Air Quality Monitor" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Exercise 5 Soldering and PCB Assembly | CHEM 191 Workbook: Building a Teensy Air Quality Monitor" />
+  <meta name="twitter:title" content="Exercise 6 Soldering and PCB Assembly | CHEM 191 Workbook: Building a Teensy Air Quality Monitor" />
   
   <meta name="twitter:description" content="Course Materials for CHEM 191: Issues in Environmental Chemistry" />
   
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="functions-building-blocks-for-programs.html">
-<link rel="next" href="testing-and-calibration.html">
+<link rel="next" href="appendix-a-function-library.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -166,54 +166,61 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3" data-path="voltage-and-communication.html"><a href="voltage-and-communication.html"><i class="fa fa-check"></i><b>3</b> Voltage and Communication</a><ul>
 <li class="chapter" data-level="" data-path="voltage-and-communication.html"><a href="voltage-and-communication.html#introduction-2"><i class="fa fa-check"></i>Introduction</a><ul>
 <li class="chapter" data-level="" data-path="voltage-and-communication.html"><a href="voltage-and-communication.html#electricity"><i class="fa fa-check"></i>Electricity</a></li>
+<li class="chapter" data-level="3.0.1" data-path="voltage-and-communication.html"><a href="voltage-and-communication.html#bits-and-volts"><i class="fa fa-check"></i><b>3.0.1</b> Bits and Volts</a></li>
 <li class="chapter" data-level="" data-path="voltage-and-communication.html"><a href="voltage-and-communication.html#communicating-via-the-serial-port"><i class="fa fa-check"></i>Communicating via the serial port</a></li>
 </ul></li>
 <li class="chapter" data-level="3.1" data-path="voltage-and-communication.html"><a href="voltage-and-communication.html#connect-the-temperature-sensor"><i class="fa fa-check"></i><b>3.1</b> Connect the Temperature Sensor</a></li>
 <li class="chapter" data-level="3.2" data-path="voltage-and-communication.html"><a href="voltage-and-communication.html#program-the-teensy-1"><i class="fa fa-check"></i><b>3.2</b> Program the Teensy</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html"><i class="fa fa-check"></i><b>4</b> Functions: Building Blocks for Programs</a><ul>
+<li class="chapter" data-level="4" data-path="bare-minimum.html"><a href="bare-minimum.html"><i class="fa fa-check"></i><b>4</b> Bare Minimum</a><ul>
+<li class="chapter" data-level="4.1" data-path="bare-minimum.html"><a href="bare-minimum.html#converting-to-temperature"><i class="fa fa-check"></i><b>4.1</b> Converting to Temperature</a></li>
+<li class="chapter" data-level="4.2" data-path="bare-minimum.html"><a href="bare-minimum.html#cleaning-up-the-output"><i class="fa fa-check"></i><b>4.2</b> Cleaning up the Output</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="bare-minimum.html"><a href="bare-minimum.html#make-your-own-changes-1"><i class="fa fa-check"></i><b>4.2.1</b> Make Your Own Changes</a></li>
+<li class="chapter" data-level="4.2.2" data-path="bare-minimum.html"><a href="bare-minimum.html#turn-in-1"><i class="fa fa-check"></i><b>4.2.2</b> Turn in</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html"><i class="fa fa-check"></i><b>5</b> Functions: Building Blocks for Programs</a><ul>
 <li class="chapter" data-level="" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#introduction-3"><i class="fa fa-check"></i>Introduction</a><ul>
-<li class="chapter" data-level="4.0.1" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#using-functions"><i class="fa fa-check"></i><b>4.0.1</b> Using Functions</a></li>
+<li class="chapter" data-level="5.0.1" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#using-functions"><i class="fa fa-check"></i><b>5.0.1</b> Using Functions</a></li>
 </ul></li>
-<li class="chapter" data-level="4.1" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#writing-a-blink-function"><i class="fa fa-check"></i><b>4.1</b> Writing a <code>blink()</code> Function</a></li>
-<li class="chapter" data-level="4.2" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#using-functions-1"><i class="fa fa-check"></i><b>4.2</b> Using Functions</a></li>
-<li class="chapter" data-level="4.3" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#write-functions-with-multiple-arguments"><i class="fa fa-check"></i><b>4.3</b> Write Functions With Multiple Arguments</a></li>
-<li class="chapter" data-level="4.4" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#turn-in-1"><i class="fa fa-check"></i><b>4.4</b> Turn In</a></li>
+<li class="chapter" data-level="5.1" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#writing-a-blink-function"><i class="fa fa-check"></i><b>5.1</b> Writing a <code>blink()</code> Function</a></li>
+<li class="chapter" data-level="5.2" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#using-functions-1"><i class="fa fa-check"></i><b>5.2</b> Using Functions</a></li>
+<li class="chapter" data-level="5.3" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#write-functions-with-multiple-arguments"><i class="fa fa-check"></i><b>5.3</b> Write Functions With Multiple Arguments</a></li>
+<li class="chapter" data-level="5.4" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#turn-in-2"><i class="fa fa-check"></i><b>5.4</b> Turn In</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="soldering-and-pcb-assembly.html"><a href="soldering-and-pcb-assembly.html"><i class="fa fa-check"></i><b>5</b> Soldering and PCB Assembly</a></li>
-<li class="chapter" data-level="6" data-path="testing-and-calibration.html"><a href="testing-and-calibration.html"><i class="fa fa-check"></i><b>6</b> Testing and Calibration</a></li>
-<li class="chapter" data-level="" data-path="appendix-a-arduino-cookbook.html"><a href="appendix-a-arduino-cookbook.html"><i class="fa fa-check"></i>Appendix A: Arduino Cookbook</a><ul>
-<li class="chapter" data-level="" data-path="appendix-a-arduino-cookbook.html"><a href="appendix-a-arduino-cookbook.html#recipe-1"><i class="fa fa-check"></i>Recipe 1</a></li>
+<li class="chapter" data-level="6" data-path="soldering-and-pcb-assembly.html"><a href="soldering-and-pcb-assembly.html"><i class="fa fa-check"></i><b>6</b> Soldering and PCB Assembly</a><ul>
+<li class="chapter" data-level="6.1" data-path="soldering-and-pcb-assembly.html"><a href="soldering-and-pcb-assembly.html#introduction-4"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="soldering-and-pcb-assembly.html"><a href="soldering-and-pcb-assembly.html#soldering-basics"><i class="fa fa-check"></i><b>6.2</b> Soldering Basics</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="soldering-and-pcb-assembly.html"><a href="soldering-and-pcb-assembly.html#the-supplies"><i class="fa fa-check"></i><b>6.2.1</b> The Supplies</a></li>
+<li class="chapter" data-level="6.2.2" data-path="soldering-and-pcb-assembly.html"><a href="soldering-and-pcb-assembly.html#the-technique"><i class="fa fa-check"></i><b>6.2.2</b> The Technique</a></li>
+<li class="chapter" data-level="6.2.3" data-path="soldering-and-pcb-assembly.html"><a href="soldering-and-pcb-assembly.html#safety"><i class="fa fa-check"></i><b>6.2.3</b> Safety</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="appendix-b-gory-details.html"><a href="appendix-b-gory-details.html"><i class="fa fa-check"></i>Appendix B: Gory Details</a><ul>
-<li class="chapter" data-level="" data-path="appendix-b-gory-details.html"><a href="appendix-b-gory-details.html#using-the-snooze-library"><i class="fa fa-check"></i>Using the Snooze Library</a></li>
-<li class="chapter" data-level="" data-path="appendix-b-gory-details.html"><a href="appendix-b-gory-details.html#using-the-rtc"><i class="fa fa-check"></i>Using the RTC</a></li>
-<li class="chapter" data-level="" data-path="appendix-b-gory-details.html"><a href="appendix-b-gory-details.html#char-vs.-string"><i class="fa fa-check"></i>Char[] vs. String</a></li>
+<li class="chapter" data-level="6.3" data-path="soldering-and-pcb-assembly.html"><a href="soldering-and-pcb-assembly.html#assembling-the-board"><i class="fa fa-check"></i><b>6.3</b> Assembling the Board</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html"><i class="fa fa-check"></i>Appendix C: Function Library</a><ul>
-<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#blink"><i class="fa fa-check"></i>blink()</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#checkconnection"><i class="fa fa-check"></i>checkConnection()</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#createfilenameint-y-int-m-int-d"><i class="fa fa-check"></i>createFileName(int y, int m, int d)</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#filldigitsint-digits"><i class="fa fa-check"></i>fillDigits(int digits)</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#getteensy3time"><i class="fa fa-check"></i>getTeensy3Time()</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#performpmreading"><i class="fa fa-check"></i>performPMReading()</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#printdata"><i class="fa fa-check"></i>printData()</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#printdateint-y-int-m-int-d"><i class="fa fa-check"></i>printDate(int y, int m, int d)</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#printdatetimestring-d-string-t"><i class="fa fa-check"></i>printDateTime(String d, String t)</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#printtimeint-h-int-m-int-s"><i class="fa fa-check"></i>printTime(int h, int m, int s)</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#setbmesamplingparameters"><i class="fa fa-check"></i>setBMESamplingParameters()</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#turnsensorsoff"><i class="fa fa-check"></i>turnSensorsOff()</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#turnsensorson"><i class="fa fa-check"></i>turnSensorsOn()</a></li>
-<li class="chapter" data-level="" data-path="appendix-c-function-library.html"><a href="appendix-c-function-library.html#writefilechar-filename16"><i class="fa fa-check"></i>writeFile(char filename[16])</a></li>
+<li class="chapter" data-level="" data-path="appendix-a-function-library.html"><a href="appendix-a-function-library.html"><i class="fa fa-check"></i>Appendix A: Function Library</a><ul>
+<li class="chapter" data-level="" data-path="appendix-a-function-library.html"><a href="appendix-a-function-library.html#blink"><i class="fa fa-check"></i>blink()</a></li>
+<li class="chapter" data-level="" data-path="appendix-a-function-library.html"><a href="appendix-a-function-library.html#checkconnection"><i class="fa fa-check"></i>checkConnection()</a></li>
+<li class="chapter" data-level="" data-path="appendix-a-function-library.html"><a href="appendix-a-function-library.html#createfilenameint-y-int-m-int-d"><i class="fa fa-check"></i>createFileName(int y, int m, int d)</a></li>
+<li class="chapter" data-level="" data-path="appendix-a-function-library.html"><a href="appendix-a-function-library.html#filldigitsint-digits"><i class="fa fa-check"></i>fillDigits(int digits)</a></li>
+<li class="chapter" data-level="" data-path="appendix-a-function-library.html"><a href="appendix-a-function-library.html#getteensy3time"><i class="fa fa-check"></i>getTeensy3Time()</a></li>
+<li class="chapter" data-level="" data-path="appendix-a-function-library.html"><a href="appendix-a-function-library.html#performpmreading"><i class="fa fa-check"></i>performPMReading()</a></li>
+<li class="chapter" data-level="" data-path="appendix-a-function-library.html"><a href="appendix-a-function-library.html#printdata"><i class="fa fa-check"></i>printData()</a></li>
+<li class="chapter" data-level="" data-path="appendix-a-function-library.html"><a href="appendix-a-function-library.html#printdateint-y-int-m-int-d"><i class="fa fa-check"></i>printDate(int y, int m, int d)</a></li>
+<li class="chapter" data-level="" data-path="appendix-a-function-library.html"><a href="appendix-a-function-library.html#printdatetimestring-d-string-t"><i class="fa fa-check"></i>printDateTime(String d, String t)</a></li>
+<li class="chapter" data-level="" data-path="appendix-a-function-library.html"><a href="appendix-a-function-library.html#printtimeint-h-int-m-int-s"><i class="fa fa-check"></i>printTime(int h, int m, int s)</a></li>
+<li class="chapter" data-level="" data-path="appendix-a-function-library.html"><a href="appendix-a-function-library.html#setbmesamplingparameters"><i class="fa fa-check"></i>setBMESamplingParameters()</a></li>
+<li class="chapter" data-level="" data-path="appendix-a-function-library.html"><a href="appendix-a-function-library.html#turnsensorsoff"><i class="fa fa-check"></i>turnSensorsOff()</a></li>
+<li class="chapter" data-level="" data-path="appendix-a-function-library.html"><a href="appendix-a-function-library.html#turnsensorson"><i class="fa fa-check"></i>turnSensorsOn()</a></li>
+<li class="chapter" data-level="" data-path="appendix-a-function-library.html"><a href="appendix-a-function-library.html#writefilechar-filename16"><i class="fa fa-check"></i>writeFile(char filename[16])</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="appendix-d-strategies-for-troubleshooting.html"><a href="appendix-d-strategies-for-troubleshooting.html"><i class="fa fa-check"></i>Appendix D: Strategies for Troubleshooting</a></li>
-<li class="chapter" data-level="" data-path="glossary-and-abbreviations.html"><a href="glossary-and-abbreviations.html"><i class="fa fa-check"></i>Glossary and Abbreviations</a><ul>
-<li><a href="glossary-and-abbreviations.html#current-i">Current (<em>i</em>)</a></li>
-<li class="chapter" data-level="" data-path="glossary-and-abbreviations.html"><a href="glossary-and-abbreviations.html#electricity-1"><i class="fa fa-check"></i>Electricity</a></li>
-<li class="chapter" data-level="" data-path="glossary-and-abbreviations.html"><a href="glossary-and-abbreviations.html#led"><i class="fa fa-check"></i>LED</a></li>
-<li><a href="glossary-and-abbreviations.html#power-p">Power (<em>P</em>)</a></li>
-<li><a href="glossary-and-abbreviations.html#resistance-r">Resistance (<em>R</em>)</a></li>
-<li><a href="glossary-and-abbreviations.html#voltage-v">Voltage (<em>V</em>)</a></li>
+<li class="chapter" data-level="" data-path="appendix-b-strategies-for-troubleshooting.html"><a href="appendix-b-strategies-for-troubleshooting.html"><i class="fa fa-check"></i>Appendix B: Strategies for Troubleshooting</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-glossary-and-abbreviations.html"><a href="appendix-c-glossary-and-abbreviations.html"><i class="fa fa-check"></i>Appendix C: Glossary and Abbreviations</a><ul>
+<li><a href="appendix-c-glossary-and-abbreviations.html#current-i">Current (<em>i</em>)</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-glossary-and-abbreviations.html"><a href="appendix-c-glossary-and-abbreviations.html#electricity-1"><i class="fa fa-check"></i>Electricity</a></li>
+<li class="chapter" data-level="" data-path="appendix-c-glossary-and-abbreviations.html"><a href="appendix-c-glossary-and-abbreviations.html#led"><i class="fa fa-check"></i>LED</a></li>
+<li><a href="appendix-c-glossary-and-abbreviations.html#power-p">Power (<em>P</em>)</a></li>
+<li><a href="appendix-c-glossary-and-abbreviations.html#resistance-r">Resistance (<em>R</em>)</a></li>
+<li><a href="appendix-c-glossary-and-abbreviations.html#voltage-v">Voltage (<em>V</em>)</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -236,13 +243,89 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="soldering-and-pcb-assembly" class="section level1">
-<h1><span class="header-section-number">Exercise 5</span> Soldering and PCB Assembly</h1>
-<p><strong>Objective:</strong>
-<strong>To turn in:</strong></p>
+<h1><span class="header-section-number">Exercise 6</span> Soldering and PCB Assembly</h1>
+<p><strong>Objective:</strong> Assemble/solder air quality sensor printed circuit board.</p>
+<div id="introduction-4" class="section level2">
+<h2><span class="header-section-number">6.1</span> Introduction</h2>
+<p>Up to this point, we’ve used solderless breadboards and jumper wires to connect things to the Teensy. Those provide quick, temporary connections that can be used for prototyping and learning. However, they can be prone to failure over time as the connections inadvertently come loose. In situations where a design won’t change, metal solder joints provide a more reliable, permanent connection.</p>
+<p>Although soldering seems difficult to many people, it’s actually a simple process if you have the correct tools and know the right technique. Hand soldering has been done on an industrial scale by assembly technicians for decades, and modern electronics with very small components are usually soldered by machine. In short, the soldering process involves heating up two metal parts to be joined with a <em>soldering iron</em>, applying a compound called <em>flux</em> to the joint, and then melting a soft metal alloy (the <em>solder</em>) onto the joint. Once the solder cools (after a second or two), a permanent connection is made between the two components.</p>
+<blockquote>
+<p>Good soldering technique, contrary to popular belief, is not hard. In fact, it’s incredibly easy!</p>
+<p>If you’ve got the right tools and now the very simple, basic techniques, good soldering is a piece of cake! Anyone can do it, straight up!
+-<em>Dave Jones, EEVBlog</em></p>
+</blockquote>
+<p>This exercise will walk you through the basics of soldering, and by the end you should have completed assembly of your air sensor printed circuit board (PCB). The following video tutorials may be helpful in knowing what to expect before you come to class. Please watch the beginner tutorial, and then watch the longer tutorials by the EEVBlog if you would like to learn more details.</p>
 <ul>
+<li><a href="https://www.youtube.com/watch?v=Qps9woUGkvI">Beginner tutorial</a></li>
+<li>In depth tutorial @ EEVBlog:
+<ol style="list-style-type: decimal">
+<li><a href="https://www.youtube.com/watch?v=J5Sb21qbpEQ">Tools</a></li>
+<li><a href="https://www.youtube.com/watch?v=fYz5nIHH0iY">Through-hole Soldering</a></li>
+<li><a href="https://www.youtube.com/watch?v=b9FC9fAlfQE">Surface-mount Soldering</a></li>
+</ol></li>
 <li>schematic diagrams</li>
 </ul>
+</div>
+<div id="soldering-basics" class="section level2">
+<h2><span class="header-section-number">6.2</span> Soldering Basics</h2>
+<div id="the-supplies" class="section level3">
+<h3><span class="header-section-number">6.2.1</span> The Supplies</h3>
+<p>Good tools and supplies can really make or break a soldering project. The two most important things are the solder and the soldering iron, but there are a host of other supplies that can help out.</p>
+<ul>
+<li><strong>Solder</strong> is traditionally made from a lead alloy, although many modern solders are lead free due to the toxic nature of lead. For most hobby applications, either option will work. Solder comes in many different sizes, but in general narrower solder (&lt;0.5 mm diameter) is better for electronics work. Many solders come with rosin (basically pin sap) embedded in the core, which acts as <em>flux</em> and eliminates the need for pre-application of flux (described below).</li>
+<li><strong>Flux</strong> is a special compound that removes oxidation from the surface of the metals to be joined. Many metal (including copper, which is what we are soldering) form oxide layers on the surface of the metal. Although these are often difficult to see, they are always there. They will prohibit the solder from <em>wetting</em> (flowing onto and adhereing to) the items to be joined. It is usually very difficult or impossible to solder a joing without flux, and joints made with it will eventually crack and fail. Many solders come with flux (rosin) embedded in the middle of the solder to act as a flux; with these solders no additional flux is necessary. Any residue left from flux can be cleaned up with isopropyl (rubbing) alcohol or special flux cleaner.</li>
+<li>A <strong>Soldering iron</strong> is a pen-shaped device with a fine metal tip that is heated, usually with an electric heating element. It’s always best to invest in a temperature-controlled soldering iron and skip the cheaper ones – the proper temperature is important for good soldering. A good soldering iron should also have a removable/interchangeable tip and a safety stand to prevent fires.</li>
+<li>A <strong>sponge</strong> is just a regular kitchen sponge that is dampened with water and used to clean the tip of the soldering iron during use. Keeping the tip clean helps the solder melt easily. As an alternative, a <strong>brass sponge</strong> (think of a metal kitchen scrubbie) can be used.</li>
+<li>A <strong>third hand</strong> is just a metal stand with clips on it to hold your workpiece while you solder to it. Tape, sticky tack, and other items can be used as well.</li>
+<li><strong>Flush side cutters, wire cutters, and/or wire strippers</strong> are useful for trimming leads after they’ve been soldered and stripping wires prior to soldering.</li>
+<li><strong>Isopropyl alcohol</strong> or <strong>flux remover</strong> and a small brush are useful in removing stick residue left by the flux.</li>
+<li><strong>Solder wick</strong> and a <strong>solder sucker</strong> are tools used to remove solder when necessary. (Even though it said solder is “permanent” above, it can be removed, albeit not always in an easy manner!)</li>
+<li>A <strong>Fume extractor</strong> collects the smoke released during soldering and prevents it from being breathed in by the solderer.</li>
+</ul>
+</div>
+<div id="the-technique" class="section level3">
+<h3><span class="header-section-number">6.2.2</span> The Technique</h3>
+<p>The main thing to remember when soldering is to use heat and wettability to determine where the solder will end up. If you want solder on one part of a circuit board and not another, make sure you apply the heat and flux to that part to be soldered and no where else; the solder will folow dutifully.</p>
+<p><strong>Setup</strong></p>
+<ol style="list-style-type: decimal">
+<li>Check for the recommended iron temperature for the solder you’re using. If you’re unsure, 350<span class="math inline">\(^\circ\)</span>C is a good starting point. If your part to be soldered is very large or you’re soldering to a ground plane with a large thermal mass you made need to increase the temperature.</li>
+<li>Turn on the soldering iron to the correct temperature.</li>
+<li>Wet the sponge on the soldering iron stand.</li>
+<li>Layout all the tools necessary.</li>
+<li>Turn on the fume extractor.</li>
+</ol>
+<p><strong>Soldering</strong></p>
+<ol style="list-style-type: decimal">
+<li><strong>Create a mechanical connection if possible.</strong> If joining two wires, twist them together. If connecting a component to a circuit board, bend the leads down to hold in the place. The mechanical connection is not strictly necessary, but it will add stregnth to the solder joint.</li>
+<li><strong>Stabilize the parts to be soldered.</strong> It takes two hands to solder – one to hold the soldering iron and one to apply the solder. Make sure your workpiece is secure before you being soldering.</li>
+<li>[<strong>Apply flux (if not using rosin-core solder).</strong> Apply a small amount only to the parts to be soldered. Remember, the solder will folow the flux.]</li>
+<li><strong>Clean the tip of the iron.</strong> The soldering iron tip will develop an oxide layer as it sits at high temperature. Give a one or two wipes across the wet sponge each time you pick it up.</li>
+<li><strong>Tin the tip of the iron.</strong> Just barely touch the tip of the iron</li>
+<li><strong>Apply heat to the joint.</strong> Try to maxmize contact between the tip of the iron and the joint to be soldered. Apply heat to the solder joint, not the solder. This ensures the joint is hot enough to flow the solder and helps create a strong joint.</li>
+<li><strong>Apply solder to the joint.</strong> Touch the end of the solder to the joint to be soldered. If the joint is hot enough the solder should flow immediately throughout the joint.</li>
+<li><strong>Let it cool.</strong> Remove the solder, then the iron, and let the joint cool for a second or two before moving it. Wait longer before touching the joint as it will be hot enough to burn you.</li>
+<li><strong>Inspect the joint.</strong> A properly soldered joint should have a shiny, domed appearance. An improperly soldered joint will appear dull and blobby. Remove solder if necessary and repeat until a good joint is achieved.</li>
+</ol>
+</div>
+<div id="safety" class="section level3">
+<h3><span class="header-section-number">6.2.3</span> Safety</h3>
+<ul>
+<li>Obviously, the soldering iron and anything it touches are hot. Don’t touch the tip of the iron or any of the parts that have recently been soldered.</li>
+<li>Always be mindful of where you set the iron down. It’s hot enough to start fires and/or melt work surfaces and power cords.</li>
+<li>Don’t breath in the fumes. They mostly result from the flux. Use a fume extractor or a fume hood to keep the fumes out of your lungs!</li>
+</ul>
+</div>
+</div>
+<div id="assembling-the-board" class="section level2">
+<h2><span class="header-section-number">6.3</span> Assembling the Board</h2>
+<p>You will add components to a printed circuit board (PCB) to build the air sensor. The PCB has internal connections that ensure all components will be connected correctly. The purple areas of the board are called <em>solder mask</em>. Solder strongly prefers to stick to metal and will (almost) not stick to the solder mask. Use this to your advantage!</p>
+<ol style="list-style-type: decimal">
+<li>Solder each component on one at a time. Remember to consider which ones you need to solder first and which ones last, as some components may make it hard to get the iron into areas of the PCB.</li>
+<li>Each component is labelled on the board. Refer to the model at the front of the room if you’re unsure where something goes.</li>
+<li>Make sure your have the component in the right place and the right orientation before making the solder connection! You may not be able to remove it if you do it incorrectly!!</li>
+</ol>
 
+</div>
 </div>
             </section>
 
@@ -250,7 +333,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="functions-building-blocks-for-programs.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="testing-and-calibration.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="appendix-a-function-library.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
