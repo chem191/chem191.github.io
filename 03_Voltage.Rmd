@@ -35,7 +35,7 @@ Although the voltage output from the Teensy pin was either HIGH or LOW, the volt
 
 The Teensy can read *digital* signals on any of its digital I/O (input/output) pins (grey labels on the pinout diagram).  The Teensy can read *analog* signals on any of the analog input pin, which are shown with orange labels in the pinout diagram and numbered A0 through A22 (the A stands for analog).
 
-### Bits and Volts
+### Bits and Volts {-}
 
 Even though Teensy can "read" analog signals, it only understands digital signals.  So every analog signal read by the Teensy gets sent through an *analog to digital converter* (ADC).  This converts the analog signal from a sensor into a digital signal with discrete steps.  The size of these steps is determined by the number of **bits** the ADC has.  More bits equals more steps, and more steps equals a digital signal that more closely approximates the real analog signal.  
 
@@ -80,7 +80,7 @@ In this exercise, you'll measure ambient temperatures using a temperature sensor
 
 ## Program the Teensy
 
-# Bare Minimum
+### Bare Minimum
 
 1. Open the Arduino IDE and load a new file (if one doesn't open automatically).
 1. Go to `File > Save As` to save the example under a new name in the default location (`Documents/Arduino`).  Call it **groupName_voltage.ino**.
@@ -107,7 +107,7 @@ In this exercise, you'll measure ambient temperatures using a temperature sensor
 
 5. Press the **Upload** button to send your sketch to the Teensy.  Once you get it loaded, click the **Serial Monitor** button to see if the communication is working. You should see a number between 400 and 500 if you sensor is working correctly.
 
-## Converting to Temperature
+### Converting to Temperature
 
 The Teensy reports values in bits, which isn't very meaningful to humans.  What we really care about is the temperature.  The formula to get from bits to degrees C (for this sensor connected to a Teensy) is:
 
@@ -128,7 +128,7 @@ The Teensy reports values in bits, which isn't very meaningful to humans.  What 
 
 1. Upload your code and see if it works.
 
-## Cleaning up the Output
+### Cleaning up the Output
 
 You can also print text to the serial port.  When you use `Serial.print()` or `Serial.println()` to print text, it should always be in quote marks (this is technically called a *string*).  For example, `Serial.println(Hello, world!)` would NOT work, but `Serial.println("Hello, world!")` would.  To clean up you data output, try printing "*C" after the temperature to indicate the units.
 
