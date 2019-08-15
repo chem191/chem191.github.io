@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Appendix D: Gory Details | CHEM 191 Workbook: Building a Teensy Air Quality Monitor</title>
   <meta name="description" content="Course Materials for CHEM 191: Issues in Environmental Chemistry" />
-  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Appendix D: Gory Details | CHEM 191 Workbook: Building a Teensy Air Quality Monitor" />
   <meta property="og:type" content="book" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="appendix-c-glossary-and-abbreviations.html">
-
+<link rel="prev" href="testing-and-calibration.html">
+<link rel="next" href="appendix-a-function-library.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -54,6 +54,7 @@ code.sourceCode > span { color: inherit; text-decoration: inherit; }
 code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -166,10 +167,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3" data-path="voltage-and-communication.html"><a href="voltage-and-communication.html"><i class="fa fa-check"></i><b>3</b> Voltage and Communication</a><ul>
 <li class="chapter" data-level="" data-path="voltage-and-communication.html"><a href="voltage-and-communication.html#introduction-2"><i class="fa fa-check"></i>Introduction</a><ul>
 <li class="chapter" data-level="" data-path="voltage-and-communication.html"><a href="voltage-and-communication.html#electricity"><i class="fa fa-check"></i>Electricity</a></li>
+<li class="chapter" data-level="" data-path="voltage-and-communication.html"><a href="voltage-and-communication.html#bits-and-volts"><i class="fa fa-check"></i>Bits and Volts</a></li>
 <li class="chapter" data-level="" data-path="voltage-and-communication.html"><a href="voltage-and-communication.html#communicating-via-the-serial-port"><i class="fa fa-check"></i>Communicating via the serial port</a></li>
 </ul></li>
 <li class="chapter" data-level="3.1" data-path="voltage-and-communication.html"><a href="voltage-and-communication.html#connect-the-temperature-sensor"><i class="fa fa-check"></i><b>3.1</b> Connect the Temperature Sensor</a></li>
-<li class="chapter" data-level="3.2" data-path="voltage-and-communication.html"><a href="voltage-and-communication.html#program-the-teensy-1"><i class="fa fa-check"></i><b>3.2</b> Program the Teensy</a></li>
+<li class="chapter" data-level="3.2" data-path="voltage-and-communication.html"><a href="voltage-and-communication.html#program-the-teensy-1"><i class="fa fa-check"></i><b>3.2</b> Program the Teensy</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="voltage-and-communication.html"><a href="voltage-and-communication.html#bare-minimum"><i class="fa fa-check"></i><b>3.2.1</b> Bare Minimum</a></li>
+<li class="chapter" data-level="3.2.2" data-path="voltage-and-communication.html"><a href="voltage-and-communication.html#converting-to-temperature"><i class="fa fa-check"></i><b>3.2.2</b> Converting to Temperature</a></li>
+<li class="chapter" data-level="3.2.3" data-path="voltage-and-communication.html"><a href="voltage-and-communication.html#cleaning-up-the-output"><i class="fa fa-check"></i><b>3.2.3</b> Cleaning up the Output</a></li>
+<li class="chapter" data-level="3.2.4" data-path="voltage-and-communication.html"><a href="voltage-and-communication.html#make-your-own-changes-1"><i class="fa fa-check"></i><b>3.2.4</b> Make Your Own Changes</a></li>
+<li class="chapter" data-level="3.2.5" data-path="voltage-and-communication.html"><a href="voltage-and-communication.html#turn-in-1"><i class="fa fa-check"></i><b>3.2.5</b> Turn in</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html"><i class="fa fa-check"></i><b>4</b> Functions: Building Blocks for Programs</a><ul>
 <li class="chapter" data-level="" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#introduction-3"><i class="fa fa-check"></i>Introduction</a><ul>
@@ -178,7 +186,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#writing-a-blink-function"><i class="fa fa-check"></i><b>4.1</b> Writing a <code>blink()</code> Function</a></li>
 <li class="chapter" data-level="4.2" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#using-functions-1"><i class="fa fa-check"></i><b>4.2</b> Using Functions</a></li>
 <li class="chapter" data-level="4.3" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#write-functions-with-multiple-arguments"><i class="fa fa-check"></i><b>4.3</b> Write Functions With Multiple Arguments</a></li>
-<li class="chapter" data-level="4.4" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#turn-in-1"><i class="fa fa-check"></i><b>4.4</b> Turn In</a></li>
+<li class="chapter" data-level="4.4" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#turn-in-2"><i class="fa fa-check"></i><b>4.4</b> Turn In</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="soldering-and-pcb-assembly.html"><a href="soldering-and-pcb-assembly.html"><i class="fa fa-check"></i><b>5</b> Soldering and PCB Assembly</a><ul>
+<li class="chapter" data-level="5.1" data-path="soldering-and-pcb-assembly.html"><a href="soldering-and-pcb-assembly.html#introduction-4"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="soldering-and-pcb-assembly.html"><a href="soldering-and-pcb-assembly.html#soldering-basics"><i class="fa fa-check"></i><b>5.2</b> Soldering Basics</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="soldering-and-pcb-assembly.html"><a href="soldering-and-pcb-assembly.html#the-supplies"><i class="fa fa-check"></i><b>5.2.1</b> The Supplies</a></li>
+<li class="chapter" data-level="5.2.2" data-path="soldering-and-pcb-assembly.html"><a href="soldering-and-pcb-assembly.html#the-technique"><i class="fa fa-check"></i><b>5.2.2</b> The Technique</a></li>
+<li class="chapter" data-level="5.2.3" data-path="soldering-and-pcb-assembly.html"><a href="soldering-and-pcb-assembly.html#safety"><i class="fa fa-check"></i><b>5.2.3</b> Safety</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="soldering-and-pcb-assembly.html"><a href="soldering-and-pcb-assembly.html#assembling-the-board"><i class="fa fa-check"></i><b>5.3</b> Assembling the Board</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="testing-and-calibration.html"><a href="testing-and-calibration.html"><i class="fa fa-check"></i><b>6</b> Testing and Calibration</a></li>
+<li class="chapter" data-level="" data-path="appendix-d-gory-details.html"><a href="appendix-d-gory-details.html"><i class="fa fa-check"></i>Appendix D: Gory Details</a><ul>
+<li class="chapter" data-level="" data-path="appendix-d-gory-details.html"><a href="appendix-d-gory-details.html#using-the-snooze-library"><i class="fa fa-check"></i>Using the Snooze Library</a></li>
+<li class="chapter" data-level="" data-path="appendix-d-gory-details.html"><a href="appendix-d-gory-details.html#using-the-rtc"><i class="fa fa-check"></i>Using the RTC</a></li>
+<li class="chapter" data-level="" data-path="appendix-d-gory-details.html"><a href="appendix-d-gory-details.html#char-vs.-string"><i class="fa fa-check"></i>Char[] vs. String</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="appendix-a-function-library.html"><a href="appendix-a-function-library.html"><i class="fa fa-check"></i>Appendix A: Function Library</a><ul>
 <li class="chapter" data-level="" data-path="appendix-a-function-library.html"><a href="appendix-a-function-library.html#blink"><i class="fa fa-check"></i>blink()</a></li>
@@ -196,7 +219,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="appendix-a-function-library.html"><a href="appendix-a-function-library.html#turnsensorson"><i class="fa fa-check"></i>turnSensorsOn()</a></li>
 <li class="chapter" data-level="" data-path="appendix-a-function-library.html"><a href="appendix-a-function-library.html#writefilechar-filename16"><i class="fa fa-check"></i>writeFile(char filename[16])</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="appendix-b-strategies-for-troubleshooting.html"><a href="appendix-b-strategies-for-troubleshooting.html"><i class="fa fa-check"></i>Appendix B: Strategies for Troubleshooting</a></li>
 <li class="chapter" data-level="" data-path="appendix-c-glossary-and-abbreviations.html"><a href="appendix-c-glossary-and-abbreviations.html"><i class="fa fa-check"></i>Appendix C: Glossary and Abbreviations</a><ul>
 <li><a href="appendix-c-glossary-and-abbreviations.html#current-i">Current (<em>i</em>)</a></li>
 <li class="chapter" data-level="" data-path="appendix-c-glossary-and-abbreviations.html"><a href="appendix-c-glossary-and-abbreviations.html#electricity-1"><i class="fa fa-check"></i>Electricity</a></li>
@@ -205,11 +227,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="appendix-c-glossary-and-abbreviations.html#resistance-r">Resistance (<em>R</em>)</a></li>
 <li><a href="appendix-c-glossary-and-abbreviations.html#voltage-v">Voltage (<em>V</em>)</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="appendix-d-gory-details.html"><a href="appendix-d-gory-details.html"><i class="fa fa-check"></i>Appendix D: Gory Details</a><ul>
-<li class="chapter" data-level="" data-path="appendix-d-gory-details.html"><a href="appendix-d-gory-details.html#using-the-snooze-library"><i class="fa fa-check"></i>Using the Snooze Library</a></li>
-<li class="chapter" data-level="" data-path="appendix-d-gory-details.html"><a href="appendix-d-gory-details.html#using-the-rtc"><i class="fa fa-check"></i>Using the RTC</a></li>
-<li class="chapter" data-level="" data-path="appendix-d-gory-details.html"><a href="appendix-d-gory-details.html#char-vs.-string"><i class="fa fa-check"></i>Char[] vs. String</a></li>
-</ul></li>
+<li class="chapter" data-level="" data-path="appendix-b-strategies-for-troubleshooting.html"><a href="appendix-b-strategies-for-troubleshooting.html"><i class="fa fa-check"></i>Appendix B: Strategies for Troubleshooting</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -237,14 +255,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The Snooze library for Teensy allows us to put the Teensy into a hibernation mode, wherein it uses very little power. The Snooze library and it’s documentation can be found here: <a href="">https://github.com/duff2013/Snooze</a>.</p>
 <p>The library allows for numerous wakeups, including checking if a button is pressed, using a delay, and checking for a voltage threshold to be crossed among other options. We’ll use the real-time clock (RTC) wakeup for this project. The RTC wakeup allows the user to wake the Teensy up after a defined amount of time, as counted in hours, minutes, and/or seconds by the RTC on the Teensy.</p>
 <p>The first step to using Snooze is to call the library, load the alarm driver, and configure the SnoozeBlock to use the alarm driver. All of this goes <em>before</em> the <code>setup()</code> portion of the program.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb33-1"><a href="appendix-d-gory-details.html#cb33-1"></a><span class="pp">#include </span><span class="im">&lt;Snooze.h&gt;</span></span>
-<span id="cb33-2"><a href="appendix-d-gory-details.html#cb33-2"></a>SnoozeAlarm alarm;</span>
-<span id="cb33-3"><a href="appendix-d-gory-details.html#cb33-3"></a>SnoozeBlock config_teensy35(alarm)</span></code></pre></div>
+<pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb24-1"><a href="appendix-d-gory-details.html#cb24-1"></a><span class="pp">#include </span><span class="im">&lt;Snooze.h&gt;</span></span>
+<span id="cb24-2"><a href="appendix-d-gory-details.html#cb24-2"></a>SnoozeAlarm alarm;</span>
+<span id="cb24-3"><a href="appendix-d-gory-details.html#cb24-3"></a>SnoozeBlock config_teensy35(alarm)</span></code></pre></div>
 <p>Then, we set the RTC timer for the desired snooze period (in the <code>setup()</code> function). In the example below the Teensy will wake up after 5 minutes.</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb34-1"><a href="appendix-d-gory-details.html#cb34-1"></a>alarm.setRtcTimer(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">0</span>); <span class="co">// h, m, s</span></span></code></pre></div>
+<pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb25-1"><a href="appendix-d-gory-details.html#cb25-1"></a>alarm.setRtcTimer(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">0</span>); <span class="co">// h, m, s</span></span></code></pre></div>
 <p>Finally, we put the Teensy into hibernation mode <code>loop()</code> function. Other options exist, such as deep sleep and sleep, but hibernate uses the least power.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb35-1"><a href="appendix-d-gory-details.html#cb35-1"></a><span class="dt">int</span> who;</span>
-<span id="cb35-2"><a href="appendix-d-gory-details.html#cb35-2"></a>who = Snooze.hibernate(config_teensy35);</span></code></pre></div>
+<pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb26-1"><a href="appendix-d-gory-details.html#cb26-1"></a><span class="dt">int</span> who;</span>
+<span id="cb26-2"><a href="appendix-d-gory-details.html#cb26-2"></a>who = Snooze.hibernate(config_teensy35);</span></code></pre></div>
 <p>The Snooze function will return the pin number that caused the Teensy to wake up. The RTC wakes the Teensy up on pin 35. To know when that’s happened, we just wait until <code>who</code> is set to 35.</p>
 <pre class="rccp"><code>if (who == 35) {
   # do something here
@@ -269,8 +287,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="appendix-c-glossary-and-abbreviations.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="testing-and-calibration.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="appendix-a-function-library.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
