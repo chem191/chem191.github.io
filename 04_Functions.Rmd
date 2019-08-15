@@ -1,7 +1,6 @@
 # Functions: Building Blocks for Programs
 
-**Objective:** 
-**To turn in:** 
+**Objective:** Create a `blink()` function in Arduino.
 
 ## Introduction {-}
 

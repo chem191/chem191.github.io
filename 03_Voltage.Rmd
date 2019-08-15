@@ -35,6 +35,10 @@ Although the voltage output from the Teensy pin was either HIGH or LOW, the volt
 
 The Teensy can read *digital* signals on any of its digital I/O (input/output) pins (grey labels on the pinout diagram).  The Teensy can read *analog* signals on any of the analog input pin, which are shown with orange labels in the pinout diagram and numbered A0 through A22 (the A stands for analog).
 
+### Bits and Volts {-}
+
+Even though Teensy can "read" analog signals, it only understands digital signals.  So every analog signal read by the Teensy gets sent through an *analog to digital converter* (ADC).  This converts the analog signal from a sensor into a digital signal with discrete steps.  The size of these steps is determined by the number of **bits** the ADC has.  More bits equals more steps, and more steps equals a digital signal that more closely approximates the real analog signal.  
+
 ### Communicating via the serial port {-}
 
 In the previous exercise, you used digital signals to control an LED, but there was no communication between the Teensy and computer after the sketch was uploaded.  When reading signals, it's often useful to display the reading on the computer screen to have real-time feedback from the program.  To do this, the data collected on the Teensy board must be sent to the computer, the computer must read the data, and the computer must display it on the screen.  The communication protocol used to do this is called **serial communication**.  This is a very widely used protocol, and most computers used to come with a serial port built in.  In our case, we'll conduct serial communication over the USB port.
@@ -58,5 +62,94 @@ In this exercise, you'll measure ambient temperatures using a temperature sensor
 
 ## Connect the Temperature Sensor
 
+1. Push your Teensy into the breadboard provided and connect the USB cable.  Try not to bend the pins as you push it in.  Refer to the diagram below if necessary.
+
+    > REMEMBER, BE ***EXTREMELY*** CAREFUL WITH THE USB CONNECTION ON THE TEENSY.  THEY BREAK ***VERY*** EASILY!!
+
+2. Push the sensor into the breadboard such that neither of the leads (wires) are connected to anything else (each one is in it's own row).  The orientation does not matter; both legs are the same.
+
+    > *Always work with the Teensy unplugged from the computer.  This will help ensure no "magic smoke" escapes.*
+
+3. Use a jumper wire to connect one side of the sensor to Vin/5V on the Teensy (side 1).
+
+4. Connect the other side (side 2) of the sensor to a 10 kilo-ohm (k$\Ohm$) resistor, and then connect the other side of the resistor to ground (GND on the Teensy).  You may need to use a jumper wire to connect the resistor to GND.
+
+5. Use a jumper wire to connect side 2 of the sensor to an analog input on the Teensy.  In the example below, pin A0 is used.
+
+![<small>*Your final setup should look something like this picture.  Red = 5V, black = GND, and blue = signal.  *</small>](images/breadboard_thermistor_teensy.png)
+
 ## Program the Teensy
 
+### Bare Minimum
+
+1. Open the Arduino IDE and load a new file (if one doesn't open automatically).
+1. Go to `File > Save As` to save the example under a new name in the default location (`Documents/Arduino`).  Call it **groupName_voltage.ino**.
+
+    > *Remember, files that don't follow the naming convention **exactly** will incur point deductions.*
+
+3. Create a `setup()` function and start serial communication within it:
+
+```{Rcpp, eval = FALSE}
+    void setup() {
+        Serial.begin(9600);  // start serial communication at a rate of 9600 bits per second (the standard)
+    }
+```
+
+4. Create a `loop()` function, read the sensor data, and print it to the serial port:
+
+```{Rcpp, eval = FALSE}
+    void loop() {
+        value = analogRead(0); // read sensor
+        Serial.println(value); // print result to serial port
+        delay(1000);           // wait for 1 second
+    }
+```
+
+5. Press the **Upload** button to send your sketch to the Teensy.  Once you get it loaded, click the **Serial Monitor** button to see if the communication is working. You should see a number between 400 and 500 if you sensor is working correctly.
+
+### Converting to Temperature
+
+The Teensy reports values in bits, which isn't very meaningful to humans.  What we really care about is the temperature.  The formula to get from bits to degrees C (for this sensor connected to a Teensy) is:
+
+    \[
+        ^{\circ}C = 25 + (\text{value} - 512) / 11.3
+    \]
+
+1. Add the above forumla to your code to convert to temperature.  Also change the code to print the temperature to the serial port instead of the raw value.
+
+```{Rcpp, eval = FALSE}
+    void loop() {
+        value = analogRead(0); // read sensor
+        temp  = ____________________________; // convert to temperature
+        ______________________; // print the temperature to the serial port.
+        delay(1000);            // wait for 1 second
+    }
+```
+
+1. Upload your code and see if it works.
+
+### Cleaning up the Output
+
+You can also print text to the serial port.  When you use `Serial.print()` or `Serial.println()` to print text, it should always be in quote marks (this is technically called a *string*).  For example, `Serial.println(Hello, world!)` would NOT work, but `Serial.println("Hello, world!")` would.  To clean up you data output, try printing "*C" after the temperature to indicate the units.
+
+1. Change `Serial.println(temp)` to `Serial.print(temp)`.  These two functions are very similar, with one difference: `println` creates a new line when it's finished (like pressing enter on the keyboard) whereas `print` does not.
+1. Add a line just below `Serial.print(temp)` to print the "*C" symbology:
+
+```{Rcpp, eval = FALSE}
+    Serial.print(temp);
+    Serial.println("*C");
+```
+
+### Make Your Own Changes
+
+1. Before you leave, add a line in your code to convert from degrees C to degrees F.
+1. Once you've converted to F, print the results for both degrees C and degrees F.  Your values should:
+    - Be printed to the serial port *on the same line*.
+    - Include the units "*C" and "*F" where needed.
+    - Be separated from each other with a space (either " " or '\s').
+
+### Turn in
+1. A hardcopy of your completed Exercise 3 Worksheet.
+1. An electronic copy of your final Voltage code (submit to Dropbox).
+
+    > *Remember, files that don't follow the naming convention **exactly** will incur point deductions.*
