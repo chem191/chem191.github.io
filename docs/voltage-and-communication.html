@@ -301,7 +301,7 @@ V = iR
 <p><em>Always work with the Teensy unplugged from the computer. This will help ensure no “magic smoke” escapes.</em></p>
 </blockquote></li>
 <li><p>Use a jumper wire to connect one side of the sensor to Vin/5V on the Teensy (side 1).</p></li>
-<li><p>Connect the other side (side 2) of the sensor to a 10 kilo-ohm (k<span class="math inline">\(\Ohm\)</span>) resistor, and then connect the other side of the resistor to ground (GND on the Teensy). You may need to use a jumper wire to connect the resistor to GND.</p></li>
+<li><p>Connect the other side (side 2) of the sensor to a 10 kilo-ohm (k<span class="math inline">\(\\Ohm\)</span>) resistor, and then connect the other side of the resistor to ground (GND on the Teensy). You may need to use a jumper wire to connect the resistor to GND.</p></li>
 <li><p>Use a jumper wire to connect side 2 of the sensor to an analog input on the Teensy. In the example below, pin A0 is used.</p></li>
 </ol>
 <div class="figure">
@@ -339,9 +339,9 @@ V = iR
 <div id="converting-to-temperature" class="section level3">
 <h3><span class="header-section-number">3.2.2</span> Converting to Temperature</h3>
 <p>The Teensy reports values in bits, which isn’t very meaningful to humans. What we really care about is the temperature. The formula to get from bits to degrees C (for this sensor connected to a Teensy) is:</p>
-<pre><code>\[
+<pre><code>$$
     ^{\circ}C = 25 + (\text{value} - 512) / 11.3
-\]</code></pre>
+$$</code></pre>
 <ol style="list-style-type: decimal">
 <li>Add the above forumla to your code to convert to temperature. Also change the code to print the temperature to the serial port instead of the raw value.</li>
 </ol>
@@ -373,7 +373,7 @@ V = iR
 <ul>
 <li>Be printed to the serial port <em>on the same line</em>.</li>
 <li>Include the units “<em>C" and "</em>F” where needed.</li>
-<li>Be separated from each other with a space (either " " or ‘’).</li>
+<li>Be separated from each other with a space (either " " or ‘s’).</li>
 </ul></li>
 </ol>
 </div>
