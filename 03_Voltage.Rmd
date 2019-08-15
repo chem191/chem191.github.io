@@ -14,20 +14,20 @@ When first learning about electricity, it may help to think of it in analogous t
 Recall that in the last exercise you turned an LED on and off using a pin on the Teensy.  You did this by alternately setting the pin to `HIGH` and `LOW`, as in:
 
 ```{Rcpp, eval = FALSE}
-    digitalWrite(13, HIGH);
-    delay(1000);
-    digitalWrite(13, LOW);
-    delay(1000);
+digitalWrite(13, HIGH);
+delay(1000);
+digitalWrite(13, LOW);
+delay(1000);
 ```
 
 But what did this do internally in the Teensy?  When the Teensy gets the command `digitalWrite(13, HIGH);` it sets the voltage of pin 13 to 3.3 volts (3.3 V is standard voltage for microcontrollers).  Alternatively, when it gets the command `digitalWrite(13, LOW);`, it sets the voltage to 0 V.  Thus, when the voltage is 3.3 V, there is a potential difference across the LED from 3.3 V on the controlling pin (anode) to 0V on the ground pin (cathode).  This causes current to flow through the LED, which in turn causes the LED to light up.  When the voltage is set back to 0, there is no longer a potential difference across the LED, current does not flow, and the LED does not light up.
 
 You may have gotten the idea that voltage and current are inextricably linked, and that's true.  In fact, **Ohm's Law** provides a mathmatical relation between the two:
 
-\[
+$$
 \text{Voltage (volts)} = \text{Current (amps)} \times \text{Resistance (ohms, }\Omega\text{)}  \\
 V = iR
-\]
+$$
 
 This introduces a new concept, resistance.  **Resistance** is simply the opposition to flow of electrical current.  Resistance can be introduced to a circuit purposely with a device called a **resistor**.  Usually these are a defined, fixed resistance introduced for a specific purpose.  However, many sensors have a resistance that changes proporitionally to some stimulus.  Thus, the voltage across the device will change in response to that stimulus, and the stimulus can be measured simply by measuring the voltage.  As an example of how useful this is, consider a temperature sensor.  A computer or microcontroller cannot sense the temperature directly -- it only understands voltages.  A device that converts changes in temperature to changes in voltage allows the computer to infer changes in temperature.
 
