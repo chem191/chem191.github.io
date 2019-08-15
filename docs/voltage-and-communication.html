@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Exercise 3 Voltage and Communication | CHEM 191 Workbook: Building a Teensy Air Quality Monitor</title>
   <meta name="description" content="Course Materials for CHEM 191: Issues in Environmental Chemistry" />
-  <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Exercise 3 Voltage and Communication | CHEM 191 Workbook: Building a Teensy Air Quality Monitor" />
   <meta property="og:type" content="book" />
@@ -54,7 +54,6 @@ code.sourceCode > span { color: inherit; text-decoration: inherit; }
 code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -197,12 +196,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="soldering-and-pcb-assembly.html"><a href="soldering-and-pcb-assembly.html#assembling-the-board"><i class="fa fa-check"></i><b>5.3</b> Assembling the Board</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="testing-and-calibration.html"><a href="testing-and-calibration.html"><i class="fa fa-check"></i><b>6</b> Testing and Calibration</a></li>
-<li class="chapter" data-level="" data-path="appendix-d-gory-details.html"><a href="appendix-d-gory-details.html"><i class="fa fa-check"></i>Appendix D: Gory Details</a><ul>
-<li class="chapter" data-level="" data-path="appendix-d-gory-details.html"><a href="appendix-d-gory-details.html#using-the-snooze-library"><i class="fa fa-check"></i>Using the Snooze Library</a></li>
-<li class="chapter" data-level="" data-path="appendix-d-gory-details.html"><a href="appendix-d-gory-details.html#using-the-rtc"><i class="fa fa-check"></i>Using the RTC</a></li>
-<li class="chapter" data-level="" data-path="appendix-d-gory-details.html"><a href="appendix-d-gory-details.html#char-vs.-string"><i class="fa fa-check"></i>Char[] vs. String</a></li>
-</ul></li>
 <li class="chapter" data-level="" data-path="appendix-a-function-library.html"><a href="appendix-a-function-library.html"><i class="fa fa-check"></i>Appendix A: Function Library</a><ul>
 <li class="chapter" data-level="" data-path="appendix-a-function-library.html"><a href="appendix-a-function-library.html#blink"><i class="fa fa-check"></i>blink()</a></li>
 <li class="chapter" data-level="" data-path="appendix-a-function-library.html"><a href="appendix-a-function-library.html#checkconnection"><i class="fa fa-check"></i>checkConnection()</a></li>
@@ -219,6 +212,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="appendix-a-function-library.html"><a href="appendix-a-function-library.html#turnsensorson"><i class="fa fa-check"></i>turnSensorsOn()</a></li>
 <li class="chapter" data-level="" data-path="appendix-a-function-library.html"><a href="appendix-a-function-library.html#writefilechar-filename16"><i class="fa fa-check"></i>writeFile(char filename[16])</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="appendix-b-strategies-for-troubleshooting.html"><a href="appendix-b-strategies-for-troubleshooting.html"><i class="fa fa-check"></i>Appendix B: Strategies for Troubleshooting</a></li>
 <li class="chapter" data-level="" data-path="appendix-c-glossary-and-abbreviations.html"><a href="appendix-c-glossary-and-abbreviations.html"><i class="fa fa-check"></i>Appendix C: Glossary and Abbreviations</a><ul>
 <li><a href="appendix-c-glossary-and-abbreviations.html#current-i">Current (<em>i</em>)</a></li>
 <li class="chapter" data-level="" data-path="appendix-c-glossary-and-abbreviations.html"><a href="appendix-c-glossary-and-abbreviations.html#electricity-1"><i class="fa fa-check"></i>Electricity</a></li>
@@ -227,7 +221,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="appendix-c-glossary-and-abbreviations.html#resistance-r">Resistance (<em>R</em>)</a></li>
 <li><a href="appendix-c-glossary-and-abbreviations.html#voltage-v">Voltage (<em>V</em>)</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="appendix-b-strategies-for-troubleshooting.html"><a href="appendix-b-strategies-for-troubleshooting.html"><i class="fa fa-check"></i>Appendix B: Strategies for Troubleshooting</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -259,7 +252,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3>Electricity</h3>
 <p>When first learning about electricity, it may help to think of it in analogous terms to water. <strong>Current</strong> is the flow of electricity through a circuit, and is analogous to the current in a river. Just like water molecules move through the river, charge carriers (electrons) in a move through the wires of the circuit. <strong>Voltage</strong> is a <em>potential energy difference</em> between two points in a circuit. This is analogous to the potential energy difference in water stored behind a dam and water at the bottom of the dam. Current will not flow without a voltage difference, just as water will not flow without a difference in height or pressure.</p>
 <p>Recall that in the last exercise you turned an LED on and off using a pin on the Teensy. You did this by alternately setting the pin to <code>HIGH</code> and <code>LOW</code>, as in:</p>
-<pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="voltage-and-communication.html#cb11-1"></a>digitalWrite(<span class="dv">13</span>, HIGH);</span>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="voltage-and-communication.html#cb11-1"></a>digitalWrite(<span class="dv">13</span>, HIGH);</span>
 <span id="cb11-2"><a href="voltage-and-communication.html#cb11-2"></a>delay(<span class="dv">1000</span>);</span>
 <span id="cb11-3"><a href="voltage-and-communication.html#cb11-3"></a>digitalWrite(<span class="dv">13</span>, LOW);</span>
 <span id="cb11-4"><a href="voltage-and-communication.html#cb11-4"></a>delay(<span class="dv">1000</span>);</span></code></pre></div>
@@ -281,9 +274,9 @@ V = iR
 <h3>Communicating via the serial port</h3>
 <p>In the previous exercise, you used digital signals to control an LED, but there was no communication between the Teensy and computer after the sketch was uploaded. When reading signals, it’s often useful to display the reading on the computer screen to have real-time feedback from the program. To do this, the data collected on the Teensy board must be sent to the computer, the computer must read the data, and the computer must display it on the screen. The communication protocol used to do this is called <strong>serial communication</strong>. This is a very widely used protocol, and most computers used to come with a serial port built in. In our case, we’ll conduct serial communication over the USB port.</p>
 <p>Using serial communication on the Teensy is relatively simple. The first step is to open the serial port and tell it what data transfer speed to use (basically how quickly the Teensy and the computer talk to each other).</p>
-<pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="voltage-and-communication.html#cb12-1"></a>    Serial.begin(<span class="dv">9600</span>);</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="voltage-and-communication.html#cb12-1"></a>    Serial.begin(<span class="dv">9600</span>);</span></code></pre></div>
 <p>Once the connection is open, you can print most anything to the serial port you wish. For example, a simple <a href="https://en.wikipedia.org/wiki/%22Hello,_World!%22_program">hello world</a> program would look something like:</p>
-<pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="voltage-and-communication.html#cb13-1"></a>    Serial.begin(<span class="dv">9600</span>);</span>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="voltage-and-communication.html#cb13-1"></a>    Serial.begin(<span class="dv">9600</span>);</span>
 <span id="cb13-2"><a href="voltage-and-communication.html#cb13-2"></a>    Serial.print(<span class="st">&quot;Hello, World!&quot;</span>);</span></code></pre></div>
 <p>The above pseudocode would print “Hello, World!” to the computer’s serial port. The result could be displayed on the computer screen by opening the serial monitor in the Arduino IDE. There are a few more details you’ll learn as you go.</p>
 <p>In this exercise, you’ll measure ambient temperatures using a temperature sensor and display the result to the computer screen via the serial port.</p>
@@ -301,7 +294,7 @@ V = iR
 <p><em>Always work with the Teensy unplugged from the computer. This will help ensure no “magic smoke” escapes.</em></p>
 </blockquote></li>
 <li><p>Use a jumper wire to connect one side of the sensor to Vin/5V on the Teensy (side 1).</p></li>
-<li><p>Connect the other side (side 2) of the sensor to a 10 kilo-ohm (k<span class="math inline">\(\\Ohm\)</span>) resistor, and then connect the other side of the resistor to ground (GND on the Teensy). You may need to use a jumper wire to connect the resistor to GND.</p></li>
+<li><p>Connect the other side (side 2) of the sensor to a 10 kilo-ohm (k<span class="math inline">\(\Omega\)</span>) resistor, and then connect the other side of the resistor to ground (GND on the Teensy). You may need to use a jumper wire to connect the resistor to GND.</p></li>
 <li><p>Use a jumper wire to connect side 2 of the sensor to an analog input on the Teensy. In the example below, pin A0 is used.</p></li>
 </ol>
 <div class="figure">
@@ -321,13 +314,13 @@ V = iR
 </blockquote></li>
 <li><p>Create a <code>setup()</code> function and start serial communication within it:</p></li>
 </ol>
-<pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="voltage-and-communication.html#cb14-1"></a>    <span class="dt">void</span> setup() {</span>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="voltage-and-communication.html#cb14-1"></a>    <span class="dt">void</span> setup() {</span>
 <span id="cb14-2"><a href="voltage-and-communication.html#cb14-2"></a>        Serial.begin(<span class="dv">9600</span>);  <span class="co">// start serial communication at a rate of 9600 bits per second (the standard)</span></span>
 <span id="cb14-3"><a href="voltage-and-communication.html#cb14-3"></a>    }</span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
 <li>Create a <code>loop()</code> function, read the sensor data, and print it to the serial port:</li>
 </ol>
-<pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="voltage-and-communication.html#cb15-1"></a>    <span class="dt">void</span> loop() {</span>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="voltage-and-communication.html#cb15-1"></a>    <span class="dt">void</span> loop() {</span>
 <span id="cb15-2"><a href="voltage-and-communication.html#cb15-2"></a>        value = analogRead(<span class="dv">0</span>); <span class="co">// read sensor</span></span>
 <span id="cb15-3"><a href="voltage-and-communication.html#cb15-3"></a>        Serial.println(value); <span class="co">// print result to serial port</span></span>
 <span id="cb15-4"><a href="voltage-and-communication.html#cb15-4"></a>        delay(<span class="dv">1000</span>);           <span class="co">// wait for 1 second</span></span>
@@ -345,7 +338,7 @@ $$</code></pre>
 <ol style="list-style-type: decimal">
 <li>Add the above forumla to your code to convert to temperature. Also change the code to print the temperature to the serial port instead of the raw value.</li>
 </ol>
-<pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb17-1"><a href="voltage-and-communication.html#cb17-1"></a>    <span class="dt">void</span> loop() {</span>
+<div class="sourceCode" id="cb17"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb17-1"><a href="voltage-and-communication.html#cb17-1"></a>    <span class="dt">void</span> loop() {</span>
 <span id="cb17-2"><a href="voltage-and-communication.html#cb17-2"></a>        value = analogRead(<span class="dv">0</span>); <span class="co">// read sensor</span></span>
 <span id="cb17-3"><a href="voltage-and-communication.html#cb17-3"></a>        temp  = ____________________________; <span class="co">// convert to temperature</span></span>
 <span id="cb17-4"><a href="voltage-and-communication.html#cb17-4"></a>        ______________________; <span class="co">// print the temperature to the serial port.</span></span>
@@ -362,7 +355,7 @@ $$</code></pre>
 <li>Change <code>Serial.println(temp)</code> to <code>Serial.print(temp)</code>. These two functions are very similar, with one difference: <code>println</code> creates a new line when it’s finished (like pressing enter on the keyboard) whereas <code>print</code> does not.</li>
 <li>Add a line just below <code>Serial.print(temp)</code> to print the "*C" symbology:</li>
 </ol>
-<pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb18-1"><a href="voltage-and-communication.html#cb18-1"></a>    Serial.print(temp);</span>
+<div class="sourceCode" id="cb18"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb18-1"><a href="voltage-and-communication.html#cb18-1"></a>    Serial.print(temp);</span>
 <span id="cb18-2"><a href="voltage-and-communication.html#cb18-2"></a>    Serial.println(<span class="st">&quot;*C&quot;</span>);</span></code></pre></div>
 </div>
 <div id="make-your-own-changes-1" class="section level3">
@@ -373,7 +366,7 @@ $$</code></pre>
 <ul>
 <li>Be printed to the serial port <em>on the same line</em>.</li>
 <li>Include the units “<em>C" and "</em>F” where needed.</li>
-<li>Be separated from each other with a space (either " " or ‘s’).</li>
+<li>Be separated from each other with a space (either " " or <code>\s</code>).</li>
 </ul></li>
 </ol>
 </div>

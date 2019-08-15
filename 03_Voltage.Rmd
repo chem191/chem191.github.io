@@ -72,7 +72,7 @@ In this exercise, you'll measure ambient temperatures using a temperature sensor
 
 3. Use a jumper wire to connect one side of the sensor to Vin/5V on the Teensy (side 1).
 
-4. Connect the other side (side 2) of the sensor to a 10 kilo-ohm (k$\\Ohm$) resistor, and then connect the other side of the resistor to ground (GND on the Teensy).  You may need to use a jumper wire to connect the resistor to GND.
+4. Connect the other side (side 2) of the sensor to a 10 kilo-ohm (k$\Omega$) resistor, and then connect the other side of the resistor to ground (GND on the Teensy).  You may need to use a jumper wire to connect the resistor to GND.
 
 5. Use a jumper wire to connect side 2 of the sensor to an analog input on the Teensy.  In the example below, pin A0 is used.
 
@@ -146,7 +146,7 @@ You can also print text to the serial port.  When you use `Serial.print()` or `S
 1. Once you've converted to F, print the results for both degrees C and degrees F.  Your values should:
     - Be printed to the serial port *on the same line*.
     - Include the units "*C" and "*F" where needed.
-    - Be separated from each other with a space (either " " or 's').
+    - Be separated from each other with a space (either " " or `\s`).
 
 ### Turn in
 1. A hardcopy of your completed Exercise 3 Worksheet.
