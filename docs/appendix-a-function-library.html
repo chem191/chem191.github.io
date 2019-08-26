@@ -246,172 +246,172 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="blink" class="section level2 unnumbered">
 <h2>blink()</h2>
 <p>Blinks the Teensy’s onboard LED.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb24-1"><a href="appendix-a-function-library.html#cb24-1"></a><span class="dt">void</span> blink() {</span>
-<span id="cb24-2"><a href="appendix-a-function-library.html#cb24-2"></a>    digitalWriteFast(LED_BUILTIN, HIGH);</span>
-<span id="cb24-3"><a href="appendix-a-function-library.html#cb24-3"></a>    delay(<span class="dv">15</span>);</span>
-<span id="cb24-4"><a href="appendix-a-function-library.html#cb24-4"></a>    digitalWriteFast(LED_BUILTIN, LOW);</span>
-<span id="cb24-5"><a href="appendix-a-function-library.html#cb24-5"></a>    delay(<span class="dv">15</span>);</span>
-<span id="cb24-6"><a href="appendix-a-function-library.html#cb24-6"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb21-1"><a href="appendix-a-function-library.html#cb21-1"></a><span class="dt">void</span> blink() {</span>
+<span id="cb21-2"><a href="appendix-a-function-library.html#cb21-2"></a>    digitalWriteFast(LED_BUILTIN, HIGH);</span>
+<span id="cb21-3"><a href="appendix-a-function-library.html#cb21-3"></a>    delay(<span class="dv">15</span>);</span>
+<span id="cb21-4"><a href="appendix-a-function-library.html#cb21-4"></a>    digitalWriteFast(LED_BUILTIN, LOW);</span>
+<span id="cb21-5"><a href="appendix-a-function-library.html#cb21-5"></a>    delay(<span class="dv">15</span>);</span>
+<span id="cb21-6"><a href="appendix-a-function-library.html#cb21-6"></a>}</span></code></pre></div>
 </div>
 <div id="checkconnection" class="section level2 unnumbered">
 <h2>checkConnection()</h2>
 <p>Checks serial connection to PM sensor and connection to SD card and returns 5 and 2 LED blinks, respectively, if successful.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb25-1"><a href="appendix-a-function-library.html#cb25-1"></a><span class="dt">void</span> checkConnection() {</span>
-<span id="cb25-2"><a href="appendix-a-function-library.html#cb25-2"></a>  <span class="cf">if</span> (my_status == <span class="dv">1</span>){</span>
-<span id="cb25-3"><a href="appendix-a-function-library.html#cb25-3"></a>    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">1</span>; i &lt; <span class="dv">6</span>; i++){</span>
-<span id="cb25-4"><a href="appendix-a-function-library.html#cb25-4"></a>      blink();</span>
-<span id="cb25-5"><a href="appendix-a-function-library.html#cb25-5"></a>    }</span>
-<span id="cb25-6"><a href="appendix-a-function-library.html#cb25-6"></a>    </span>
-<span id="cb25-7"><a href="appendix-a-function-library.html#cb25-7"></a>    delay(<span class="dv">3000</span>);</span>
-<span id="cb25-8"><a href="appendix-a-function-library.html#cb25-8"></a>  }</span>
-<span id="cb25-9"><a href="appendix-a-function-library.html#cb25-9"></a>  <span class="cf">else</span>{</span>
-<span id="cb25-10"><a href="appendix-a-function-library.html#cb25-10"></a>    digitalWrite(LED_BUILTIN, HIGH);</span>
-<span id="cb25-11"><a href="appendix-a-function-library.html#cb25-11"></a>    delay(<span class="dv">5000</span>);  </span>
-<span id="cb25-12"><a href="appendix-a-function-library.html#cb25-12"></a>    digitalWrite(LED_BUILTIN, LOW);</span>
-<span id="cb25-13"><a href="appendix-a-function-library.html#cb25-13"></a>  }</span>
-<span id="cb25-14"><a href="appendix-a-function-library.html#cb25-14"></a></span>
-<span id="cb25-15"><a href="appendix-a-function-library.html#cb25-15"></a>   <span class="cf">if</span> (!SD.begin(chipSelect)) {</span>
-<span id="cb25-16"><a href="appendix-a-function-library.html#cb25-16"></a>    <span class="cf">return</span>;</span>
-<span id="cb25-17"><a href="appendix-a-function-library.html#cb25-17"></a>  }</span>
-<span id="cb25-18"><a href="appendix-a-function-library.html#cb25-18"></a>  <span class="cf">if</span> (!card.init(SPI_HALF_SPEED, chipSelect)) {</span>
-<span id="cb25-19"><a href="appendix-a-function-library.html#cb25-19"></a>        <span class="co">// don&#39;t do anything more:</span></span>
-<span id="cb25-20"><a href="appendix-a-function-library.html#cb25-20"></a>        <span class="cf">while</span> (<span class="dv">1</span>) {</span>
-<span id="cb25-21"><a href="appendix-a-function-library.html#cb25-21"></a>            blink();</span>
-<span id="cb25-22"><a href="appendix-a-function-library.html#cb25-22"></a>            blink();</span>
-<span id="cb25-23"><a href="appendix-a-function-library.html#cb25-23"></a>        }</span>
-<span id="cb25-24"><a href="appendix-a-function-library.html#cb25-24"></a>    }</span>
-<span id="cb25-25"><a href="appendix-a-function-library.html#cb25-25"></a>    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">1</span>; i &lt; <span class="dv">3</span>; i++){</span>
-<span id="cb25-26"><a href="appendix-a-function-library.html#cb25-26"></a>      blink();</span>
-<span id="cb25-27"><a href="appendix-a-function-library.html#cb25-27"></a>    }</span>
-<span id="cb25-28"><a href="appendix-a-function-library.html#cb25-28"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb22-1"><a href="appendix-a-function-library.html#cb22-1"></a><span class="dt">void</span> checkConnection() {</span>
+<span id="cb22-2"><a href="appendix-a-function-library.html#cb22-2"></a>  <span class="cf">if</span> (my_status == <span class="dv">1</span>){</span>
+<span id="cb22-3"><a href="appendix-a-function-library.html#cb22-3"></a>    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">1</span>; i &lt; <span class="dv">6</span>; i++){</span>
+<span id="cb22-4"><a href="appendix-a-function-library.html#cb22-4"></a>      blink();</span>
+<span id="cb22-5"><a href="appendix-a-function-library.html#cb22-5"></a>    }</span>
+<span id="cb22-6"><a href="appendix-a-function-library.html#cb22-6"></a>    </span>
+<span id="cb22-7"><a href="appendix-a-function-library.html#cb22-7"></a>    delay(<span class="dv">3000</span>);</span>
+<span id="cb22-8"><a href="appendix-a-function-library.html#cb22-8"></a>  }</span>
+<span id="cb22-9"><a href="appendix-a-function-library.html#cb22-9"></a>  <span class="cf">else</span>{</span>
+<span id="cb22-10"><a href="appendix-a-function-library.html#cb22-10"></a>    digitalWrite(LED_BUILTIN, HIGH);</span>
+<span id="cb22-11"><a href="appendix-a-function-library.html#cb22-11"></a>    delay(<span class="dv">5000</span>);  </span>
+<span id="cb22-12"><a href="appendix-a-function-library.html#cb22-12"></a>    digitalWrite(LED_BUILTIN, LOW);</span>
+<span id="cb22-13"><a href="appendix-a-function-library.html#cb22-13"></a>  }</span>
+<span id="cb22-14"><a href="appendix-a-function-library.html#cb22-14"></a></span>
+<span id="cb22-15"><a href="appendix-a-function-library.html#cb22-15"></a>   <span class="cf">if</span> (!SD.begin(chipSelect)) {</span>
+<span id="cb22-16"><a href="appendix-a-function-library.html#cb22-16"></a>    <span class="cf">return</span>;</span>
+<span id="cb22-17"><a href="appendix-a-function-library.html#cb22-17"></a>  }</span>
+<span id="cb22-18"><a href="appendix-a-function-library.html#cb22-18"></a>  <span class="cf">if</span> (!card.init(SPI_HALF_SPEED, chipSelect)) {</span>
+<span id="cb22-19"><a href="appendix-a-function-library.html#cb22-19"></a>        <span class="co">// don&#39;t do anything more:</span></span>
+<span id="cb22-20"><a href="appendix-a-function-library.html#cb22-20"></a>        <span class="cf">while</span> (<span class="dv">1</span>) {</span>
+<span id="cb22-21"><a href="appendix-a-function-library.html#cb22-21"></a>            blink();</span>
+<span id="cb22-22"><a href="appendix-a-function-library.html#cb22-22"></a>            blink();</span>
+<span id="cb22-23"><a href="appendix-a-function-library.html#cb22-23"></a>        }</span>
+<span id="cb22-24"><a href="appendix-a-function-library.html#cb22-24"></a>    }</span>
+<span id="cb22-25"><a href="appendix-a-function-library.html#cb22-25"></a>    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">1</span>; i &lt; <span class="dv">3</span>; i++){</span>
+<span id="cb22-26"><a href="appendix-a-function-library.html#cb22-26"></a>      blink();</span>
+<span id="cb22-27"><a href="appendix-a-function-library.html#cb22-27"></a>    }</span>
+<span id="cb22-28"><a href="appendix-a-function-library.html#cb22-28"></a>}</span></code></pre></div>
 </div>
 <div id="createfilenameint-y-int-m-int-d" class="section level2 unnumbered">
 <h2>createFileName(int y, int m, int d)</h2>
 <p>Creates file name based on the current date.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb26-1"><a href="appendix-a-function-library.html#cb26-1"></a>String createFileName(<span class="dt">int</span> y, <span class="dt">int</span> m, <span class="dt">int</span> d) {</span>
-<span id="cb26-2"><a href="appendix-a-function-library.html#cb26-2"></a>  <span class="cf">return</span> String(fillDigits(y)) + String(fillDigits(m)) + String(fillDigits(d)) + deviceID + <span class="st">&quot;.txt&quot;</span>;</span>
-<span id="cb26-3"><a href="appendix-a-function-library.html#cb26-3"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb23-1"><a href="appendix-a-function-library.html#cb23-1"></a>String createFileName(<span class="dt">int</span> y, <span class="dt">int</span> m, <span class="dt">int</span> d) {</span>
+<span id="cb23-2"><a href="appendix-a-function-library.html#cb23-2"></a>  <span class="cf">return</span> String(fillDigits(y)) + String(fillDigits(m)) + String(fillDigits(d)) + deviceID + <span class="st">&quot;.txt&quot;</span>;</span>
+<span id="cb23-3"><a href="appendix-a-function-library.html#cb23-3"></a>}</span></code></pre></div>
 </div>
 <div id="filldigitsint-digits" class="section level2 unnumbered">
 <h2>fillDigits(int digits)</h2>
 <p>Adds a leading zero to a number if &lt; 10.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb27-1"><a href="appendix-a-function-library.html#cb27-1"></a>String fillDigits(<span class="dt">int</span> digits) {</span>
-<span id="cb27-2"><a href="appendix-a-function-library.html#cb27-2"></a>  <span class="cf">if</span> (digits &lt; <span class="dv">10</span>) {</span>
-<span id="cb27-3"><a href="appendix-a-function-library.html#cb27-3"></a>    String digitsout = <span class="st">&quot;0&quot;</span> + String(digits);</span>
-<span id="cb27-4"><a href="appendix-a-function-library.html#cb27-4"></a>    <span class="cf">return</span> digitsout;</span>
-<span id="cb27-5"><a href="appendix-a-function-library.html#cb27-5"></a>  }</span>
-<span id="cb27-6"><a href="appendix-a-function-library.html#cb27-6"></a>  <span class="cf">else</span> <span class="cf">return</span> digits;</span>
-<span id="cb27-7"><a href="appendix-a-function-library.html#cb27-7"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb24-1"><a href="appendix-a-function-library.html#cb24-1"></a>String fillDigits(<span class="dt">int</span> digits) {</span>
+<span id="cb24-2"><a href="appendix-a-function-library.html#cb24-2"></a>  <span class="cf">if</span> (digits &lt; <span class="dv">10</span>) {</span>
+<span id="cb24-3"><a href="appendix-a-function-library.html#cb24-3"></a>    String digitsout = <span class="st">&quot;0&quot;</span> + String(digits);</span>
+<span id="cb24-4"><a href="appendix-a-function-library.html#cb24-4"></a>    <span class="cf">return</span> digitsout;</span>
+<span id="cb24-5"><a href="appendix-a-function-library.html#cb24-5"></a>  }</span>
+<span id="cb24-6"><a href="appendix-a-function-library.html#cb24-6"></a>  <span class="cf">else</span> <span class="cf">return</span> digits;</span>
+<span id="cb24-7"><a href="appendix-a-function-library.html#cb24-7"></a>}</span></code></pre></div>
 </div>
 <div id="getteensy3time" class="section level2 unnumbered">
 <h2>getTeensy3Time()</h2>
 <p>This function comes from the RTC example. It syncs the RTC time on the Teensy.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb28-1"><a href="appendix-a-function-library.html#cb28-1"></a><span class="dt">time_t</span> getTeensy3Time() {</span>
-<span id="cb28-2"><a href="appendix-a-function-library.html#cb28-2"></a>  <span class="cf">return</span> Teensy3Clock.get();</span>
-<span id="cb28-3"><a href="appendix-a-function-library.html#cb28-3"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb25-1"><a href="appendix-a-function-library.html#cb25-1"></a><span class="dt">time_t</span> getTeensy3Time() {</span>
+<span id="cb25-2"><a href="appendix-a-function-library.html#cb25-2"></a>  <span class="cf">return</span> Teensy3Clock.get();</span>
+<span id="cb25-3"><a href="appendix-a-function-library.html#cb25-3"></a>}</span></code></pre></div>
 </div>
 <div id="performpmreading" class="section level2 unnumbered">
 <h2>performPMReading()</h2>
 <p>Reads PM_2.5 data from sensor and returns it as a float.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb29-1"><a href="appendix-a-function-library.html#cb29-1"></a><span class="dt">float</span> performPMReading() {</span>
-<span id="cb29-2"><a href="appendix-a-function-library.html#cb29-2"></a>    <span class="dt">float</span> pavg = <span class="fl">0.0</span>;</span>
-<span id="cb29-3"><a href="appendix-a-function-library.html#cb29-3"></a>    <span class="dt">float</span> psum = <span class="fl">0.0</span>;</span>
-<span id="cb29-4"><a href="appendix-a-function-library.html#cb29-4"></a>    </span>
-<span id="cb29-5"><a href="appendix-a-function-library.html#cb29-5"></a>    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">1</span>; i &lt; <span class="dv">21</span>; i++) {</span>
-<span id="cb29-6"><a href="appendix-a-function-library.html#cb29-6"></a>      my_status = my_hpm.read(&amp;p25, &amp;p10);</span>
-<span id="cb29-7"><a href="appendix-a-function-library.html#cb29-7"></a>      <span class="cf">if</span> (i &gt; <span class="dv">15</span>) {         <span class="co">// throw away first points while it warms up</span></span>
-<span id="cb29-8"><a href="appendix-a-function-library.html#cb29-8"></a>          psum = psum + p25;</span>
-<span id="cb29-9"><a href="appendix-a-function-library.html#cb29-9"></a>          pavg = (psum)/(<span class="dt">float</span>(i)-<span class="fl">15.0</span>);</span>
-<span id="cb29-10"><a href="appendix-a-function-library.html#cb29-10"></a>          }   </span>
-<span id="cb29-11"><a href="appendix-a-function-library.html#cb29-11"></a>          delay(<span class="dv">1000</span>);    </span>
-<span id="cb29-12"><a href="appendix-a-function-library.html#cb29-12"></a>    }</span>
-<span id="cb29-13"><a href="appendix-a-function-library.html#cb29-13"></a>    <span class="cf">return</span> pavg;</span>
-<span id="cb29-14"><a href="appendix-a-function-library.html#cb29-14"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb26-1"><a href="appendix-a-function-library.html#cb26-1"></a><span class="dt">float</span> performPMReading() {</span>
+<span id="cb26-2"><a href="appendix-a-function-library.html#cb26-2"></a>    <span class="dt">float</span> pavg = <span class="fl">0.0</span>;</span>
+<span id="cb26-3"><a href="appendix-a-function-library.html#cb26-3"></a>    <span class="dt">float</span> psum = <span class="fl">0.0</span>;</span>
+<span id="cb26-4"><a href="appendix-a-function-library.html#cb26-4"></a>    </span>
+<span id="cb26-5"><a href="appendix-a-function-library.html#cb26-5"></a>    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">1</span>; i &lt; <span class="dv">21</span>; i++) {</span>
+<span id="cb26-6"><a href="appendix-a-function-library.html#cb26-6"></a>      my_status = my_hpm.read(&amp;p25, &amp;p10);</span>
+<span id="cb26-7"><a href="appendix-a-function-library.html#cb26-7"></a>      <span class="cf">if</span> (i &gt; <span class="dv">15</span>) {         <span class="co">// throw away first points while it warms up</span></span>
+<span id="cb26-8"><a href="appendix-a-function-library.html#cb26-8"></a>          psum = psum + p25;</span>
+<span id="cb26-9"><a href="appendix-a-function-library.html#cb26-9"></a>          pavg = (psum)/(<span class="dt">float</span>(i)-<span class="fl">15.0</span>);</span>
+<span id="cb26-10"><a href="appendix-a-function-library.html#cb26-10"></a>          }   </span>
+<span id="cb26-11"><a href="appendix-a-function-library.html#cb26-11"></a>          delay(<span class="dv">1000</span>);    </span>
+<span id="cb26-12"><a href="appendix-a-function-library.html#cb26-12"></a>    }</span>
+<span id="cb26-13"><a href="appendix-a-function-library.html#cb26-13"></a>    <span class="cf">return</span> pavg;</span>
+<span id="cb26-14"><a href="appendix-a-function-library.html#cb26-14"></a>}</span></code></pre></div>
 </div>
 <div id="printdata" class="section level2 unnumbered">
 <h2>printData()</h2>
 <p>Returns data string in standard format based on sensor ID string and measurements values (floats).</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb30-1"><a href="appendix-a-function-library.html#cb30-1"></a>String printData(String ID, <span class="dt">float</span> t, <span class="dt">float</span> h, <span class="dt">float</span> p, <span class="dt">float</span> g, <span class="dt">float</span> pm25) {</span>
-<span id="cb30-2"><a href="appendix-a-function-library.html#cb30-2"></a>  <span class="cf">return</span> String(ID) + <span class="ch">&#39;</span><span class="sc">\t</span><span class="ch">&#39;</span> + printDateTime(printDate(year(), month(), day()), printTime(hour(), minute(), second())) + <span class="ch">&#39;</span><span class="sc">\t</span><span class="ch">&#39;</span> + String(t) + <span class="ch">&#39;</span><span class="sc">\t</span><span class="ch">&#39;</span> + String(h) + <span class="ch">&#39;</span><span class="sc">\t</span><span class="ch">&#39;</span> + String(p/<span class="fl">100.0</span>) + <span class="ch">&#39;</span><span class="sc">\t</span><span class="ch">&#39;</span> + String(g/<span class="fl">1000.0</span>)+ <span class="ch">&#39;</span><span class="sc">\t</span><span class="ch">&#39;</span> + String(pm25);</span>
-<span id="cb30-3"><a href="appendix-a-function-library.html#cb30-3"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb27-1"><a href="appendix-a-function-library.html#cb27-1"></a>String printData(String ID, <span class="dt">float</span> t, <span class="dt">float</span> h, <span class="dt">float</span> p, <span class="dt">float</span> g, <span class="dt">float</span> pm25) {</span>
+<span id="cb27-2"><a href="appendix-a-function-library.html#cb27-2"></a>  <span class="cf">return</span> String(ID) + <span class="ch">&#39;</span><span class="sc">\t</span><span class="ch">&#39;</span> + printDateTime(printDate(year(), month(), day()), printTime(hour(), minute(), second())) + <span class="ch">&#39;</span><span class="sc">\t</span><span class="ch">&#39;</span> + String(t) + <span class="ch">&#39;</span><span class="sc">\t</span><span class="ch">&#39;</span> + String(h) + <span class="ch">&#39;</span><span class="sc">\t</span><span class="ch">&#39;</span> + String(p/<span class="fl">100.0</span>) + <span class="ch">&#39;</span><span class="sc">\t</span><span class="ch">&#39;</span> + String(g/<span class="fl">1000.0</span>)+ <span class="ch">&#39;</span><span class="sc">\t</span><span class="ch">&#39;</span> + String(pm25);</span>
+<span id="cb27-3"><a href="appendix-a-function-library.html#cb27-3"></a>}</span></code></pre></div>
 </div>
 <div id="printdateint-y-int-m-int-d" class="section level2 unnumbered">
 <h2>printDate(int y, int m, int d)</h2>
 <p>Prints date string in standard YYYY-MM-DD format given Y, M, D integers.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb31-1"><a href="appendix-a-function-library.html#cb31-1"></a>String printDate(<span class="dt">int</span> y, <span class="dt">int</span> m, <span class="dt">int</span> d) {</span>
-<span id="cb31-2"><a href="appendix-a-function-library.html#cb31-2"></a>  <span class="cf">return</span> String(y) + <span class="st">&quot;-&quot;</span> + fillDigits(m) + <span class="st">&quot;-&quot;</span> + fillDigits(d);</span>
-<span id="cb31-3"><a href="appendix-a-function-library.html#cb31-3"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb28-1"><a href="appendix-a-function-library.html#cb28-1"></a>String printDate(<span class="dt">int</span> y, <span class="dt">int</span> m, <span class="dt">int</span> d) {</span>
+<span id="cb28-2"><a href="appendix-a-function-library.html#cb28-2"></a>  <span class="cf">return</span> String(y) + <span class="st">&quot;-&quot;</span> + fillDigits(m) + <span class="st">&quot;-&quot;</span> + fillDigits(d);</span>
+<span id="cb28-3"><a href="appendix-a-function-library.html#cb28-3"></a>}</span></code></pre></div>
 </div>
 <div id="printdatetimestring-d-string-t" class="section level2 unnumbered">
 <h2>printDateTime(String d, String t)</h2>
 <p>Concatenates date (<code>printDate()</code>) and time (<code>printTime()</code>) strings as ‘YYYY-MM-DD HH:MM:SS’.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb32-1"><a href="appendix-a-function-library.html#cb32-1"></a>String printDateTime(String d, String t) {</span>
-<span id="cb32-2"><a href="appendix-a-function-library.html#cb32-2"></a>  <span class="cf">return</span> d + <span class="ch">&#39; &#39;</span> + t;</span>
-<span id="cb32-3"><a href="appendix-a-function-library.html#cb32-3"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb29-1"><a href="appendix-a-function-library.html#cb29-1"></a>String printDateTime(String d, String t) {</span>
+<span id="cb29-2"><a href="appendix-a-function-library.html#cb29-2"></a>  <span class="cf">return</span> d + <span class="ch">&#39; &#39;</span> + t;</span>
+<span id="cb29-3"><a href="appendix-a-function-library.html#cb29-3"></a>}</span></code></pre></div>
 </div>
 <div id="printtimeint-h-int-m-int-s" class="section level2 unnumbered">
 <h2>printTime(int h, int m, int s)</h2>
 <p>Returns time string as HH:MM:SS based on integer H, M, S inputs.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb33-1"><a href="appendix-a-function-library.html#cb33-1"></a>String printTime(<span class="dt">int</span> h, <span class="dt">int</span> m, <span class="dt">int</span> s) {</span>
-<span id="cb33-2"><a href="appendix-a-function-library.html#cb33-2"></a>  <span class="cf">return</span> fillDigits(h) + <span class="st">&quot;:&quot;</span> + fillDigits(m) + <span class="st">&quot;:&quot;</span> + fillDigits(s);</span>
-<span id="cb33-3"><a href="appendix-a-function-library.html#cb33-3"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb30-1"><a href="appendix-a-function-library.html#cb30-1"></a>String printTime(<span class="dt">int</span> h, <span class="dt">int</span> m, <span class="dt">int</span> s) {</span>
+<span id="cb30-2"><a href="appendix-a-function-library.html#cb30-2"></a>  <span class="cf">return</span> fillDigits(h) + <span class="st">&quot;:&quot;</span> + fillDigits(m) + <span class="st">&quot;:&quot;</span> + fillDigits(s);</span>
+<span id="cb30-3"><a href="appendix-a-function-library.html#cb30-3"></a>}</span></code></pre></div>
 </div>
 <div id="setbmesamplingparameters" class="section level2 unnumbered">
 <h2>setBMESamplingParameters()</h2>
 <p>Sets the sampling and filtering parameters for the BME sensor.</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb34-1"><a href="appendix-a-function-library.html#cb34-1"></a><span class="dt">void</span> setBMESamplingParameters() {</span>
-<span id="cb34-2"><a href="appendix-a-function-library.html#cb34-2"></a>  <span class="cf">if</span> (!bme.begin(<span class="bn">0x76</span>)) {</span>
-<span id="cb34-3"><a href="appendix-a-function-library.html#cb34-3"></a>    <span class="cf">return</span>;</span>
-<span id="cb34-4"><a href="appendix-a-function-library.html#cb34-4"></a>  }</span>
-<span id="cb34-5"><a href="appendix-a-function-library.html#cb34-5"></a>  <span class="co">// Set up oversampling and filter initialization</span></span>
-<span id="cb34-6"><a href="appendix-a-function-library.html#cb34-6"></a>  bme.setTemperatureOversampling(BME680_OS_8X);</span>
-<span id="cb34-7"><a href="appendix-a-function-library.html#cb34-7"></a>  bme.setHumidityOversampling(BME680_OS_2X);</span>
-<span id="cb34-8"><a href="appendix-a-function-library.html#cb34-8"></a>  bme.setPressureOversampling(BME680_OS_4X);</span>
-<span id="cb34-9"><a href="appendix-a-function-library.html#cb34-9"></a>  bme.setIIRFilterSize(BME680_FILTER_SIZE_3);</span>
-<span id="cb34-10"><a href="appendix-a-function-library.html#cb34-10"></a>  bme.setGasHeater(<span class="dv">320</span>, <span class="dv">150</span>); <span class="co">// 320*C for 150 ms</span></span>
-<span id="cb34-11"><a href="appendix-a-function-library.html#cb34-11"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb31-1"><a href="appendix-a-function-library.html#cb31-1"></a><span class="dt">void</span> setBMESamplingParameters() {</span>
+<span id="cb31-2"><a href="appendix-a-function-library.html#cb31-2"></a>  <span class="cf">if</span> (!bme.begin(<span class="bn">0x76</span>)) {</span>
+<span id="cb31-3"><a href="appendix-a-function-library.html#cb31-3"></a>    <span class="cf">return</span>;</span>
+<span id="cb31-4"><a href="appendix-a-function-library.html#cb31-4"></a>  }</span>
+<span id="cb31-5"><a href="appendix-a-function-library.html#cb31-5"></a>  <span class="co">// Set up oversampling and filter initialization</span></span>
+<span id="cb31-6"><a href="appendix-a-function-library.html#cb31-6"></a>  bme.setTemperatureOversampling(BME680_OS_8X);</span>
+<span id="cb31-7"><a href="appendix-a-function-library.html#cb31-7"></a>  bme.setHumidityOversampling(BME680_OS_2X);</span>
+<span id="cb31-8"><a href="appendix-a-function-library.html#cb31-8"></a>  bme.setPressureOversampling(BME680_OS_4X);</span>
+<span id="cb31-9"><a href="appendix-a-function-library.html#cb31-9"></a>  bme.setIIRFilterSize(BME680_FILTER_SIZE_3);</span>
+<span id="cb31-10"><a href="appendix-a-function-library.html#cb31-10"></a>  bme.setGasHeater(<span class="dv">320</span>, <span class="dv">150</span>); <span class="co">// 320*C for 150 ms</span></span>
+<span id="cb31-11"><a href="appendix-a-function-library.html#cb31-11"></a>}</span></code></pre></div>
 </div>
 <div id="turnsensorsoff" class="section level2 unnumbered">
 <h2>turnSensorsOff()</h2>
 <p>Turns sensors off for hibernate.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb35-1"><a href="appendix-a-function-library.html#cb35-1"></a><span class="dt">void</span> turnSensorsOff() {</span>
-<span id="cb35-2"><a href="appendix-a-function-library.html#cb35-2"></a>  my_status = my_hpm.stop_measurement();</span>
-<span id="cb35-3"><a href="appendix-a-function-library.html#cb35-3"></a>  Serial1.end();</span>
-<span id="cb35-4"><a href="appendix-a-function-library.html#cb35-4"></a>  delay(<span class="dv">500</span>);</span>
-<span id="cb35-5"><a href="appendix-a-function-library.html#cb35-5"></a>  digitalWrite(<span class="dv">33</span>, LOW);</span>
-<span id="cb35-6"><a href="appendix-a-function-library.html#cb35-6"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb32-1"><a href="appendix-a-function-library.html#cb32-1"></a><span class="dt">void</span> turnSensorsOff() {</span>
+<span id="cb32-2"><a href="appendix-a-function-library.html#cb32-2"></a>  my_status = my_hpm.stop_measurement();</span>
+<span id="cb32-3"><a href="appendix-a-function-library.html#cb32-3"></a>  Serial1.end();</span>
+<span id="cb32-4"><a href="appendix-a-function-library.html#cb32-4"></a>  delay(<span class="dv">500</span>);</span>
+<span id="cb32-5"><a href="appendix-a-function-library.html#cb32-5"></a>  digitalWrite(<span class="dv">33</span>, LOW);</span>
+<span id="cb32-6"><a href="appendix-a-function-library.html#cb32-6"></a>}</span></code></pre></div>
 </div>
 <div id="turnsensorson" class="section level2 unnumbered">
 <h2>turnSensorsOn()</h2>
 <p>Turns on the sensors and sets the RTC time. Can be used to wake from hibernate or start from off.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb36-1"><a href="appendix-a-function-library.html#cb36-1"></a><span class="dt">void</span> turnSensorsOn() {</span>
-<span id="cb36-2"><a href="appendix-a-function-library.html#cb36-2"></a>  digitalWrite(<span class="dv">33</span>, HIGH); <span class="co">// turn on relay</span></span>
-<span id="cb36-3"><a href="appendix-a-function-library.html#cb36-3"></a>  delay(<span class="dv">5000</span>); <span class="co">// wait to stabilize</span></span>
-<span id="cb36-4"><a href="appendix-a-function-library.html#cb36-4"></a>  setSyncProvider(getTeensy3Time);</span>
-<span id="cb36-5"><a href="appendix-a-function-library.html#cb36-5"></a></span>
-<span id="cb36-6"><a href="appendix-a-function-library.html#cb36-6"></a>  Serial1.begin(<span class="dv">9600</span>);</span>
-<span id="cb36-7"><a href="appendix-a-function-library.html#cb36-7"></a>  <span class="cf">while</span> (!Serial1) {</span>
-<span id="cb36-8"><a href="appendix-a-function-library.html#cb36-8"></a>    ; <span class="co">// wait for serial port to connect. Needed for native USB</span></span>
-<span id="cb36-9"><a href="appendix-a-function-library.html#cb36-9"></a>  }</span>
-<span id="cb36-10"><a href="appendix-a-function-library.html#cb36-10"></a>  Serial1.flush();</span>
-<span id="cb36-11"><a href="appendix-a-function-library.html#cb36-11"></a>  my_status = my_hpm.stop_autosend();</span>
-<span id="cb36-12"><a href="appendix-a-function-library.html#cb36-12"></a>  delay(<span class="dv">500</span>);</span>
-<span id="cb36-13"><a href="appendix-a-function-library.html#cb36-13"></a>  my_status = my_hpm.start_measurement();  </span>
-<span id="cb36-14"><a href="appendix-a-function-library.html#cb36-14"></a>  delay(<span class="dv">500</span>); </span>
-<span id="cb36-15"><a href="appendix-a-function-library.html#cb36-15"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb33-1"><a href="appendix-a-function-library.html#cb33-1"></a><span class="dt">void</span> turnSensorsOn() {</span>
+<span id="cb33-2"><a href="appendix-a-function-library.html#cb33-2"></a>  digitalWrite(<span class="dv">33</span>, HIGH); <span class="co">// turn on relay</span></span>
+<span id="cb33-3"><a href="appendix-a-function-library.html#cb33-3"></a>  delay(<span class="dv">5000</span>); <span class="co">// wait to stabilize</span></span>
+<span id="cb33-4"><a href="appendix-a-function-library.html#cb33-4"></a>  setSyncProvider(getTeensy3Time);</span>
+<span id="cb33-5"><a href="appendix-a-function-library.html#cb33-5"></a></span>
+<span id="cb33-6"><a href="appendix-a-function-library.html#cb33-6"></a>  Serial1.begin(<span class="dv">9600</span>);</span>
+<span id="cb33-7"><a href="appendix-a-function-library.html#cb33-7"></a>  <span class="cf">while</span> (!Serial1) {</span>
+<span id="cb33-8"><a href="appendix-a-function-library.html#cb33-8"></a>    ; <span class="co">// wait for serial port to connect. Needed for native USB</span></span>
+<span id="cb33-9"><a href="appendix-a-function-library.html#cb33-9"></a>  }</span>
+<span id="cb33-10"><a href="appendix-a-function-library.html#cb33-10"></a>  Serial1.flush();</span>
+<span id="cb33-11"><a href="appendix-a-function-library.html#cb33-11"></a>  my_status = my_hpm.stop_autosend();</span>
+<span id="cb33-12"><a href="appendix-a-function-library.html#cb33-12"></a>  delay(<span class="dv">500</span>);</span>
+<span id="cb33-13"><a href="appendix-a-function-library.html#cb33-13"></a>  my_status = my_hpm.start_measurement();  </span>
+<span id="cb33-14"><a href="appendix-a-function-library.html#cb33-14"></a>  delay(<span class="dv">500</span>); </span>
+<span id="cb33-15"><a href="appendix-a-function-library.html#cb33-15"></a>}</span></code></pre></div>
 </div>
 <div id="writefilechar-filename16" class="section level2 unnumbered">
 <h2>writeFile(char filename[16])</h2>
 <p>Writes the measurement file to the SD card.</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb37-1"><a href="appendix-a-function-library.html#cb37-1"></a><span class="dt">void</span> writeFile(<span class="dt">char</span> filename[<span class="dv">16</span>], String dataString) {</span>
-<span id="cb37-2"><a href="appendix-a-function-library.html#cb37-2"></a>    File dataFile = SD.open(filename, FILE_WRITE);</span>
-<span id="cb37-3"><a href="appendix-a-function-library.html#cb37-3"></a>    <span class="cf">if</span> (dataFile) {</span>
-<span id="cb37-4"><a href="appendix-a-function-library.html#cb37-4"></a>        dataFile.println(dataString);</span>
-<span id="cb37-5"><a href="appendix-a-function-library.html#cb37-5"></a>        delay(<span class="dv">500</span>);</span>
-<span id="cb37-6"><a href="appendix-a-function-library.html#cb37-6"></a>        dataFile.close();</span>
-<span id="cb37-7"><a href="appendix-a-function-library.html#cb37-7"></a>     }</span>
-<span id="cb37-8"><a href="appendix-a-function-library.html#cb37-8"></a>     <span class="cf">else</span> <span class="cf">return</span>;</span>
-<span id="cb37-9"><a href="appendix-a-function-library.html#cb37-9"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb34-1"><a href="appendix-a-function-library.html#cb34-1"></a><span class="dt">void</span> writeFile(<span class="dt">char</span> filename[<span class="dv">16</span>], String dataString) {</span>
+<span id="cb34-2"><a href="appendix-a-function-library.html#cb34-2"></a>    File dataFile = SD.open(filename, FILE_WRITE);</span>
+<span id="cb34-3"><a href="appendix-a-function-library.html#cb34-3"></a>    <span class="cf">if</span> (dataFile) {</span>
+<span id="cb34-4"><a href="appendix-a-function-library.html#cb34-4"></a>        dataFile.println(dataString);</span>
+<span id="cb34-5"><a href="appendix-a-function-library.html#cb34-5"></a>        delay(<span class="dv">500</span>);</span>
+<span id="cb34-6"><a href="appendix-a-function-library.html#cb34-6"></a>        dataFile.close();</span>
+<span id="cb34-7"><a href="appendix-a-function-library.html#cb34-7"></a>     }</span>
+<span id="cb34-8"><a href="appendix-a-function-library.html#cb34-8"></a>     <span class="cf">else</span> <span class="cf">return</span>;</span>
+<span id="cb34-9"><a href="appendix-a-function-library.html#cb34-9"></a>}</span></code></pre></div>
 
 </div>
 </div>

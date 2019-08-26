@@ -1,7 +1,8 @@
 # Blink an LED
 
 **Objective:** Use Arduino to turn an LED on and off.    
-**To turn in:** Your working Arduino code and the [Lab 2 Worksheet](https://github.com/alphonse/alphonse.github.io/raw/master/CHEM191/pdf/lab2_Blink.pdf).
+**To turn in:** Your working Arduino code and the Blink Worksheet (handed out in class).
+**Filename Example:** `seriousUmbrellas_blink.ino`
 
 ## Introduction {-}
 
@@ -69,92 +70,73 @@ In the exercise, we'll connect an 3-color LED to a Teensy and write a sketch to 
 3. Use a jumper wire to connect the **longer lead** on the LED to the **GND** pin on the Teensy.
 1. Use 3 more jumper wires to connect the remaining three leads to pins **13, 14, and 15**.
 
-![<small>*Your final setup should look something like this picture.*</small>](images/breadboard_led_teensy.png)
+![<small>*Your final setup should look something like this picture.*</small>](images/teensy_LED.png)
 
 ## Program the Teensy
 
 ### One Color
 
-1. Open the Arduino IDE and load the Blink example (`File > Examples > 0.1 Basic > Blink`)
-1. Go to `File > Save As` to save the example under a new name in the default location (`Documents/Arduino`).  Call it **lastnameFirstname_blink.ino**.
+1. Open the Arduino IDE and copy the Arduino code you created in Tinkercad when completing the extra credit exercise.  If you did not complete the exercise, instead go to **File > Examples > Basics > Blink**.  
+1. Go to `File > Save As` to save the example under a new name in the default location (`Documents/Arduino`).  Call it **groupname_blink.ino**.
 
     > *Remember, files that don't follow the naming convention **exactly** will incur point deductions.*
 
-3. You should see the following at the top of the sketch:
+3. You should see the `setup()` function at the top of the sketch.  In this case, the only setup necessary is to set the mode of the LED pin (pin 13) as an output.  If your `setup()` code is slightly different from what's shown below, change it to match.  Remember that anything after a `//` is a comment and isn't compiled.
 
 ```{Rcpp, eval = FALSE}
-    // Pin 13 has the LED on Teensy 3.0
-    // give it a name:
-    int led = 13;
-```
-
-  Remember, anything following a `//` is a comment; it does not affect the Arduino program.  Get in the habit of using comments to describe what each line of code does.
-  
-  The line `int led = 13` defines the name of pin 13 as `led`.  This name could be anything you wish.  In this case, `led` is useful because the LED is connected to pin 13.
-
-4. Next is the `setup()` function.  In this case, the only setup necessary is to set the mode of the `led` pin as an output.
-
-```{Rcpp, eval = FALSE}
-  // the setup routine runs once when you press reset:
+  / / the setup routine runs once when you press reset:
   void setup() {                
     // initialize the digital pin as an output.
-    pinMode(led, OUTPUT);     
+    pinMode(13, OUTPUT);     
   }
 ```
 
-5. Finally, the `loop()` function, which runs over and over.
+
+4. Below that you should see the `loop()` function, which runs over and over again.
 ```{Rcpp, eval = FALSE}
-  digitalWrite(led, HIGH);   // turn the LED on (HIGH is the voltage level)
-  delay(1000);               // wait for a second
-  digitalWrite(led, LOW);    // turn the LED off by making the voltage LOW
-  delay(1000);               // wait for a second
+  digitalWrite(13, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delay(1000);              // wait for a second
+  digitalWrite(13, LOW);    // turn the LED off by making the voltage LOW
+  delay(1000);              // wait for a second
 ```
 
-6. Assuming all those sections look good, press the **Upload** to button (right arrow in top left) to save, compile, and upload your sketch.
+5. After checking to make sure those sections look good, press the **Upload** to button (right arrow in top left) to save, compile, and upload your sketch.
 
 ### Three Colors
 
 You should have seen a single color blinking on and off.  Now, make some modifications so that all three colors blink on and off.
 
-1. Define the two extra pins.  In this case, it could be useful to refer to them by color.
-
-```{Rcpp, eval = FALSE}
-    int blue = 13;   // blue pin connected to pin 13
-    int green = 14;  // green pin connected to pin 14
-    int red = 15;    // red pin connected to pin 15
-```
-
-> *Have you saved your work yet?  The IDE doesn't autosave, so make sure you save it **frequently**!*
-
-2. Set each of those to outputs in the `setup()` function.  You will have to fill in the blanks for the red and green pins below.
+1. Set each of the LED pins to outputs in the `setup()` function.  You will have to fill in the blanks for the red and green pins below.
 ```{Rcpp, eval = FALSE}
   // the setup routine runs once when you press reset:
   void setup() {                
-    pinMode(blue, OUTPUT);     // initialize the blue pin as an output.
-    pinMode(____, OUTPUT);     // initialize the green pin as an output.
-    ______________________     // initialize the red pin as an output.
+    pinMode(13, OUTPUT);       // initialize pin 13 as an output.
+    pinMode(____, OUTPUT);     // initialize pin 12 as an output.
+    ______________________     // initialize pin 11 as an output.
   }
 ```
 
-3. Finally, add the extra colors to the `loop()` function.
+  > *Have you saved your work yet?  The IDE doesn't autosave, so make sure you save it **frequently**!*
+
+2. Finally, add the extra colors to the `loop()` function.
 
 ```{Rcpp, eval = FALSE}
   // blue
-  digitalWrite(blue, HIGH);   // turn the LED on (HIGH is the voltage level)
+  digitalWrite(13, HIGH);     // turn the LED on (HIGH is the voltage level)
   delay(1000);                // wait for a second
-  digitalWrite(blue, LOW);    // turn the LED off by making the voltage LOW
+  digitalWrite(13, LOW);      // turn the LED off by making the voltage LOW
   delay(1000);                // wait for a second
   
   // green
-  digitalWrite(green, HIGH);   // turn the LED on (HIGH is the voltage level)
+  digitalWrite(12, HIGH);      // turn the LED on (HIGH is the voltage level)
   delay(1000);                 // wait for a second
-  digitalWrite(green, LOW);    // turn the LED off by making the voltage LOW
+  digitalWrite(12, LOW);       // turn the LED off by making the voltage LOW
   delay(1000);                 // wait for a second
   
   // red
-  digitalWrite(red, HIGH);     // turn the LED on (HIGH is the voltage level)
+  digitalWrite(___, HIGH);     // turn the LED on (HIGH is the voltage level)
   delay(1000);                 // wait for a second
-  digitalWrite(red, LOW);      // turn the LED off by making the voltage LOW
+  digitalWrite(___, LOW);      // turn the LED off by making the voltage LOW
   delay(1000);                 // wait for a second
 ```
 
@@ -165,7 +147,7 @@ You should have seen a single color blinking on and off.  Now, make some modific
 1. Before you leave, modify your code to change the blink pattern.  You can change the sequence of the colors, the time between blinks, the number of blinks, or the amount of time each color is on.
 
 ### Turn in
-1. A hardcopy of your completed Exercise 2 Worksheet.
+1. A hardcopy of your completed Blink Worksheet.
 1. An electronic copy of your final Blink code (submit to Dropbox).
 
-    > *Remember, files that don't follow the naming convention **exactly** will incur point deductions.*
+   > *Remember, files that don't follow the naming convention **exactly** will incur point deductions.*

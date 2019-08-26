@@ -244,19 +244,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="voltage-and-communication" class="section level1">
 <h1><span class="header-section-number">Exercise 3</span> Voltage and Communication</h1>
 <p><strong>Objective:</strong> Measure a temperature with Teensy and display the result to the computer screen using serial communication.<br />
-<strong>To turn in:</strong></p>
+<strong>To turn in:</strong> Turn in your worksheet by the end of class.</p>
 <div id="introduction-2" class="section level2 unnumbered">
 <h2>Introduction</h2>
-<p>In the last exercise you used a Teensy to turn a light on and off, although we did not discuss what was happening electrically. This exercise will explore the electrical workings of the Teensy and walk you through how to write code to <em>sense</em> signals from a device. More specifically, you’ll investigate (1) the concept of <strong>voltage</strong> while sensing temperature and (2) communicating .</p>
+<p>In the last exercise you used a Teensy to turn a light on and off, although we did not discuss what was happening electrically. This exercise will explore the electrical workings of the Teensy and walk you through how to write code to <em>sense</em> signals from a device. More specifically, you’ll investigate (1) the concept of <strong>voltage</strong> while sensing temperature and (2) using the Serial port to communicate between the Teensy and your computer.</p>
 <div id="electricity" class="section level3 unnumbered">
 <h3>Electricity</h3>
-<p>When first learning about electricity, it may help to think of it in analogous terms to water. <strong>Current</strong> is the flow of electricity through a circuit, and is analogous to the current in a river. Just like water molecules move through the river, charge carriers (electrons) in a move through the wires of the circuit. <strong>Voltage</strong> is a <em>potential energy difference</em> between two points in a circuit. This is analogous to the potential energy difference in water stored behind a dam and water at the bottom of the dam. Current will not flow without a voltage difference, just as water will not flow without a difference in height or pressure.</p>
+<p>When first learning about electricity, it may help to think of it in analogous terms to water. <strong>Current</strong> is the flow of electricity through a circuit, and is analogous to the current in a river. Just like water molecules move through the river, charge carriers (electrons) move through the wires of the circuit. <strong>Voltage</strong> is a <em>potential energy difference</em> between two points in a circuit. This is analogous to the potential energy difference in water stored behind a dam and water at the bottom of the dam. Current will not flow without a voltage difference, just as water will not flow without a difference in height or pressure.</p>
 <p>Recall that in the last exercise you turned an LED on and off using a pin on the Teensy. You did this by alternately setting the pin to <code>HIGH</code> and <code>LOW</code>, as in:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="voltage-and-communication.html#cb11-1"></a>digitalWrite(<span class="dv">13</span>, HIGH);</span>
-<span id="cb11-2"><a href="voltage-and-communication.html#cb11-2"></a>delay(<span class="dv">1000</span>);</span>
-<span id="cb11-3"><a href="voltage-and-communication.html#cb11-3"></a>digitalWrite(<span class="dv">13</span>, LOW);</span>
-<span id="cb11-4"><a href="voltage-and-communication.html#cb11-4"></a>delay(<span class="dv">1000</span>);</span></code></pre></div>
-<p>But what did this do internally in the Teensy? When the Teensy gets the command <code>digitalWrite(13, HIGH);</code> it sets the voltage of pin 13 to 3.3 volts (3.3 V is standard voltage for microcontrollers). Alternatively, when it gets the command <code>digitalWrite(13, LOW);</code>, it sets the voltage to 0 V. Thus, when the voltage is 3.3 V, there is a potential difference across the LED from 3.3 V on the controlling pin (anode) to 0V on the ground pin (cathode). This causes current to flow through the LED, which in turn causes the LED to light up. When the voltage is set back to 0, there is no longer a potential difference across the LED, current does not flow, and the LED does not light up.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="voltage-and-communication.html#cb9-1"></a>digitalWrite(<span class="dv">13</span>, HIGH);</span>
+<span id="cb9-2"><a href="voltage-and-communication.html#cb9-2"></a>delay(<span class="dv">1000</span>);</span>
+<span id="cb9-3"><a href="voltage-and-communication.html#cb9-3"></a>digitalWrite(<span class="dv">13</span>, LOW);</span>
+<span id="cb9-4"><a href="voltage-and-communication.html#cb9-4"></a>delay(<span class="dv">1000</span>);</span></code></pre></div>
+<p>But what did this do internally in the Teensy? When the Teensy gets the command <code>digitalWrite(13, HIGH);</code> it sets the voltage of pin 13 to 3.3 volts (3.3 V is a standard voltage for microcontrollers). Alternatively, when it gets the command <code>digitalWrite(13, LOW);</code>, it sets the voltage to 0 V. Thus, when the voltage is 3.3 V, there is a potential difference across the LED from 3.3 V on the controlling pin (anode) to 0V on the ground pin (cathode). This causes current to flow through the LED, which in turn causes the LED to light up. When the voltage is set back to 0, there is no longer a potential difference across the LED, current does not flow, and the LED does not light up.</p>
 <p>You may have gotten the idea that voltage and current are inextricably linked, and that’s true. In fact, <strong>Ohm’s Law</strong> provides a mathmatical relation between the two:</p>
 <p><span class="math display">\[
 \text{Voltage (volts)} = \text{Current (amps)} \times \text{Resistance (ohms, }\Omega\text{)}  \\
@@ -268,16 +268,16 @@ V = iR
 </div>
 <div id="bits-and-volts" class="section level3 unnumbered">
 <h3>Bits and Volts</h3>
-<p>Even though Teensy can “read” analog signals, it only understands digital signals. So every analog signal read by the Teensy gets sent through an <em>analog to digital converter</em> (ADC). This converts the analog signal from a sensor into a digital signal with discrete steps. The size of these steps is determined by the number of <strong>bits</strong> the ADC has. More bits equals more steps, and more steps equals a digital signal that more closely approximates the real analog signal.</p>
+<p>Even though Teensy can “read” analog signals, it only understands digital signals. So every analog signal read by the Teensy gets sent through an <em>analog to digital converter</em> (ADC). This converts the analog signal from a sensor into a digital signal with discrete steps that the Teensy understands. The size of these steps is determined by the number of <strong>bits</strong> the ADC has. More bits equals more steps, and more steps equals a digital signal that more closely approximates the real analog signal.</p>
 </div>
 <div id="communicating-via-the-serial-port" class="section level3 unnumbered">
 <h3>Communicating via the serial port</h3>
-<p>In the previous exercise, you used digital signals to control an LED, but there was no communication between the Teensy and computer after the sketch was uploaded. When reading signals, it’s often useful to display the reading on the computer screen to have real-time feedback from the program. To do this, the data collected on the Teensy board must be sent to the computer, the computer must read the data, and the computer must display it on the screen. The communication protocol used to do this is called <strong>serial communication</strong>. This is a very widely used protocol, and most computers used to come with a serial port built in. In our case, we’ll conduct serial communication over the USB port.</p>
+<p>In the previous exercise, you used digital signals to control an LED, but there was no communication between the Teensy and computer after the sketch was uploaded. It’s often useful to display data on the computer screen to have real-time feedback from the program. To do this, the data collected on the Teensy board must be sent to the computer, the computer must read the data, and the computer must display it on the screen. The communication protocol used to do this is called <strong>serial communication</strong>. This is a very widely used protocol, and pretty much all computers have serial capabilities. In our case, we’ll conduct serial communication over the USB port.</p>
 <p>Using serial communication on the Teensy is relatively simple. The first step is to open the serial port and tell it what data transfer speed to use (basically how quickly the Teensy and the computer talk to each other).</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="voltage-and-communication.html#cb12-1"></a>    Serial.begin(<span class="dv">9600</span>);</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="voltage-and-communication.html#cb10-1"></a>    Serial.begin(<span class="dv">9600</span>);</span></code></pre></div>
 <p>Once the connection is open, you can print most anything to the serial port you wish. For example, a simple <a href="https://en.wikipedia.org/wiki/%22Hello,_World!%22_program">hello world</a> program would look something like:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="voltage-and-communication.html#cb13-1"></a>    Serial.begin(<span class="dv">9600</span>);</span>
-<span id="cb13-2"><a href="voltage-and-communication.html#cb13-2"></a>    Serial.print(<span class="st">&quot;Hello, World!&quot;</span>);</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="voltage-and-communication.html#cb11-1"></a>    Serial.begin(<span class="dv">9600</span>);</span>
+<span id="cb11-2"><a href="voltage-and-communication.html#cb11-2"></a>    Serial.print(<span class="st">&quot;Hello, World!&quot;</span>);</span></code></pre></div>
 <p>The above pseudocode would print “Hello, World!” to the computer’s serial port. The result could be displayed on the computer screen by opening the serial monitor in the Arduino IDE. There are a few more details you’ll learn as you go.</p>
 <p>In this exercise, you’ll measure ambient temperatures using a temperature sensor and display the result to the computer screen via the serial port.</p>
 </div>
@@ -314,17 +314,17 @@ V = iR
 </blockquote></li>
 <li><p>Create a <code>setup()</code> function and start serial communication within it:</p></li>
 </ol>
-<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="voltage-and-communication.html#cb14-1"></a>    <span class="dt">void</span> setup() {</span>
-<span id="cb14-2"><a href="voltage-and-communication.html#cb14-2"></a>        Serial.begin(<span class="dv">9600</span>);  <span class="co">// start serial communication at a rate of 9600 bits per second (the standard)</span></span>
-<span id="cb14-3"><a href="voltage-and-communication.html#cb14-3"></a>    }</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="voltage-and-communication.html#cb12-1"></a>    <span class="dt">void</span> setup() {</span>
+<span id="cb12-2"><a href="voltage-and-communication.html#cb12-2"></a>        Serial.begin(<span class="dv">9600</span>);  <span class="co">// start serial communication at a rate of 9600 bits per second (the standard)</span></span>
+<span id="cb12-3"><a href="voltage-and-communication.html#cb12-3"></a>    }</span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
 <li>Create a <code>loop()</code> function, read the sensor data, and print it to the serial port:</li>
 </ol>
-<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="voltage-and-communication.html#cb15-1"></a>    <span class="dt">void</span> loop() {</span>
-<span id="cb15-2"><a href="voltage-and-communication.html#cb15-2"></a>        value = analogRead(<span class="dv">0</span>); <span class="co">// read sensor</span></span>
-<span id="cb15-3"><a href="voltage-and-communication.html#cb15-3"></a>        Serial.println(value); <span class="co">// print result to serial port</span></span>
-<span id="cb15-4"><a href="voltage-and-communication.html#cb15-4"></a>        delay(<span class="dv">1000</span>);           <span class="co">// wait for 1 second</span></span>
-<span id="cb15-5"><a href="voltage-and-communication.html#cb15-5"></a>    }</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="voltage-and-communication.html#cb13-1"></a>    <span class="dt">void</span> loop() {</span>
+<span id="cb13-2"><a href="voltage-and-communication.html#cb13-2"></a>        value = analogRead(<span class="dv">0</span>); <span class="co">// read sensor</span></span>
+<span id="cb13-3"><a href="voltage-and-communication.html#cb13-3"></a>        Serial.println(value); <span class="co">// print result to serial port</span></span>
+<span id="cb13-4"><a href="voltage-and-communication.html#cb13-4"></a>        delay(<span class="dv">1000</span>);           <span class="co">// wait for 1 second</span></span>
+<span id="cb13-5"><a href="voltage-and-communication.html#cb13-5"></a>    }</span></code></pre></div>
 <ol start="5" style="list-style-type: decimal">
 <li>Press the <strong>Upload</strong> button to send your sketch to the Teensy. Once you get it loaded, click the <strong>Serial Monitor</strong> button to see if the communication is working. You should see a number between 400 and 500 if you sensor is working correctly.</li>
 </ol>
@@ -332,19 +332,19 @@ V = iR
 <div id="converting-to-temperature" class="section level3">
 <h3><span class="header-section-number">3.2.2</span> Converting to Temperature</h3>
 <p>The Teensy reports values in bits, which isn’t very meaningful to humans. What we really care about is the temperature. The formula to get from bits to degrees C (for this sensor connected to a Teensy) is:</p>
-<pre><code>$$
-    ^{\circ}C = 25 + (\text{value} - 512) / 11.3
-$$</code></pre>
+<p><span class="math display">\[
+    ^{\circ}\text{C} = 25 + (\text{value} - 512) / 11.3
+\]</span></p>
 <ol style="list-style-type: decimal">
 <li>Add the above forumla to your code to convert to temperature. Also change the code to print the temperature to the serial port instead of the raw value.</li>
 </ol>
-<div class="sourceCode" id="cb17"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb17-1"><a href="voltage-and-communication.html#cb17-1"></a>    <span class="dt">void</span> loop() {</span>
-<span id="cb17-2"><a href="voltage-and-communication.html#cb17-2"></a>        value = analogRead(<span class="dv">0</span>); <span class="co">// read sensor</span></span>
-<span id="cb17-3"><a href="voltage-and-communication.html#cb17-3"></a>        temp  = ____________________________; <span class="co">// convert to temperature</span></span>
-<span id="cb17-4"><a href="voltage-and-communication.html#cb17-4"></a>        ______________________; <span class="co">// print the temperature to the serial port.</span></span>
-<span id="cb17-5"><a href="voltage-and-communication.html#cb17-5"></a>        delay(<span class="dv">1000</span>);            <span class="co">// wait for 1 second</span></span>
-<span id="cb17-6"><a href="voltage-and-communication.html#cb17-6"></a>    }</span></code></pre></div>
-<ol style="list-style-type: decimal">
+<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="voltage-and-communication.html#cb14-1"></a>    <span class="dt">void</span> loop() {</span>
+<span id="cb14-2"><a href="voltage-and-communication.html#cb14-2"></a>        value = analogRead(<span class="dv">0</span>); <span class="co">// read sensor</span></span>
+<span id="cb14-3"><a href="voltage-and-communication.html#cb14-3"></a>        temp  = ____________________________; <span class="co">// convert to temperature</span></span>
+<span id="cb14-4"><a href="voltage-and-communication.html#cb14-4"></a>        ______________________; <span class="co">// print the temperature to the serial port.</span></span>
+<span id="cb14-5"><a href="voltage-and-communication.html#cb14-5"></a>        delay(<span class="dv">1000</span>);            <span class="co">// wait for 1 second</span></span>
+<span id="cb14-6"><a href="voltage-and-communication.html#cb14-6"></a>    }</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
 <li>Upload your code and see if it works.</li>
 </ol>
 </div>
@@ -355,8 +355,8 @@ $$</code></pre>
 <li>Change <code>Serial.println(temp)</code> to <code>Serial.print(temp)</code>. These two functions are very similar, with one difference: <code>println</code> creates a new line when it’s finished (like pressing enter on the keyboard) whereas <code>print</code> does not.</li>
 <li>Add a line just below <code>Serial.print(temp)</code> to print the "*C" symbology:</li>
 </ol>
-<div class="sourceCode" id="cb18"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb18-1"><a href="voltage-and-communication.html#cb18-1"></a>    Serial.print(temp);</span>
-<span id="cb18-2"><a href="voltage-and-communication.html#cb18-2"></a>    Serial.println(<span class="st">&quot;*C&quot;</span>);</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="voltage-and-communication.html#cb15-1"></a>    Serial.print(temp);</span>
+<span id="cb15-2"><a href="voltage-and-communication.html#cb15-2"></a>    Serial.println(<span class="st">&quot;*C&quot;</span>);</span></code></pre></div>
 </div>
 <div id="make-your-own-changes-1" class="section level3">
 <h3><span class="header-section-number">3.2.4</span> Make Your Own Changes</h3>
