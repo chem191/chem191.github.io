@@ -244,7 +244,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="voltage-and-communication" class="section level1">
 <h1><span class="header-section-number">Exercise 3</span> Voltage and Communication</h1>
 <p><strong>Objective:</strong> Measure a temperature with Teensy and display the result to the computer screen using serial communication.<br />
-<strong>To turn in:</strong> Turn in your worksheet by the end of class.</p>
+<strong>To turn in:</strong> Turn in your individual worksheet and submit a copy your group code to Dropbox by the end of class.</p>
 <div id="introduction-2" class="section level2 unnumbered">
 <h2>Introduction</h2>
 <p>In the last exercise you used a Teensy to turn a light on and off, although we did not discuss what was happening electrically. This exercise will explore the electrical workings of the Teensy and walk you through how to write code to <em>sense</em> signals from a device. More specifically, you’ll investigate (1) the concept of <strong>voltage</strong> while sensing temperature and (2) using the Serial port to communicate between the Teensy and your computer.</p>
@@ -310,7 +310,7 @@ V = iR
 <li><p>Open the Arduino IDE and load a new file (if one doesn’t open automatically).</p></li>
 <li><p>Go to <code>File &gt; Save As</code> to save the example under a new name in the default location (<code>Documents/Arduino</code>). Call it <strong>groupName_voltage.ino</strong>.</p>
 <blockquote>
-<p><em>Remember, files that don’t follow the naming convention <strong>exactly</strong> will incur point deductions.</em></p>
+<p><em>Remember, files that don’t follow the naming convention <strong>exactly</strong> may incur point deductions.</em></p>
 </blockquote></li>
 <li><p>Create a <code>setup()</code> function and start serial communication within it:</p></li>
 </ol>
@@ -331,20 +331,31 @@ V = iR
 </div>
 <div id="converting-to-temperature" class="section level3">
 <h3><span class="header-section-number">3.2.2</span> Converting to Temperature</h3>
-<p>The Teensy reports values in bits, which isn’t very meaningful to humans. What we really care about is the temperature. The formula to get from bits to degrees C (for this sensor connected to a Teensy) is:</p>
+<p>The Teensy reports values in bits, which isn’t very meaningful to humans. What we really care about is the temperature. The sensor comes with a <a href="https://www.digikey.com/en/datasheets/vishay-bc-components/vishay-bc-components-ntcle100">datasheet</a> the provides the values necessary to conver the value in resistance to temperature in Kelvin using the <a href="https://en.wikipedia.org/wiki/Steinhart%E2%80%93Hart_equation">Steinhart-Hart equation</a>:</p>
 <p><span class="math display">\[
-    ^{\circ}\text{C} = 25 + (\text{value} - 512) / 11.3
+    \frac{1}{T} = \frac{1}{T_0} + \frac{1}{B} \times \ln \left( \frac{R}{R_0} \right)
 \]</span></p>
+<p>Where <span class="math inline">\(T\)</span> is temperature, <span class="math inline">\(T_0\)</span> is room temperature (in K), <span class="math inline">\(B\)</span> is an empiracal value unique to each type of thermistor (3977 in for the NTCLE100E3103*B0 thermistor we’re using, as given on the datasheet), <span class="math inline">\(R\)</span> is the resistance of the thermistor at temperature <span class="math inline">\(T\)</span>, and <span class="math inline">\(R_0\)</span> is the resistance of the thermistor at room temperature, <span class="math inline">\(T_0\)</span> (10 k<span class="math inline">\(\Omega\)</span> for this thermistor, as specified by the datasheet).</p>
 <ol style="list-style-type: decimal">
-<li>Add the above forumla to your code to convert to temperature. Also change the code to print the temperature to the serial port instead of the raw value.</li>
+<li>The first step toward printing a temperature is to convert from bits (<code>sensorValue</code>) to resistance, <span class="math inline">\(R\)</span>. Use the following code to do this:</li>
 </ol>
 <div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="voltage-and-communication.html#cb14-1"></a>    <span class="dt">void</span> loop() {</span>
-<span id="cb14-2"><a href="voltage-and-communication.html#cb14-2"></a>        value = analogRead(<span class="dv">0</span>); <span class="co">// read sensor</span></span>
-<span id="cb14-3"><a href="voltage-and-communication.html#cb14-3"></a>        temp  = ____________________________; <span class="co">// convert to temperature</span></span>
-<span id="cb14-4"><a href="voltage-and-communication.html#cb14-4"></a>        ______________________; <span class="co">// print the temperature to the serial port.</span></span>
-<span id="cb14-5"><a href="voltage-and-communication.html#cb14-5"></a>        delay(<span class="dv">1000</span>);            <span class="co">// wait for 1 second</span></span>
-<span id="cb14-6"><a href="voltage-and-communication.html#cb14-6"></a>    }</span></code></pre></div>
+<span id="cb14-2"><a href="voltage-and-communication.html#cb14-2"></a>        <span class="dt">int</span> value = analogRead(<span class="dv">0</span>); <span class="co">// read sensor</span></span>
+<span id="cb14-3"><a href="voltage-and-communication.html#cb14-3"></a>        <span class="dt">float</span> resistance = <span class="fl">8192.0</span> / value - <span class="fl">1.0</span>;</span>
+<span id="cb14-4"><a href="voltage-and-communication.html#cb14-4"></a>    }</span></code></pre></div>
+<pre><code>&gt; *The trailing zeroes (after the decimal points) ARE important in this case!*</code></pre>
 <ol start="2" style="list-style-type: decimal">
+<li>Now, you can use the value for <span class="math inline">\(R\)</span> calculated above to get to temperature, <span class="math inline">\(T\)</span>:</li>
+</ol>
+<div class="sourceCode" id="cb16"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb16-1"><a href="voltage-and-communication.html#cb16-1"></a>    <span class="dt">void</span> loop() {</span>
+<span id="cb16-2"><a href="voltage-and-communication.html#cb16-2"></a>        value = analogRead(<span class="dv">0</span>); <span class="co">// read sensor</span></span>
+<span id="cb16-3"><a href="voltage-and-communication.html#cb16-3"></a>        <span class="dt">float</span> resistance = <span class="fl">8192.0</span> / value - <span class="fl">1.0</span>;</span>
+<span id="cb16-4"><a href="voltage-and-communication.html#cb16-4"></a>        <span class="dt">float</span> temp  = <span class="fl">1.0</span> / (<span class="fl">1.0</span>/<span class="fl">298.15</span> + <span class="fl">1.0</span>/<span class="fl">3977.0</span> * log(resistance/<span class="fl">10.0</span>)); <span class="co">// convert to temperature with Steinhart-Hart</span></span>
+<span id="cb16-5"><a href="voltage-and-communication.html#cb16-5"></a>        ______________________; <span class="co">// print the temperature to the serial port.</span></span>
+<span id="cb16-6"><a href="voltage-and-communication.html#cb16-6"></a>        delay(<span class="dv">1000</span>);            <span class="co">// wait for 1 second</span></span>
+<span id="cb16-7"><a href="voltage-and-communication.html#cb16-7"></a>    }</span></code></pre></div>
+<pre><code>&gt; *Notice that you can use Arduino as a calculator!*</code></pre>
+<ol start="3" style="list-style-type: decimal">
 <li>Upload your code and see if it works.</li>
 </ol>
 </div>
@@ -353,21 +364,23 @@ V = iR
 <p>You can also print text to the serial port. When you use <code>Serial.print()</code> or <code>Serial.println()</code> to print text, it should always be in quote marks (this is technically called a <em>string</em>). For example, <code>Serial.println(Hello, world!)</code> would NOT work, but <code>Serial.println("Hello, world!")</code> would. To clean up you data output, try printing "*C" after the temperature to indicate the units.</p>
 <ol style="list-style-type: decimal">
 <li>Change <code>Serial.println(temp)</code> to <code>Serial.print(temp)</code>. These two functions are very similar, with one difference: <code>println</code> creates a new line when it’s finished (like pressing enter on the keyboard) whereas <code>print</code> does not.</li>
-<li>Add a line just below <code>Serial.print(temp)</code> to print the "*C" symbology:</li>
+<li>Add a line just below <code>Serial.print(temp)</code> to print the units next to the temperature:</li>
 </ol>
-<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="voltage-and-communication.html#cb15-1"></a>    Serial.print(temp);</span>
-<span id="cb15-2"><a href="voltage-and-communication.html#cb15-2"></a>    Serial.println(<span class="st">&quot;*C&quot;</span>);</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb18-1"><a href="voltage-and-communication.html#cb18-1"></a>    Serial.print(temp);</span>
+<span id="cb18-2"><a href="voltage-and-communication.html#cb18-2"></a>    Serial.println(<span class="st">&quot; K&quot;</span>);</span></code></pre></div>
 </div>
 <div id="make-your-own-changes-1" class="section level3">
 <h3><span class="header-section-number">3.2.4</span> Make Your Own Changes</h3>
 <ol style="list-style-type: decimal">
-<li>Before you leave, add a line in your code to convert from degrees C to degrees F.</li>
-<li>Once you’ve converted to F, print the results for both degrees C and degrees F. Your values should:
+<li>Before you leave, add a line in your code to convert from K to degrees C and to degrees F.</li>
+<li>Once you’ve converted to C and F, print the results for both degrees C and degrees F. Your values should:
 <ul>
 <li>Be printed to the serial port <em>on the same line</em>.</li>
 <li>Include the units “<em>C" and "</em>F” where needed.</li>
 <li>Be separated from each other with a space (either " " or <code>\s</code>).</li>
 </ul></li>
+<li>Finally compare your results to the temperature displayed on the thermometer in the room. Does it agree?</li>
+<li>As a last step, use a multimeter to measure the resistance of the blue resistor you used. Substitute this value for the <code>10.0</code> in the temperature calculation and see what happens to your percent error.</li>
 </ol>
 </div>
 <div id="turn-in-1" class="section level3">
