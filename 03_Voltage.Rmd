@@ -159,12 +159,12 @@ You can also print text to the serial port.  When you use `Serial.print()` or `S
 ### Make Your Own Changes
 
 1. Before you leave, add a line in your code to convert from K to degrees C and to degrees F.
-1. Once you've converted to C and F, print the results for both degrees C and degrees F.  Your values should:
+1. Once you've converted to C and F, print the results for both degrees C and degrees F to the computer.  Your values should:
     - Be printed to the serial port *on the same line*.
-    - Include the units "*C" and "*F" where needed.
+    - Include the units "K", "*C", and "*F" where needed.
     - Be separated from each other with a space (either " " or `\s`).
 1. Finally compare your results to the temperature displayed on the thermometer in the room.  Does it agree?
-1. As a last step, use a multimeter to measure the resistance of the blue resistor you used.  Substitute this value for the `10.0` in the temperature calculation and see what happens to your percent error.
+1. If you have time, use a multimeter to measure the resistance of the blue resistor you used.  Substitute this value for the `10.0` in the temperature calculation and see what happens to your percent error.
 
 ### Turn in
 1. A hardcopy of your completed Exercise 3 Worksheet.

@@ -2,7 +2,7 @@
 
 **Objective:** Use Arduino to turn an LED on and off.    
 **To turn in:** Your working Arduino code and the Blink Worksheet (handed out in class).
-**Filename Example:** `seriousUmbrellas_blink.ino`
+**Filename Example:** `name1-name2_blink.ino`
 
 ## Introduction {-}
 
