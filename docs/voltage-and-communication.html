@@ -298,7 +298,7 @@ V = iR
 <li><p>Use a jumper wire to connect side 2 of the sensor to an analog input on the Teensy. In the example below, pin A0 is used.</p></li>
 </ol>
 <div class="figure">
-<img src="images/breadboard_thermistor_teensy.png" alt="" />
+<img src="images/teensy_thermistor.png" alt="" />
 <p class="caption"><small><em>Your final setup should look something like this picture. Red = 5V, black = GND, and blue = signal. </em></small></p>
 </div>
 </div>
@@ -343,17 +343,19 @@ V = iR
 <span id="cb14-2"><a href="voltage-and-communication.html#cb14-2"></a>        <span class="dt">int</span> value = analogRead(<span class="dv">0</span>); <span class="co">// read sensor</span></span>
 <span id="cb14-3"><a href="voltage-and-communication.html#cb14-3"></a>        <span class="dt">float</span> resistance = <span class="fl">8192.0</span> / value - <span class="fl">1.0</span>;</span>
 <span id="cb14-4"><a href="voltage-and-communication.html#cb14-4"></a>    }</span></code></pre></div>
-<pre><code>&gt; *The trailing zeroes (after the decimal points) ARE important in this case!*</code></pre>
+<blockquote>
+<p><em>The trailing zeroes (after the decimal points) ARE important in this case!</em></p>
+</blockquote>
 <ol start="2" style="list-style-type: decimal">
 <li>Now, you can use the value for <span class="math inline">\(R\)</span> calculated above to get to temperature, <span class="math inline">\(T\)</span>:</li>
 </ol>
-<div class="sourceCode" id="cb16"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb16-1"><a href="voltage-and-communication.html#cb16-1"></a>    <span class="dt">void</span> loop() {</span>
-<span id="cb16-2"><a href="voltage-and-communication.html#cb16-2"></a>        value = analogRead(<span class="dv">0</span>); <span class="co">// read sensor</span></span>
-<span id="cb16-3"><a href="voltage-and-communication.html#cb16-3"></a>        <span class="dt">float</span> resistance = <span class="fl">8192.0</span> / value - <span class="fl">1.0</span>;</span>
-<span id="cb16-4"><a href="voltage-and-communication.html#cb16-4"></a>        <span class="dt">float</span> temp  = <span class="fl">1.0</span> / (<span class="fl">1.0</span>/<span class="fl">298.15</span> + <span class="fl">1.0</span>/<span class="fl">3977.0</span> * log(resistance/<span class="fl">10.0</span>)); <span class="co">// convert to temperature with Steinhart-Hart</span></span>
-<span id="cb16-5"><a href="voltage-and-communication.html#cb16-5"></a>        ______________________; <span class="co">// print the temperature to the serial port.</span></span>
-<span id="cb16-6"><a href="voltage-and-communication.html#cb16-6"></a>        delay(<span class="dv">1000</span>);            <span class="co">// wait for 1 second</span></span>
-<span id="cb16-7"><a href="voltage-and-communication.html#cb16-7"></a>    }</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="voltage-and-communication.html#cb15-1"></a>    <span class="dt">void</span> loop() {</span>
+<span id="cb15-2"><a href="voltage-and-communication.html#cb15-2"></a>        value = analogRead(<span class="dv">0</span>); <span class="co">// read sensor</span></span>
+<span id="cb15-3"><a href="voltage-and-communication.html#cb15-3"></a>        <span class="dt">float</span> resistance = <span class="fl">8192.0</span> / value - <span class="fl">1.0</span>;</span>
+<span id="cb15-4"><a href="voltage-and-communication.html#cb15-4"></a>        <span class="dt">float</span> temp  = <span class="fl">1.0</span> / (<span class="fl">1.0</span>/<span class="fl">298.15</span> + <span class="fl">1.0</span>/<span class="fl">3977.0</span> * log(resistance/<span class="fl">10.0</span>)); <span class="co">// convert to temperature with Steinhart-Hart</span></span>
+<span id="cb15-5"><a href="voltage-and-communication.html#cb15-5"></a>        ______________________; <span class="co">// print the temperature to the serial port.</span></span>
+<span id="cb15-6"><a href="voltage-and-communication.html#cb15-6"></a>        delay(<span class="dv">1000</span>);            <span class="co">// wait for 1 second</span></span>
+<span id="cb15-7"><a href="voltage-and-communication.html#cb15-7"></a>    }</span></code></pre></div>
 <pre><code>&gt; *Notice that you can use Arduino as a calculator!*</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Upload your code and see if it works.</li>
@@ -366,8 +368,8 @@ V = iR
 <li>Change <code>Serial.println(temp)</code> to <code>Serial.print(temp)</code>. These two functions are very similar, with one difference: <code>println</code> creates a new line when it’s finished (like pressing enter on the keyboard) whereas <code>print</code> does not.</li>
 <li>Add a line just below <code>Serial.print(temp)</code> to print the units next to the temperature:</li>
 </ol>
-<div class="sourceCode" id="cb18"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb18-1"><a href="voltage-and-communication.html#cb18-1"></a>    Serial.print(temp);</span>
-<span id="cb18-2"><a href="voltage-and-communication.html#cb18-2"></a>    Serial.println(<span class="st">&quot; K&quot;</span>);</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb17-1"><a href="voltage-and-communication.html#cb17-1"></a>    Serial.print(temp);</span>
+<span id="cb17-2"><a href="voltage-and-communication.html#cb17-2"></a>    Serial.println(<span class="st">&quot; K&quot;</span>);</span></code></pre></div>
 </div>
 <div id="make-your-own-changes-1" class="section level3">
 <h3><span class="header-section-number">3.2.4</span> Make Your Own Changes</h3>

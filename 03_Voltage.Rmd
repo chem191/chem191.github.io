@@ -76,7 +76,7 @@ In this exercise, you'll measure ambient temperatures using a temperature sensor
 
 5. Use a jumper wire to connect side 2 of the sensor to an analog input on the Teensy.  In the example below, pin A0 is used.
 
-![<small>*Your final setup should look something like this picture.  Red = 5V, black = GND, and blue = signal.  *</small>](images/breadboard_thermistor_teensy.png)
+![<small>*Your final setup should look something like this picture.  Red = 5V, black = GND, and blue = signal.  *</small>](images/teensy_thermistor.png)
 
 ## Program the Teensy
 
@@ -126,7 +126,7 @@ Where $T$ is temperature, $T_0$ is room temperature (in K), $B$ is an empiracal 
     }
 ```
 
-    > *The trailing zeroes (after the decimal points) ARE important in this case!*
+  > *The trailing zeroes (after the decimal points) ARE important in this case!*
 
 2. Now, you can use the value for $R$ calculated above to get to temperature, $T$:
 
