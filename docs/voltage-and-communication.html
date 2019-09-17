@@ -180,12 +180,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html"><i class="fa fa-check"></i><b>4</b> Functions: Building Blocks for Programs</a><ul>
 <li class="chapter" data-level="" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#introduction-3"><i class="fa fa-check"></i>Introduction</a><ul>
-<li class="chapter" data-level="4.0.1" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#using-functions"><i class="fa fa-check"></i><b>4.0.1</b> Using Functions</a></li>
+<li class="chapter" data-level="" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#using-functions"><i class="fa fa-check"></i>Using Functions</a></li>
 </ul></li>
-<li class="chapter" data-level="4.1" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#writing-a-blink-function"><i class="fa fa-check"></i><b>4.1</b> Writing a <code>blink()</code> Function</a></li>
-<li class="chapter" data-level="4.2" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#using-functions-1"><i class="fa fa-check"></i><b>4.2</b> Using Functions</a></li>
-<li class="chapter" data-level="4.3" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#write-functions-with-multiple-arguments"><i class="fa fa-check"></i><b>4.3</b> Write Functions With Multiple Arguments</a></li>
-<li class="chapter" data-level="4.4" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#turn-in-2"><i class="fa fa-check"></i><b>4.4</b> Turn In</a></li>
+<li class="chapter" data-level="4.1" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#set-up-the-teensy"><i class="fa fa-check"></i><b>4.1</b> Set up the Teensy</a></li>
+<li class="chapter" data-level="4.2" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#writing-a-blink-function"><i class="fa fa-check"></i><b>4.2</b> Writing a <code>blink()</code> Function</a></li>
+<li class="chapter" data-level="4.3" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#using-functions-1"><i class="fa fa-check"></i><b>4.3</b> Using Functions</a></li>
+<li class="chapter" data-level="4.4" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#write-functions-with-multiple-arguments"><i class="fa fa-check"></i><b>4.4</b> Write Functions With Multiple Arguments</a></li>
+<li class="chapter" data-level="4.5" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#turn-in-2"><i class="fa fa-check"></i><b>4.5</b> Turn In</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="soldering-and-pcb-assembly.html"><a href="soldering-and-pcb-assembly.html"><i class="fa fa-check"></i><b>5</b> Soldering and PCB Assembly</a><ul>
 <li class="chapter" data-level="5.1" data-path="soldering-and-pcb-assembly.html"><a href="soldering-and-pcb-assembly.html#introduction-4"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
@@ -340,7 +341,7 @@ V = iR
 <li>The first step toward printing a temperature is to convert from bits (<code>sensorValue</code>) to resistance, <span class="math inline">\(R\)</span>. Use the following code to do this:</li>
 </ol>
 <div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="voltage-and-communication.html#cb14-1"></a>    <span class="dt">void</span> loop() {</span>
-<span id="cb14-2"><a href="voltage-and-communication.html#cb14-2"></a>        <span class="dt">int</span> value = analogRead(<span class="dv">0</span>); <span class="co">// read sensor</span></span>
+<span id="cb14-2"><a href="voltage-and-communication.html#cb14-2"></a>        <span class="dt">int</span> value = analogRead(<span class="dv">14</span>); <span class="co">// read sensor</span></span>
 <span id="cb14-3"><a href="voltage-and-communication.html#cb14-3"></a>        <span class="dt">float</span> resistance = <span class="fl">8192.0</span> / value - <span class="fl">1.0</span>;</span>
 <span id="cb14-4"><a href="voltage-and-communication.html#cb14-4"></a>    }</span></code></pre></div>
 <blockquote>
@@ -350,7 +351,7 @@ V = iR
 <li>Now, you can use the value for <span class="math inline">\(R\)</span> calculated above to get to temperature, <span class="math inline">\(T\)</span>:</li>
 </ol>
 <div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="voltage-and-communication.html#cb15-1"></a>    <span class="dt">void</span> loop() {</span>
-<span id="cb15-2"><a href="voltage-and-communication.html#cb15-2"></a>        value = analogRead(<span class="dv">0</span>); <span class="co">// read sensor</span></span>
+<span id="cb15-2"><a href="voltage-and-communication.html#cb15-2"></a>        <span class="dt">int</span> value = analogRead(<span class="dv">14</span>); <span class="co">// read sensor</span></span>
 <span id="cb15-3"><a href="voltage-and-communication.html#cb15-3"></a>        <span class="dt">float</span> resistance = <span class="fl">8192.0</span> / value - <span class="fl">1.0</span>;</span>
 <span id="cb15-4"><a href="voltage-and-communication.html#cb15-4"></a>        <span class="dt">float</span> temp  = <span class="fl">1.0</span> / (<span class="fl">1.0</span>/<span class="fl">298.15</span> + <span class="fl">1.0</span>/<span class="fl">3977.0</span> * log(resistance/<span class="fl">10.0</span>)); <span class="co">// convert to temperature with Steinhart-Hart</span></span>
 <span id="cb15-5"><a href="voltage-and-communication.html#cb15-5"></a>        ______________________; <span class="co">// print the temperature to the serial port.</span></span>

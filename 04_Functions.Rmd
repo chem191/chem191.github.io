@@ -26,7 +26,7 @@ This function is equivalent to the mathmatical expression above.  First, we defi
 
 > *What would Arduino output if you wrote `f(4)`?
 
-### Using Functions
+### Using Functions {-}
 
 Although most of the work done in this class will rely on pre-written functions, You'll explore the methods for writing your own function in this exercise to help you understand how they work.  As mentioned above, you can think of function as modules or building blocks that can be combined to create desired outcome.  For example, if you wished to create a program that flashed a light everytime the temperature was read and then displayed the result to the screen, you might wish to combine blocks for reading the temperature, flashing a light, and printing data to the computer screen:
 
@@ -34,12 +34,16 @@ Although most of the work done in this class will rely on pre-written functions,
 
 Creating the **block diagrams** can be very helpful in visualizing what a program will do, and just the process of creating one can help you think through what the program needs to achieve line-by-line.  The program above has one problem: it assumes there is a function called `blink()` that will flash the LED.  This is not true, but you'll make one in this exercise.  A list of built in functions can be found on the [Arduino website](https://www.arduino.cc/reference/en/); other functions specific to this class can be found in [Appendix C][Appendix C: Functions].
 
+## Set up the Teensy
+
+1. You do not need to connect anything to the Teensy.  You will use the built-in orange LED for this exercise.  Make sure nothing is connected to the breadboard other than the Teensy.
+
 ## Writing a `blink()` Function
 
 1. On your worksheet, create a diagram like the one above for a function that would blink and LED on and off.  Your function should:
-  - Be called `blink()`.
-  - Turn the LED on for a set amount of time.
-  - Turn the LED off for a set amount of time.
+    - Be called `blink()`.
+    - Turn the LED on for a set amount of time.
+    - Turn the LED off for a set amount of time.
 
 2. Define your function in Arduino.  Open a blank sketch by clicking `File > Examples > Bare Minimum`.  Add your variable definitions to the top and set the appropriate pins as outputs in your `setup()` function using `pinMode`.  Refer to your previous exercises if you can't remember how to do those things.
 
@@ -101,10 +105,10 @@ Creating the **block diagrams** can be very helpful in visualizing what a progra
 
 ## Write Functions With Multiple Arguments
 
-1. Create a second function called `blink2();`.  It should do the same thing as blink but allow for a variable blinking time.
+1. Create a second function called `blink2();`.  It should do the same thing as blink but allow the user to change the blinking time interval.
 
 ```{Rcpp, eval = FALSE}
-  void blink(int ledPin, int interval) {
+  void blink2(int ledPin, int interval) {
     // turn LED on
     // wait x milliseconds
     // turn LED off
@@ -112,7 +116,7 @@ Creating the **block diagrams** can be very helpful in visualizing what a progra
   }
 ```
 
-2. Add this to your code and use it with `blink()`.
+2. Use this function in your code in combination with `blink()`.
 
 ## Turn In
 

@@ -121,7 +121,7 @@ Where $T$ is temperature, $T_0$ is room temperature (in K), $B$ is an empiracal 
 
 ```{Rcpp, eval = FALSE}
     void loop() {
-        int value = analogRead(0); // read sensor
+        int value = analogRead(14); // read sensor
         float resistance = 8192.0 / value - 1.0;
     }
 ```
@@ -132,7 +132,7 @@ Where $T$ is temperature, $T_0$ is room temperature (in K), $B$ is an empiracal 
 
 ```{Rcpp, eval = FALSE}
     void loop() {
-        value = analogRead(0); // read sensor
+        int value = analogRead(14); // read sensor
         float resistance = 8192.0 / value - 1.0;
         float temp  = 1.0 / (1.0/298.15 + 1.0/3977.0 * log(resistance/10.0)); // convert to temperature with Steinhart-Hart
         ______________________; // print the temperature to the serial port.

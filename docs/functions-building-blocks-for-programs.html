@@ -180,12 +180,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html"><i class="fa fa-check"></i><b>4</b> Functions: Building Blocks for Programs</a><ul>
 <li class="chapter" data-level="" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#introduction-3"><i class="fa fa-check"></i>Introduction</a><ul>
-<li class="chapter" data-level="4.0.1" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#using-functions"><i class="fa fa-check"></i><b>4.0.1</b> Using Functions</a></li>
+<li class="chapter" data-level="" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#using-functions"><i class="fa fa-check"></i>Using Functions</a></li>
 </ul></li>
-<li class="chapter" data-level="4.1" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#writing-a-blink-function"><i class="fa fa-check"></i><b>4.1</b> Writing a <code>blink()</code> Function</a></li>
-<li class="chapter" data-level="4.2" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#using-functions-1"><i class="fa fa-check"></i><b>4.2</b> Using Functions</a></li>
-<li class="chapter" data-level="4.3" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#write-functions-with-multiple-arguments"><i class="fa fa-check"></i><b>4.3</b> Write Functions With Multiple Arguments</a></li>
-<li class="chapter" data-level="4.4" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#turn-in-2"><i class="fa fa-check"></i><b>4.4</b> Turn In</a></li>
+<li class="chapter" data-level="4.1" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#set-up-the-teensy"><i class="fa fa-check"></i><b>4.1</b> Set up the Teensy</a></li>
+<li class="chapter" data-level="4.2" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#writing-a-blink-function"><i class="fa fa-check"></i><b>4.2</b> Writing a <code>blink()</code> Function</a></li>
+<li class="chapter" data-level="4.3" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#using-functions-1"><i class="fa fa-check"></i><b>4.3</b> Using Functions</a></li>
+<li class="chapter" data-level="4.4" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#write-functions-with-multiple-arguments"><i class="fa fa-check"></i><b>4.4</b> Write Functions With Multiple Arguments</a></li>
+<li class="chapter" data-level="4.5" data-path="functions-building-blocks-for-programs.html"><a href="functions-building-blocks-for-programs.html#turn-in-2"><i class="fa fa-check"></i><b>4.5</b> Turn In</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="soldering-and-pcb-assembly.html"><a href="soldering-and-pcb-assembly.html"><i class="fa fa-check"></i><b>5</b> Soldering and PCB Assembly</a><ul>
 <li class="chapter" data-level="5.1" data-path="soldering-and-pcb-assembly.html"><a href="soldering-and-pcb-assembly.html#introduction-4"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
@@ -260,24 +261,28 @@ f(x) = 3x \\
 <blockquote>
 <p>*What would Arduino output if you wrote <code>f(4)</code>?</p>
 </blockquote>
-<div id="using-functions" class="section level3">
-<h3><span class="header-section-number">4.0.1</span> Using Functions</h3>
+<div id="using-functions" class="section level3 unnumbered">
+<h3>Using Functions</h3>
 <p>Although most of the work done in this class will rely on pre-written functions, You’ll explore the methods for writing your own function in this exercise to help you understand how they work. As mentioned above, you can think of function as modules or building blocks that can be combined to create desired outcome. For example, if you wished to create a program that flashed a light everytime the temperature was read and then displayed the result to the screen, you might wish to combine blocks for reading the temperature, flashing a light, and printing data to the computer screen:</p>
 <p><img src="images/blockDiagram_basic.png" /></p>
 <p>Creating the <strong>block diagrams</strong> can be very helpful in visualizing what a program will do, and just the process of creating one can help you think through what the program needs to achieve line-by-line. The program above has one problem: it assumes there is a function called <code>blink()</code> that will flash the LED. This is not true, but you’ll make one in this exercise. A list of built in functions can be found on the <a href="https://www.arduino.cc/reference/en/">Arduino website</a>; other functions specific to this class can be found in [Appendix C][Appendix C: Functions].</p>
 </div>
 </div>
-<div id="writing-a-blink-function" class="section level2">
-<h2><span class="header-section-number">4.1</span> Writing a <code>blink()</code> Function</h2>
+<div id="set-up-the-teensy" class="section level2">
+<h2><span class="header-section-number">4.1</span> Set up the Teensy</h2>
 <ol style="list-style-type: decimal">
-<li>On your worksheet, create a diagram like the one above for a function that would blink and LED on and off. Your function should:</li>
+<li>You do not need to connect anything to the Teensy. You will use the built-in orange LED for this exercise. Make sure nothing is connected to the breadboard other than the Teensy.</li>
 </ol>
+</div>
+<div id="writing-a-blink-function" class="section level2">
+<h2><span class="header-section-number">4.2</span> Writing a <code>blink()</code> Function</h2>
+<ol style="list-style-type: decimal">
+<li>On your worksheet, create a diagram like the one above for a function that would blink and LED on and off. Your function should:
 <ul>
 <li>Be called <code>blink()</code>.</li>
 <li>Turn the LED on for a set amount of time.</li>
 <li>Turn the LED off for a set amount of time.</li>
-</ul>
-<ol start="2" style="list-style-type: decimal">
+</ul></li>
 <li>Define your function in Arduino. Open a blank sketch by clicking <code>File &gt; Examples &gt; Bare Minimum</code>. Add your variable definitions to the top and set the appropriate pins as outputs in your <code>setup()</code> function using <code>pinMode</code>. Refer to your previous exercises if you can’t remember how to do those things.</li>
 </ol>
 <div class="sourceCode" id="cb19"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb19-1"><a href="functions-building-blocks-for-programs.html#cb19-1"></a>  <span class="co">// define variables here</span></span>
@@ -310,7 +315,7 @@ f(x) = 3x \\
 <span id="cb20-16"><a href="functions-building-blocks-for-programs.html#cb20-16"></a>  }</span></code></pre></div>
 </div>
 <div id="using-functions-1" class="section level2">
-<h2><span class="header-section-number">4.2</span> Using Functions</h2>
+<h2><span class="header-section-number">4.3</span> Using Functions</h2>
 <ol style="list-style-type: decimal">
 <li>Add the function into your code and test it out.</li>
 </ol>
@@ -332,22 +337,22 @@ f(x) = 3x \\
 <span id="cb21-16"><a href="functions-building-blocks-for-programs.html#cb21-16"></a>  }</span></code></pre></div>
 </div>
 <div id="write-functions-with-multiple-arguments" class="section level2">
-<h2><span class="header-section-number">4.3</span> Write Functions With Multiple Arguments</h2>
+<h2><span class="header-section-number">4.4</span> Write Functions With Multiple Arguments</h2>
 <ol style="list-style-type: decimal">
-<li>Create a second function called <code>blink2();</code>. It should do the same thing as blink but allow for a variable blinking time.</li>
+<li>Create a second function called <code>blink2();</code>. It should do the same thing as blink but allow the user to change the blinking time interval.</li>
 </ol>
-<div class="sourceCode" id="cb22"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb22-1"><a href="functions-building-blocks-for-programs.html#cb22-1"></a>  <span class="dt">void</span> blink(<span class="dt">int</span> ledPin, <span class="dt">int</span> interval) {</span>
+<div class="sourceCode" id="cb22"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb22-1"><a href="functions-building-blocks-for-programs.html#cb22-1"></a>  <span class="dt">void</span> blink2(<span class="dt">int</span> ledPin, <span class="dt">int</span> interval) {</span>
 <span id="cb22-2"><a href="functions-building-blocks-for-programs.html#cb22-2"></a>    <span class="co">// turn LED on</span></span>
 <span id="cb22-3"><a href="functions-building-blocks-for-programs.html#cb22-3"></a>    <span class="co">// wait x milliseconds</span></span>
 <span id="cb22-4"><a href="functions-building-blocks-for-programs.html#cb22-4"></a>    <span class="co">// turn LED off</span></span>
 <span id="cb22-5"><a href="functions-building-blocks-for-programs.html#cb22-5"></a>    <span class="co">// wait x milliseconds</span></span>
 <span id="cb22-6"><a href="functions-building-blocks-for-programs.html#cb22-6"></a>  }</span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
-<li>Add this to your code and use it with <code>blink()</code>.</li>
+<li>Use this function in your code in combination with <code>blink()</code>.</li>
 </ol>
 </div>
 <div id="turn-in-2" class="section level2">
-<h2><span class="header-section-number">4.4</span> Turn In</h2>
+<h2><span class="header-section-number">4.5</span> Turn In</h2>
 <ol style="list-style-type: decimal">
 <li>Turn in a hardcopy of your completed worksheet.</li>
 <li>Turn in an electronic copy of your code containing the functions <code>blink();</code> and <code>blink2()</code> that shows use of both.</li>
