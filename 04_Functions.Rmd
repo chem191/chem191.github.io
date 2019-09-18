@@ -105,14 +105,14 @@ Creating the **block diagrams** can be very helpful in visualizing what a progra
 
 ## Write Functions With Multiple Arguments
 
-1. Create a second function called `blink2();`.  It should do the same thing as blink but allow the user to change the blinking time interval.
+1. Create a second function called `blink2();`.  It should do the same thing as blink but allow the user to change the blinking time speed.
 
 ```{Rcpp, eval = FALSE}
-  void blink2(int ledPin, int interval) {
-    // turn LED on
-    // wait x milliseconds
+  void blink2(int pin, int speed) {
+    // turn LED connected to *pin* on
+    // wait *speed* milliseconds
     // turn LED off
-    // wait x milliseconds
+    // turn LED connected to *pin* off
   }
 ```
 

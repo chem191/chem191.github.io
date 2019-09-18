@@ -339,13 +339,13 @@ f(x) = 3x \\
 <div id="write-functions-with-multiple-arguments" class="section level2">
 <h2><span class="header-section-number">4.4</span> Write Functions With Multiple Arguments</h2>
 <ol style="list-style-type: decimal">
-<li>Create a second function called <code>blink2();</code>. It should do the same thing as blink but allow the user to change the blinking time interval.</li>
+<li>Create a second function called <code>blink2();</code>. It should do the same thing as blink but allow the user to change the blinking time speed.</li>
 </ol>
-<div class="sourceCode" id="cb22"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb22-1"><a href="functions-building-blocks-for-programs.html#cb22-1"></a>  <span class="dt">void</span> blink2(<span class="dt">int</span> ledPin, <span class="dt">int</span> interval) {</span>
-<span id="cb22-2"><a href="functions-building-blocks-for-programs.html#cb22-2"></a>    <span class="co">// turn LED on</span></span>
-<span id="cb22-3"><a href="functions-building-blocks-for-programs.html#cb22-3"></a>    <span class="co">// wait x milliseconds</span></span>
+<div class="sourceCode" id="cb22"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb22-1"><a href="functions-building-blocks-for-programs.html#cb22-1"></a>  <span class="dt">void</span> blink2(<span class="dt">int</span> pin, <span class="dt">int</span> speed) {</span>
+<span id="cb22-2"><a href="functions-building-blocks-for-programs.html#cb22-2"></a>    <span class="co">// turn LED connected to *pin* on</span></span>
+<span id="cb22-3"><a href="functions-building-blocks-for-programs.html#cb22-3"></a>    <span class="co">// wait *speed* milliseconds</span></span>
 <span id="cb22-4"><a href="functions-building-blocks-for-programs.html#cb22-4"></a>    <span class="co">// turn LED off</span></span>
-<span id="cb22-5"><a href="functions-building-blocks-for-programs.html#cb22-5"></a>    <span class="co">// wait x milliseconds</span></span>
+<span id="cb22-5"><a href="functions-building-blocks-for-programs.html#cb22-5"></a>    <span class="co">// turn LED connected to *pin* off</span></span>
 <span id="cb22-6"><a href="functions-building-blocks-for-programs.html#cb22-6"></a>  }</span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>Use this function in your code in combination with <code>blink()</code>.</li>
